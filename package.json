@@ -7,10 +7,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare && yarn gsap_fix && yarn gsap_fix_dist",
-    "fk_fix": "if which gsed > /tmp/test.txt; then gsed -i s,://,:xs, node_modules/@formkit/pro/index.mjs && gsed -i s,://,:xs, node_modules/@formkit/pro/index.cjs; else sed -i s,://,:xs, node_modules/@formkit/pro/index.mjs && sed -i s,://,:xs, node_modules/@formkit/pro/index.cjs; fi",
-    "gsap_fix": "if which gsed > /tmp/test.txt; then gsed -i \"s|103,114,101,101,110,115,111,99,107,46,99,111,109|108,111,99,97,108,104,111,115,116|\" node_modules/gsap-trial/**.js; else sed -i \"s|103,114,101,101,110,115,111,99,107,46,99,111,109|108,111,99,97,108,104,111,115,116|\" node_modules/gsap-trial/**.js; fi",
-    "gsap_fix_dist": "if which gsed > /tmp/test.txt; then gsed -i \"s|103,114,101,101,110,115,111,99,107,46,99,111,109|108,111,99,97,108,104,111,115,116|\" node_modules/gsap-trial/dist/**.js; else sed -i \"s|103,114,101,101,110,115,111,99,107,46,99,111,109|108,111,99,97,108,104,111,115,116|\" node_modules/gsap-trial/dist/**.js; fi"
+    "postinstall": "nuxt prepare && bash postinstall/gsap.sh"
   },
   "dependencies": {
     "nuxt": "^3.10.3",
