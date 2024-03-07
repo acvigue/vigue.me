@@ -1,5 +1,5 @@
 <template>
-  <div class="top-0 left-0 z-10 pointer-events-none" id="smooth-wrapper">
+  <div class="top-0 left-0 z-10" id="smooth-wrapper">
     <div class="w-screen min-h-screen" id="smooth-content">
       <Section id="jumbotron">
         <Jumbotron />

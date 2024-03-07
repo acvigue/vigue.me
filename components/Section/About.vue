@@ -5,7 +5,7 @@
   >
     <div class="flex-1 z-[11]">
       <h1
-        class="text-4xl font-semibold font-mono drop-shadow-lg p-11 pt-[7.5rem] w-full pointer-events-auto"
+        class="md:text-4xl text-3xl font-semibold font-mono drop-shadow-lg p-11 pt-[7.5rem] w-full"
         id="about-section-title"
         @pointerover="scrambleHeader"
       >
@@ -13,19 +13,20 @@
       </h1>
     </div>
     <div
-      class="absolute w-full h-screen flex items-center justify-start overflow-clip text-5xl font-bold leading-normal z-10 pointer-events-auto"
-      style="min-width: calc(200vw + 100vh)"
+      class="absolute w-fit h-screen flex items-center justify-start overflow-clip md:text-5xl text-2xl font-bold leading-normal z-10"
+      style="min-width: none; max-width: none"
       id="about-horiz-scroll"
     >
       <div
         class="w-[100vw] bg-pink-600 h-full flex items-center justify-center"
         id="about-first-slide"
       >
+        <span id="about-first-slide-icon-hat-left" class="opacity-0">🧢</span>
         <span id="about-first-slide-words">I wear a lotttttt of hats.</span>
-        <span id="about-first-slide-icon-hat" class="opacity-0">🎩</span>
+        <span id="about-first-slide-icon-hat-right" class="opacity-0">🎩</span>
       </div>
       <div
-        class="w-[100vh] h-full grid grid-cols-2 gap-12 p-12"
+        class="md:w-[100vh] w-[200vw] h-full grid grid-cols-2 md:gap-12 md:p-12 gap-[5vw] p-[5vw]"
         id="about-second-slide"
       >
         <div class="bg-red-500 w-full">student</div>
@@ -167,12 +168,20 @@ onNuxtReady(() => {
       ">"
     );
     firstSlideTL.to(
-      "#about-first-slide-icon-hat",
+      "#about-first-slide-icon-hat-left",
+      {
+        css: { opacity: 1, translateY: "-3rem", rotate: -45, scale: 2 },
+        duration: 0.01,
+      },
+      ">"
+    );
+    firstSlideTL.to(
+      "#about-first-slide-icon-hat-right",
       {
         css: { opacity: 1, translateY: "-3rem", rotate: 45, scale: 2 },
         duration: 0.01,
       },
-      ">"
+      "<"
     );
 
     const tl = gsap.timeline({
@@ -195,6 +204,11 @@ onNuxtReady(() => {
       },
       "start"
     );
+    tl.to(
+      "#about-section-title",
+      { css: { opacity: 0 }, duration: 0.1 },
+      "start"
+    );
     /*
     tl.to(
       "#about-text-container",
@@ -204,8 +218,6 @@ onNuxtReady(() => {
       "start"
     );
       */
-
-    GSDevTools.create({ animation: tl });
   });
 });
 
