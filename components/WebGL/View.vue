@@ -29,6 +29,7 @@ const { onLoop } = useRenderLoop();
 const starsYRotation = shallowRef(0);
 
 onLoop(({ delta }) => {
+  console.log("loop");
   starsYRotation.value += 0.01 * delta;
 });
 </script>
