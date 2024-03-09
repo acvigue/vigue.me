@@ -1546,10 +1546,10 @@
     "@alvarosabu/utils" "^3.1.1"
     "@vueuse/core" "^10.7.0"
 
-"@tresjs/core@npm:@aidenvigue/tresjs-core@^3.7.0":
-  version "3.7.0"
-  resolved "https://registry.yarnpkg.com/@aidenvigue/tresjs-core/-/tresjs-core-3.7.0.tgz#80bee4df8e3927b66c0b5e3c7264149ff19f396e"
-  integrity sha512-XVP9LfHFTvKAGGpyhUgg/EjGJDu+7Ts9vBEgCvrS7e7BKegQgnIRWvi705a5eIpToIS8Zm5aqlQKaHWK7NKwgQ==
+"@tresjs/core@npm:@aidenvigue/tresjs-core@^3.7.1":
+  version "3.7.1"
+  resolved "https://registry.yarnpkg.com/@aidenvigue/tresjs-core/-/tresjs-core-3.7.1.tgz#a18d9c29815f06b996b56642f2fc39b9415e1b19"
+  integrity sha512-BhBW5nhLShoIGSwthjGirxo67iN+TupXwsWT/1y1cbXl/qTKikNFB8S1q+FseXtpGzbMj3zn91fCAIYHhEZAMA==
   dependencies:
     "@alvarosabu/utils" "^3.1.1"
     "@vueuse/core" "^10.7.0"
@@ -1629,15 +1629,15 @@
     typescript "^5.3.3"
     vite-plugin-glsl "^1.2.1"
 
-"@tresjs/nuxt@^2.1.1":
+"@tresjs/nuxt@npm:@aidenvigue/tresjs-nuxt@^2.1.1":
   version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@tresjs/nuxt/-/nuxt-2.1.1.tgz#cdd5e464fb655312df96094ae6181b0cd1241ce2"
-  integrity sha512-df4xLJtgkGgDitJNBqvGYs3/VcLSIugVvNpxZGi9Q66mbEvPGxTkFdLKF97Rp7cdbZJLwq8kNS5RyYlfWNUOlg==
+  resolved "https://registry.yarnpkg.com/@aidenvigue/tresjs-nuxt/-/tresjs-nuxt-2.1.1.tgz#24137b2d7051e1e3fdc1c88c9477e2488e4885b1"
+  integrity sha512-nHOqjY5pVkkXktLaSvgJJf0aKhRzPkgNjKEFf4tOU77yOc4wEy95Itqk8nRtG6SJdd4Th9oCvAbrFpz+YVcBkw==
   dependencies:
     "@nuxt/devtools-kit" "^1.0.8"
     "@nuxt/kit" "^3.10.0"
     "@nuxt/ui" "^2.13.0"
-    "@tresjs/core" "3.7.0"
+    "@tresjs/core" "npm:@aidenvigue/tresjs-core@^3.7.1"
     "@tresjs/nuxt" "2.1.0"
     "@types/three" "^0.160.0"
     "@unocss/nuxt" "^0.58.4"

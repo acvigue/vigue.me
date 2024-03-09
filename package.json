@@ -12,8 +12,8 @@
   "dependencies": {
     "@heroicons/vue": "^2.1.1",
     "@tresjs/cientos": "^3.3.0-next.0",
-    "@tresjs/core": "npm:@aidenvigue/tresjs-core@^3.7.0",
-    "@tresjs/nuxt": "^2.1.1",
+    "@tresjs/core": "npm:@aidenvigue/tresjs-core@^3.7.1",
+    "@tresjs/nuxt": "npm:@aidenvigue/tresjs-nuxt@^2.1.1",
     "gsap-trial": "^3.12.5",
     "mitt": "^3.0.1",
     "nuxt": "^3.10.3",
