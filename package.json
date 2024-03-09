@@ -10,17 +10,17 @@
     "postinstall": "nuxt prepare && bash postinstall/gsap.sh"
   },
   "dependencies": {
-    "nuxt": "^3.10.3",
-    "vue": "^3.4.19",
-    "vue-router": "^4.3.0",
     "@heroicons/vue": "^2.1.1",
     "@tresjs/cientos": "^3.3.0-next.0",
-    "@tresjs/core": "^3.7.0",
+    "@tresjs/core": "npm:@aidenvigue/tresjs-core@^3.7.0",
     "@tresjs/nuxt": "^2.1.1",
     "gsap-trial": "^3.12.5",
     "mitt": "^3.0.1",
+    "nuxt": "^3.10.3",
     "three": "^0.162.0",
-    "tweakpane": "^4.0.3"
+    "tweakpane": "^4.0.3",
+    "vue": "^3.4.19",
+    "vue-router": "^4.3.0"
   },
   "devDependencies": {
     "@nuxt/eslint-config": "^0.2.0",

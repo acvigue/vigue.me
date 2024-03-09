@@ -3,6 +3,7 @@
     clear-color="#020617"
     :window-size="true"
     class="fixed top-0 left-0 w-screen h-screen"
+    :use-window-pointer="true"
   >
     <TresPerspectiveCamera :position="[0, 0, 5]" :look-at="[0, 0, 0]" />
     <!--<OrbitControls />-->

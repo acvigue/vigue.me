@@ -22,7 +22,7 @@
         id="about-first-slide"
       >
         <span id="about-first-slide-icon-hat-left" class="opacity-0">🧢</span>
-        <span id="about-first-slide-words">I wear a lotttttt of hats.</span>
+        <span id="about-first-slide-words">I wear a lotttttt of hats...</span>
         <span id="about-first-slide-icon-hat-right" class="opacity-0">🎩</span>
       </div>
       <div
@@ -30,15 +30,17 @@
         id="about-second-slide"
       >
         <div class="bg-red-500 w-full">student</div>
-        <div class="bg-red-500 w-full">intern</div>
-        <div class="bg-red-500 w-full">runner</div>
-        <div class="bg-red-500 w-full">napper</div>
+        <div class="bg-red-500 w-full">engineer</div>
+        <div class="bg-red-500 w-full">designer</div>
+        <div class="bg-red-500 w-full"></div>
       </div>
       <div
         class="w-[100vw] bg-pink-600 h-full flex items-center justify-center"
         id="about-third-slide"
       >
-        <span id="about-third-slide-words">..and I do a lot of things.</span>
+        <span id="about-third-slide-words" class="h-48"
+          >..and I make a lot of things</span
+        >
         <span id="about-third-slide-icon-hat" class="opacity-0">🎩</span>
       </div>
     </div>
@@ -91,7 +93,6 @@ onNuxtReady(() => {
         trigger: "#about-first-slide",
         start: "top 60%",
         end: "top top",
-        markers: { startColor: "blue", endColor: "blue" },
         scrub: true,
       },
     });
@@ -190,7 +191,6 @@ onNuxtReady(() => {
         start: "top top",
         end: "top top-=200%",
         pin: true,
-        markers: { startColor: "blue", endColor: "blue" },
         scrub: true,
       },
     });
@@ -209,15 +209,106 @@ onNuxtReady(() => {
       { css: { opacity: 0 }, duration: 0.1 },
       "start"
     );
-    /*
+
+    //Third slide text
+    const thirdSlideWords = new SplitText("#about-third-slide-words", {
+      type: "words,lines",
+      wordsClass: "w-0 overflow-hidden word++",
+    });
+
+    tl.addLabel("thirdSlideSlidingIn", tl.totalDuration() * 0.7);
     tl.to(
-      "#about-text-container",
+      thirdSlideWords.words[0],
       {
-        css: { opacity: 0 },
+        css: { width: "auto" },
+        duration: 0.005,
       },
-      "start"
+      "thirdSlideSlidingIn"
     );
-      */
+    tl.fromTo(
+      thirdSlideWords.words[1],
+      {
+        css: { width: "auto", height: "0" },
+      },
+      {
+        css: { width: "auto", height: "auto" },
+        duration: 0.005,
+      },
+      ">"
+    );
+    tl.fromTo(
+      thirdSlideWords.words[2],
+      {
+        css: { width: "0" },
+      },
+      {
+        css: { width: "auto" },
+        duration: 0.005,
+      },
+      ">"
+    );
+    tl.fromTo(
+      thirdSlideWords.words[3],
+      {
+        css: { width: "0" },
+      },
+      {
+        css: { width: "auto" },
+        duration: 0.005,
+      },
+      ">"
+    );
+    tl.fromTo(
+      thirdSlideWords.words[4],
+      {
+        css: { width: "auto", height: "0" },
+      },
+      {
+        css: { width: "auto", height: "auto" },
+        duration: 0.005,
+      },
+      ">"
+    );
+    tl.fromTo(
+      thirdSlideWords.words[5],
+      {
+        css: { width: "0" },
+      },
+      {
+        css: { width: "auto" },
+        duration: 0.005,
+      },
+      ">"
+    );
+    tl.fromTo(
+      thirdSlideWords.words[6],
+      {
+        css: { width: "auto", height: "0" },
+      },
+      {
+        css: { width: "auto", height: "auto" },
+        duration: 0.005,
+      },
+      ">"
+    );
+    /*
+    thirdSlideTL.to(
+      "#about-third-slide-icon-hat-left",
+      {
+        css: { opacity: 1, translateY: "-3rem", rotate: -45, scale: 2 },
+        duration: 0.01,
+      },
+      ">"
+    );
+    thirdSlideTL.to(
+      "#about-third-slide-icon-hat-right",
+      {
+        css: { opacity: 1, translateY: "-3rem", rotate: 45, scale: 2 },
+        duration: 0.01,
+      },
+      "<"
+    );
+*/
   });
 });
 

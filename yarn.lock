@@ -1538,10 +1538,18 @@
     "@alvarosabu/utils" "^3.1.1"
     "@vueuse/core" "^10.7.0"
 
-"@tresjs/core@3.7.0", "@tresjs/core@^3.7.0":
+"@tresjs/core@3.7.0":
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/@tresjs/core/-/core-3.7.0.tgz#1b4e76f08ce0e08cd63e002aae9bd33ea7b3f354"
   integrity sha512-Hg6VK7RQuGiXyLlbB+7FdPyS4KERxIpnU8EO/UzmN4/Bfr6I9Kuo1F0LF+5BBFyxBPqc7sD1Dcy7Epj8We9ETg==
+  dependencies:
+    "@alvarosabu/utils" "^3.1.1"
+    "@vueuse/core" "^10.7.0"
+
+"@tresjs/core@npm:@aidenvigue/tresjs-core@^3.7.0":
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/@aidenvigue/tresjs-core/-/tresjs-core-3.7.0.tgz#80bee4df8e3927b66c0b5e3c7264149ff19f396e"
+  integrity sha512-XVP9LfHFTvKAGGpyhUgg/EjGJDu+7Ts9vBEgCvrS7e7BKegQgnIRWvi705a5eIpToIS8Zm5aqlQKaHWK7NKwgQ==
   dependencies:
     "@alvarosabu/utils" "^3.1.1"
     "@vueuse/core" "^10.7.0"
