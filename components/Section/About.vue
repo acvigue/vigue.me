@@ -21,27 +21,42 @@
         class="w-[100vw] bg-pink-600 h-full flex items-center justify-center"
         id="about-first-slide"
       >
-        <span id="about-first-slide-icon-hat-left" class="opacity-0">🧢</span>
-        <span id="about-first-slide-words">I wear a lotttttt of hats...</span>
-        <span id="about-first-slide-icon-hat-right" class="opacity-0">🎩</span>
+        <span id="about-first-slide-icon-hat-left" class="opacity-0 rotate-45"
+          >🪚</span
+        >
+        <span id="about-first-slide-words">I do a lot of things...</span>
+        <span id="about-first-slide-icon-hat-right" class="opacity-0 -rotate-45"
+          >🪛</span
+        >
       </div>
       <div
-        class="md:w-[100vh] w-[200vw] h-full grid grid-cols-2 md:gap-12 md:p-12 gap-[5vw] p-[5vw]"
+        class="md:w-[100vw] w-[200vw] h-full flex flex-col items-start justify-evenly px-12 pt-24"
         id="about-second-slide"
       >
-        <div class="bg-red-500 w-full">student</div>
-        <div class="bg-red-500 w-full">engineer</div>
-        <div class="bg-red-500 w-full">designer</div>
-        <div class="bg-red-500 w-full"></div>
-      </div>
-      <div
-        class="w-[100vw] bg-pink-600 h-full flex items-center justify-center"
-        id="about-third-slide"
-      >
-        <span id="about-third-slide-words" class="h-48"
-          >..and I make a lot of things</span
-        >
-        <span id="about-third-slide-icon-hat" class="opacity-0">🎩</span>
+        <div class="item flex flex-col">
+          <span class="text-2xl text-pink-600">🧑🏼‍🎓 student</span>
+          <span class="text-lg"
+            >I'm a freshman at Purdue currently studying computer science and my
+            dream job is embedded engineering</span
+          >
+        </div>
+        <div class="item flex flex-col">
+          <span class="text-2xl text-pink-600">💻 developer</span>
+          <span class="text-lg"
+            >I've worked with a variety of technologies ranging from frameworks
+            like React and Vue, all the way to hosting and configuring
+            production-ready containerized workloads on AWS. I also have
+            extensive experience in languages such as C/C++, Python, and Swift
+          </span>
+        </div>
+        <div class="item flex flex-col">
+          <span class="text-2xl text-pink-600">🧱 maker</span>
+          <span class="text-lg"
+            >I showcase my love for design through my projects. I mainly work in
+            Altium Designer and Fusion 360 and specialize in high-speed circuit
+            design (my favorite IC is the ESP32)</span
+          >
+        </div>
       </div>
     </div>
     <div class="flex-1"></div>
@@ -92,7 +107,7 @@ onNuxtReady(() => {
       scrollTrigger: {
         trigger: "#about-first-slide",
         start: "top 60%",
-        end: "top top",
+        end: "top top-=200",
         scrub: true,
       },
     });
@@ -171,7 +186,7 @@ onNuxtReady(() => {
     firstSlideTL.to(
       "#about-first-slide-icon-hat-left",
       {
-        css: { opacity: 1, translateY: "-3rem", rotate: -45, scale: 2 },
+        css: { opacity: 1, translateY: "-3rem", rotate: 0, scale: 2 },
         duration: 0.01,
       },
       ">"
@@ -179,7 +194,7 @@ onNuxtReady(() => {
     firstSlideTL.to(
       "#about-first-slide-icon-hat-right",
       {
-        css: { opacity: 1, translateY: "-3rem", rotate: 45, scale: 2 },
+        css: { opacity: 1, translateY: "-3rem", rotate: 0, scale: 2 },
         duration: 0.01,
       },
       "<"
@@ -210,87 +225,6 @@ onNuxtReady(() => {
       "start"
     );
 
-    //Third slide text
-    const thirdSlideWords = new SplitText("#about-third-slide-words", {
-      type: "words,lines",
-      wordsClass: "w-0 overflow-hidden word++",
-    });
-
-    tl.addLabel("thirdSlideSlidingIn", tl.totalDuration() * 0.7);
-    tl.to(
-      thirdSlideWords.words[0],
-      {
-        css: { width: "auto" },
-        duration: 0.005,
-      },
-      "thirdSlideSlidingIn"
-    );
-    tl.fromTo(
-      thirdSlideWords.words[1],
-      {
-        css: { width: "auto", height: "0" },
-      },
-      {
-        css: { width: "auto", height: "auto" },
-        duration: 0.005,
-      },
-      ">"
-    );
-    tl.fromTo(
-      thirdSlideWords.words[2],
-      {
-        css: { width: "0" },
-      },
-      {
-        css: { width: "auto" },
-        duration: 0.005,
-      },
-      ">"
-    );
-    tl.fromTo(
-      thirdSlideWords.words[3],
-      {
-        css: { width: "0" },
-      },
-      {
-        css: { width: "auto" },
-        duration: 0.005,
-      },
-      ">"
-    );
-    tl.fromTo(
-      thirdSlideWords.words[4],
-      {
-        css: { width: "auto", height: "0" },
-      },
-      {
-        css: { width: "auto", height: "auto" },
-        duration: 0.005,
-      },
-      ">"
-    );
-    tl.fromTo(
-      thirdSlideWords.words[5],
-      {
-        css: { width: "0" },
-      },
-      {
-        css: { width: "auto" },
-        duration: 0.005,
-      },
-      ">"
-    );
-    tl.fromTo(
-      thirdSlideWords.words[6],
-      {
-        css: { width: "auto", height: "0" },
-      },
-      {
-        css: { width: "auto", height: "auto" },
-        duration: 0.005,
-      },
-      ">"
-    );
     /*
     thirdSlideTL.to(
       "#about-third-slide-icon-hat-left",

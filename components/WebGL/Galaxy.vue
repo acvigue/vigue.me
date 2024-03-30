@@ -249,9 +249,9 @@ onBeforeUnmount(() => {
       @pointer-move="galaxy.handlePointerMove"
       @pointer-leave="galaxy.handlePointerLeave"
     >
-      <TresPlaneGeometry :args="[10, 10, 10, 10]" :rotate-x="Math.PI / 2" />
+      <TresPlaneGeometry :args="[40, 40, 20, 20]" :rotate-x="Math.PI / 2" />
       <TresMeshBasicMaterial
-        :color="0x000000"
+        :color="0xffffff"
         :wireframe="true"
         :opacity="0"
         :transparent="true"
