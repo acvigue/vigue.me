@@ -30,18 +30,18 @@
         >
       </div>
       <div
-        class="md:w-[100vw] w-[200vw] h-full flex flex-col items-start justify-evenly px-12 pt-24"
+        class="w-[100vw] h-full flex flex-col items-start justify-evenly px-12 pt-24"
         id="about-second-slide"
       >
-        <div class="item flex flex-col">
-          <span class="text-2xl text-pink-600">🧑🏼‍🎓 student</span>
+        <div class="item flex flex-col gap-3">
+          <span class="text-3xl text-pink-600">🧑🏼‍🎓 student</span>
           <span class="text-lg"
             >I'm a freshman at Purdue currently studying computer science and my
             dream job is embedded engineering</span
           >
         </div>
-        <div class="item flex flex-col">
-          <span class="text-2xl text-pink-600">💻 developer</span>
+        <div class="item flex flex-col gap-3">
+          <span class="text-3xl text-pink-600">💻 developer</span>
           <span class="text-lg"
             >I've worked with a variety of technologies ranging from frameworks
             like React and Vue, all the way to hosting and configuring
@@ -49,8 +49,8 @@
             extensive experience in languages such as C/C++, Python, and Swift
           </span>
         </div>
-        <div class="item flex flex-col">
-          <span class="text-2xl text-pink-600">🧱 maker</span>
+        <div class="item flex flex-col gap-3">
+          <span class="text-3xl text-pink-600">🧱 maker</span>
           <span class="text-lg"
             >I showcase my love for design through my projects. I mainly work in
             Altium Designer and Fusion 360 and specialize in high-speed circuit
@@ -93,11 +93,6 @@ onNuxtReady(() => {
   gsap.registerPlugin(ScrollTrigger, SplitText, ScrambleTextPlugin, GSDevTools);
 
   ctx = gsap.context(() => {
-    /*const words = new SplitText("#about-long-text-container", {
-      type: "words,lines",
-      wordsClass: "word++",
-    });*/
-
     const firstSlideWords = new SplitText("#about-first-slide-words", {
       type: "words,lines",
       wordsClass: "w-0 overflow-hidden word++",
@@ -247,7 +242,6 @@ onNuxtReady(() => {
 });
 
 onBeforeUnmount(() => {
-  console.log(ctx);
   ctx.revert();
 });
 </script>

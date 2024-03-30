@@ -2,7 +2,7 @@ import mitt from "mitt";
 
 type AppEvents = {
   //Callable events to control from external context
-  scrollToBlock: number | string;
+  scrollToBlock: string;
 };
 
 export default defineNuxtPlugin(() => {

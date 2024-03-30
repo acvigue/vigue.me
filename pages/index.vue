@@ -7,7 +7,7 @@
       <Section id="about">
         <SectionAbout />
       </Section>
-      <Section id="projects">
+      <Section id="projects" class="!min-h-0">
         <SectionProjects />
       </Section>
       <Section id="work">

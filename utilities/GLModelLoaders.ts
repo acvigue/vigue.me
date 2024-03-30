@@ -35,6 +35,6 @@ export const loadNormalizedCable = async (
     instance.position.y -= i * size.y;
     objects.push(instance);
   }
-  console.log(objects);
+
   return objects;
 };

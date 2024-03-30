@@ -7,4 +7,20 @@ export default defineNuxtConfig({
   vite: {
     plugins: [glsl()],
   },
+  runtimeConfig: {
+    ghostContentKey: "",
+    ghostAdminKey: "",
+    ghostWebhookKey: "",
+    ghostUrl: "https://cms.vigue.me",
+    imgproxyHost: "",
+    imgproxyKey: "",
+    imgproxySalt: "",
+    public: {
+      formkitKey: "",
+    },
+  },
+  routeRules: {},
+  experimental: {
+    componentIslands: true,
+  },
 });

@@ -7,7 +7,9 @@ import {
   repeater,
 } from "@formkit/pro";
 
-const proPlugin = createProPlugin(process.env.FK_KEY, {
+const config = useRuntimeConfig();
+
+const proPlugin = createProPlugin(config.formkitKey, {
   toggle,
   dropdown,
   datepicker,
