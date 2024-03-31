@@ -1,11 +1,11 @@
 <template>
+  <Code v-if="!Array.isArray(node) && node.type === 'codeblock'" :node="node" />
   <renderNode
-    v-if="Array.isArray(node)"
+    v-else-if="Array.isArray(node)"
     v-for="(n, i) in node"
     :node="n"
     :key="i"
   />
-
   <renderNode v-else :node="node" />
 </template>
 
@@ -18,7 +18,6 @@ import Paragraph from "./Paragraph.vue";
 import List from "./List.vue";
 import ListItem from "./ListItem.vue";
 import Image from "./Image.vue";
-import Code from "./Code.server.vue";
 import Blockquote from "./Blockquote.vue";
 import Bookmark from "./Bookmark.vue";
 import Gallery from "./Gallery.vue";
@@ -52,8 +51,6 @@ const renderNode = (props: { node: LexicalNode }) => {
       return h(Blockquote, { node: props.node });
     case "bookmark":
       return h(Bookmark, { node: props.node });
-    case "codeblock":
-      return h(Code, { node: props.node });
     default:
       return h(
         "div",

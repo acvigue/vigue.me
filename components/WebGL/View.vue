@@ -22,6 +22,7 @@
 </template>
 
 <script setup lang="ts">
+import { TresCanvas } from "@tresjs/core";
 import { Stars } from "@tresjs/cientos";
 import { useRenderLoop } from "@tresjs/core";
 const { onLoop } = useRenderLoop();

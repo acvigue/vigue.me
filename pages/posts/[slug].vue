@@ -4,7 +4,7 @@
       <div class="w-full h-full bg-gray-300 animate-pulse"></div>
     </template>
     <main
-      class="mb-8 flex md:w-[85vw] w-[90vw] flex-col items-center justify-center py-8 bg-gray-900 rounded-lg"
+      class="mb-8 flex md:w-[85vw] w-[90vw] flex-col items-center justify-center py-8 bg-gray-900 rounded"
     >
       <div
         class="container relative mx-auto lg:max-w-6xl flex flex-col items-center"
@@ -90,7 +90,7 @@
             <NuxtPicture
               format="avif,webp,jpg"
               :src="data?.feature_image!"
-              sizes="lg:800px md:800px sm:300px xs:200px"
+              sizes="lg:550px md:400px sm:300px xs:150px"
               :width="2000"
               :height="1500"
               class="feature-image"
@@ -152,7 +152,7 @@
 }
 
 .feature-image > img {
-  @apply rounded z-30;
+  @apply rounded-lg z-30;
 }
 </style>
 

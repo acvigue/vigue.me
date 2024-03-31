@@ -10,6 +10,7 @@
 
 <script setup lang="ts">
 import VueEasyLightbox from "vue-easy-lightbox";
+import "vue-easy-lightbox/external-css/vue-easy-lightbox.css";
 
 export interface LightboxImage {
   src: string;

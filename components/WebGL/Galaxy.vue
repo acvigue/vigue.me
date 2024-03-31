@@ -1,5 +1,16 @@
 <script lang="ts" setup>
-import * as THREE from "three";
+import {
+  Mesh,
+  InstancedBufferGeometry,
+  PlaneGeometry,
+  InstancedBufferAttribute,
+  ShaderMaterial,
+  Color,
+  DoubleSide,
+  TextureLoader,
+  Vector3,
+  Vector4,
+} from "three";
 import { type ThreeEvent } from "@tresjs/core";
 
 import gsap from "gsap-trial";
@@ -8,11 +19,12 @@ import fragment from "@/assets/shaders/GalaxyFragmentShader.glsl";
 import vertex from "@/assets/shaders/GalaxyVertexShader.glsl";
 import particconstexture from "@/assets/images/particle.webp";
 import { particleTypes } from "~/utilities/particleTypes";
+import { useTresContext, useRenderLoop } from "@tresjs/core";
 
 const context = useTresContext();
 const galaxyGroup = shallowRef();
 
-const meshes = ref<THREE.Mesh[]>([]);
+const meshes = ref<Mesh[]>([]);
 
 class GalaxyClass {
   constructor() {
@@ -21,12 +33,12 @@ class GalaxyClass {
     });
   }
 
-  getMesh(opts: (typeof particleTypes)[0]): THREE.Mesh {
+  getMesh(opts: (typeof particleTypes)[0]): Mesh {
     const count = opts.instance_count;
     const min_radius = opts.min_radius;
     const max_radius = opts.max_radius;
-    const startergeo = new THREE.PlaneGeometry(1, 1);
-    const geo = new THREE.InstancedBufferGeometry();
+    const startergeo = new PlaneGeometry(1, 1);
+    const geo = new InstancedBufferGeometry();
     geo.setAttribute("position", startergeo.getAttribute("position")),
       (geo.index = startergeo.index);
 
@@ -38,7 +50,7 @@ class GalaxyClass {
       const a = 0.05 * (2 * Math.random() - 1);
       const l = Math.pow(r / (count - 1), 0.5);
       const c = 2 * Math.PI * 0.618033 * r;
-      const u = new THREE.Vector3(l * Math.cos(c) + i, 0, l * Math.sin(c) + a);
+      const u = new Vector3(l * Math.cos(c) + i, 0, l * Math.sin(c) + a);
       u
         .multiplyScalar(max_radius - min_radius)
         .add(u.clone().normalize().multiplyScalar(min_radius)),
@@ -47,23 +59,23 @@ class GalaxyClass {
       wpos[3 * r + 2] = u.z;
     }
 
-    const attr = new THREE.InstancedBufferAttribute(wpos, 3, false);
+    const attr = new InstancedBufferAttribute(wpos, 3, false);
     geo.setAttribute("w_pos", attr);
     geo.instanceCount = count;
 
-    const material = new THREE.ShaderMaterial({
-      side: THREE.DoubleSide,
+    const material = new ShaderMaterial({
+      side: DoubleSide,
       uniforms: {
         time: { value: 0 },
-        resolution: { value: new THREE.Vector4() },
+        resolution: { value: new Vector4() },
         _MainTexture: {
-          value: new THREE.TextureLoader().load(particconstexture),
+          value: new TextureLoader().load(particconstexture),
         },
         _Opacity: {
           value: opts.opacity,
         },
         _MouseWorldPosition: {
-          value: new THREE.Vector3(100, 0, 0),
+          value: new Vector3(100, 0, 0),
         },
         _Size: {
           value: opts.particle_size,
@@ -108,8 +120,8 @@ class GalaxyClass {
           value: opts.amplitude,
         },
         _Color: {
-          // value: new THREE.Color('#f9ebb8'),
-          value: new THREE.Color(opts.color),
+          // value: new Color('#f9ebb8'),
+          value: new Color(opts.color),
         },
         _UseConeShape: {
           value: 0,
@@ -138,7 +150,7 @@ class GalaxyClass {
       fragmentShader: fragment,
     });
 
-    const cloud = new THREE.Mesh(geo, material);
+    const cloud = new Mesh(geo, material);
     cloud.frustumCulled = false;
 
     return cloud;
@@ -146,15 +158,15 @@ class GalaxyClass {
 
   updateTime(deltaTime: number) {
     meshes.value.forEach((mesh) => {
-      if (mesh.material instanceof THREE.ShaderMaterial) {
+      if (mesh.material instanceof ShaderMaterial) {
         mesh.material.uniforms._Time.value += deltaTime;
       }
     });
   }
 
-  mouseUpdate(v: THREE.Vector3) {
+  mouseUpdate(v: Vector3) {
     meshes.value.forEach((mesh) => {
-      if (mesh.material instanceof THREE.ShaderMaterial) {
+      if (mesh.material instanceof ShaderMaterial) {
         mesh.material.uniforms._MouseWorldPosition.value = v;
       }
     });
@@ -166,7 +178,7 @@ class GalaxyClass {
   }
 
   handlePointerLeave() {
-    galaxy.mouseUpdate(new THREE.Vector3(1000, 1000, 1000));
+    galaxy.mouseUpdate(new Vector3(1000, 1000, 1000));
   }
 }
 

@@ -28,7 +28,7 @@
       </div>
       <NuxtLink
         to="/posts"
-        class="text-sm px-4 py-2 bg-pink-600 rounded inline-block w-min whitespace-nowrap hover:bg-opacity-80 transition duration-300 shadow-2xl font-mono"
+        class="text-sm px-4 py-2 bg-pink-600 rounded-lg inline-block w-min whitespace-nowrap hover:bg-opacity-80 transition duration-300 shadow-2xl font-mono"
       >
         see more
       </NuxtLink>

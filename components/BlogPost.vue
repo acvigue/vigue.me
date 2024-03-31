@@ -1,14 +1,14 @@
 <template>
   <div
-    class="w-full transform-gpu rounded drop-shadow-2xl transition duration-300 hover:scale-95"
+    class="w-full transform-gpu rounded-lg drop-shadow-2xl transition duration-300 hover:scale-95"
   >
     <NuxtLink :to="`/posts/${post.slug}`">
       <div class="group relative w-full rounded">
         <div
-          class="absolute h-full w-full -rotate-3 transform-gpu rounded bg-gray-500 opacity-20 transition duration-300 group-hover:rotate-0 dark:opacity-25 dark:mix-blend-overlay"
+          class="absolute h-full w-full -rotate-3 transform-gpu rounded-lg bg-gray-500 opacity-20 transition duration-300 group-hover:rotate-0 dark:opacity-25 dark:mix-blend-overlay"
         ></div>
         <div class="rounded">
-          <div class="relative w-full rounded bg-cover bg-center">
+          <div class="relative w-full rounded-lg bg-cover bg-center">
             <NuxtPicture
               format="avif,webp,jpg"
               :src="post.feature_image!"
@@ -20,11 +20,11 @@
             />
           </div>
           <div
-            class="absolute left-0 top-0 h-full w-full transform-gpu rounded bg-gradient-to-t from-black to-transparent opacity-0 transition duration-300 group-hover:opacity-100"
+            class="absolute left-0 top-0 h-full w-full transform-gpu rounded-lg bg-gradient-to-t from-black to-transparent opacity-0 transition duration-300 group-hover:opacity-100"
           />
         </div>
         <div
-          class="absolute left-0 top-0 flex h-full w-full flex-col justify-between rounded bg-gradient-to-b from-black to-transparent px-6 py-4"
+          class="absolute left-0 top-0 flex h-full w-full flex-col justify-between rounded-lg bg-gradient-to-b from-black to-transparent px-6 py-4"
         >
           <div>
             <div class="text-lg font-medium text-white md:text-xl">
@@ -47,7 +47,7 @@
             <div
               v-for="tag in filteredTags"
               :key="tag.id"
-              class="flex flex-row items-center rounded-lg bg-pink-600 p-1 text-xs font-medium uppercase shadow-2xl"
+              class="flex flex-row items-center rounded-full bg-pink-600 p-1 text-xs font-medium uppercase shadow-2xl"
             >
               {{ tag.name }}
             </div>
@@ -60,7 +60,7 @@
 
 <style lang="scss">
 .blogpost-image > img {
-  @apply rounded z-30;
+  @apply rounded-lg z-30;
 }
 </style>
 

@@ -29,7 +29,7 @@
 
 <style lang="scss">
 .gallery-image > img {
-  @apply rounded z-30 cursor-pointer;
+  @apply rounded-lg z-30 cursor-pointer;
 }
 </style>
 

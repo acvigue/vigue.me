@@ -1,7 +1,7 @@
 <template>
   <div
     @click="click"
-    class="relative h-40 transform-gpu cursor-pointer overflow-clip rounded-md border-2 border-gray-200 transition duration-300 hover:scale-[0.98] dark:border-gray-700"
+    class="relative h-40 transform-gpu cursor-pointer overflow-clip rounded-lg border-2 border-gray-200 transition duration-300 hover:scale-[0.98] dark:border-gray-700"
   >
     <div class="absolute z-20 flex h-40 w-full flex-col justify-between p-6">
       <div class="flex flex-col justify-between">
@@ -15,7 +15,7 @@
         </span>
       </div>
       <div
-        class="mt-2 inline-flex w-fit items-center overflow-clip rounded-md dark:bg-gray-700"
+        class="mt-2 inline-flex w-fit items-center overflow-clip rounded-lg dark:bg-gray-700"
       >
         <div class="mr-4">
           <img :src="node.metadata.icon" class="h-6" />

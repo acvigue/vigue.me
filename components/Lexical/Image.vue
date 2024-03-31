@@ -3,10 +3,11 @@
     <NuxtPicture
       format="avif,webp,jpg"
       :src="node.src"
-      sizes="lg:800px md:800px sm:300px xs:200px"
+      sizes="lg:500px md:400px sm:300px xs:200px"
       :width="2000"
       :height="1500"
       class="post-image"
+      loading="lazy"
       placeholder="blur"
       @click="lightboxOpen = true"
     />
@@ -20,7 +21,7 @@
 }
 
 .post-image > img {
-  @apply rounded z-30;
+  @apply rounded-lg z-30;
 }
 </style>
 
