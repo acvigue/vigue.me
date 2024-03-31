@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://vigue.me
+
+# Sitemaps
+Sitemap: https://vigue.me/sitemap.xml

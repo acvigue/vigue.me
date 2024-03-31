@@ -9,7 +9,7 @@ import {
 
 const config = useRuntimeConfig();
 
-const proPlugin = createProPlugin(config.formkitKey, {
+const proPlugin = createProPlugin(config.public.formkitKey, {
   toggle,
   dropdown,
   datepicker,

@@ -33,29 +33,15 @@
         class="w-[100vw] h-full flex flex-col items-start justify-evenly px-12 pt-24"
         id="about-second-slide"
       >
-        <div class="item flex flex-col gap-3">
-          <span class="text-3xl text-pink-600">🧑🏼‍🎓 student</span>
-          <span class="text-lg"
-            >I'm a freshman at Purdue currently studying computer science and my
-            dream job is embedded engineering</span
+        <div
+          class="item flex flex-col gap-3"
+          v-for="item in aboutItems"
+          :key="item.icon"
+        >
+          <span class="text-3xl text-pink-600"
+            >{{ item.icon }} {{ item.heading.toLocaleLowerCase() }}</span
           >
-        </div>
-        <div class="item flex flex-col gap-3">
-          <span class="text-3xl text-pink-600">💻 developer</span>
-          <span class="text-lg"
-            >I've worked with a variety of technologies ranging from frameworks
-            like React and Vue, all the way to hosting and configuring
-            production-ready containerized workloads on AWS. I also have
-            extensive experience in languages such as C/C++, Python, and Swift
-          </span>
-        </div>
-        <div class="item flex flex-col gap-3">
-          <span class="text-3xl text-pink-600">🧱 maker</span>
-          <span class="text-lg"
-            >I showcase my love for design through my projects. I mainly work in
-            Altium Designer and Fusion 360 and specialize in high-speed circuit
-            design (my favorite IC is the ESP32)</span
-          >
+          <span class="text-lg">{{ item.body }}</span>
         </div>
       </div>
     </div>
@@ -70,15 +56,7 @@ import ScrollTrigger from "gsap-trial/ScrollTrigger";
 import SplitText from "gsap-trial/SplitText";
 import GSDevTools from "gsap-trial/GSDevTools";
 
-const trigger = ref<HTMLDivElement>();
-const texts = [
-  "Developer",
-  "3D Modeler",
-  "Innovator",
-  "Blogger",
-  "PCB Designer",
-  "Maker",
-];
+const { aboutItems } = useAppConfig();
 
 let ctx: gsap.Context;
 

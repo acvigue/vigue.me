@@ -2,8 +2,12 @@ import glsl from "vite-plugin-glsl";
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@tresjs/nuxt"],
-  css: ["assets/main.scss"],
+  modules: ["@nuxtjs/tailwindcss", "@tresjs/nuxt", "@nuxt/image"],
+  css: [
+    "assets/main.scss",
+    "@/node_modules/highlight.js/scss/monokai-sublime.scss",
+    "vue-easy-lightbox/external-css/vue-easy-lightbox.css",
+  ],
   vite: {
     plugins: [glsl()],
   },
@@ -12,12 +16,12 @@ export default defineNuxtConfig({
     ghostAdminKey: "",
     ghostWebhookKey: "",
     ghostUrl: "https://cms.vigue.me",
-    imgproxyHost: "",
-    imgproxyKey: "",
-    imgproxySalt: "",
     public: {
       formkitKey: "",
     },
+  },
+  image: {
+    domains: ["blogcdn.vigue.me"],
   },
   routeRules: {},
   experimental: {

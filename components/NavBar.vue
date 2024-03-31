@@ -35,11 +35,11 @@
       >
         contact
       </div>
-      <NuxtLink
-        to="/"
+      <a
+        href="https://koiosdigital.net"
         class="text-xl font-bold font-mono hover:text-gray-500 duration-150 !pointer-events-auto cursor-pointer"
         active-class="text-gray-500"
-        >shop</NuxtLink
+        >shop</a
       >
     </div>
   </div>
@@ -50,7 +50,13 @@ const menuOpen = ref(false);
 const { $event } = useNuxtApp();
 const navBar = shallowRef<HTMLDivElement>();
 
-const scrollToBlock = (block: number | string) => {
-  $event("scrollToBlock", block);
+const route = useRoute();
+
+const scrollToBlock = (block: string) => {
+  if (route.path === "/") {
+    $event("scrollToBlock", block);
+  } else {
+    navigateTo({ path: "/", hash: block });
+  }
 };
 </script>

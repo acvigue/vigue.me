@@ -9,12 +9,10 @@
         ></div>
         <div class="rounded">
           <div class="relative w-full rounded bg-cover bg-center">
-            <SmartImage
-              sizes="(min-width: 1024px) 25vw, (min-width: 640px) 40vw, 80vw"
-              :image="{ src: post.feature_image ?? '' }"
-              srcset="{feature_image_srcset}"
-              :alt="post.feature_image_alt ?? 'Feature Image'"
-              class="h-72 w-full rounded object-cover"
+            <NuxtPicture
+              format="avif,webp,jpg"
+              :src="post.feature_image!"
+              placeholder="blur"
             />
           </div>
           <div
