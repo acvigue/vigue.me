@@ -22,7 +22,7 @@ export default defineNuxtConfig({
   },
   routeRules: {
     "/": { isr: true },
-    "/posts/**": { isr: true },
+    //"/posts/**": { isr: true },
   },
   experimental: {
     componentIslands: true,

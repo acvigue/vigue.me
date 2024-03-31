@@ -1,11 +1,11 @@
 <template>
-  <Code v-if="!Array.isArray(node) && node.type === 'codeblock'" :node="node" />
-  <renderNode
-    v-else-if="Array.isArray(node)"
-    v-for="(n, i) in node"
-    :node="n"
-    :key="i"
-  />
+  <template v-if="Array.isArray(node)">
+    <template v-for="(n, i) in node" :key="i">
+      <LexicalCode v-if="n.type === 'codeblock'" :node="n" />
+      <renderNode v-else :node="n" />
+    </template>
+  </template>
+
   <renderNode v-else :node="node" />
 </template>
 
