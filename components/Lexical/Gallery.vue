@@ -1,4 +1,37 @@
-<template></template>
+<template>
+  <div
+    class="md:grid hidden gap-4"
+    v-for="row in imagesByRow"
+    :style="`grid-template-columns: repeat(${row.length}, minmax(0, 1fr));`"
+  >
+    <div
+      v-for="image in row"
+      :key="image.src"
+      class="relative w-full flex items-center justify-center"
+      @click="imageClicked(image)"
+    >
+      <NuxtPicture
+        format="avif,webp,jpg"
+        :src="image.src"
+        :width="image.width"
+        :height="image.height"
+        class="gallery-image"
+        placeholder="blur"
+      />
+    </div>
+  </div>
+  <Lightbox
+    v-model="lightboxOpen"
+    :images="node.images"
+    :startIndex="lightboxStartIndex"
+  />
+</template>
+
+<style lang="scss">
+.gallery-image > img {
+  @apply rounded z-30 cursor-pointer;
+}
+</style>
 
 <script setup lang="ts">
 type Image = {

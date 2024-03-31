@@ -12,6 +12,10 @@
             <NuxtPicture
               format="avif,webp,jpg"
               :src="post.feature_image!"
+              sizes="lg:500px sm:300px xs:200px"
+              :width="2000"
+              :height="1500"
+              class="blogpost-image"
               placeholder="blur"
             />
           </div>
@@ -53,6 +57,12 @@
     </NuxtLink>
   </div>
 </template>
+
+<style lang="scss">
+.blogpost-image > img {
+  @apply rounded z-30;
+}
+</style>
 
 <script setup lang="ts">
 import { format } from "date-fns";

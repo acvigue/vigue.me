@@ -3,19 +3,24 @@
     <NuxtPicture
       format="avif,webp,jpg"
       :src="node.src"
-      :height="node.height"
-      :width="node.width"
+      sizes="lg:800px md:800px sm:300px xs:200px"
+      :width="2000"
+      :height="1500"
       class="post-image"
-      sizes="lg:750px md:500px sm:300px xs:200px"
-      placeholder
+      placeholder="blur"
+      @click="lightboxOpen = true"
     />
   </div>
   <Lightbox v-model="lightboxOpen" :images="[node]" :startIndex="0" />
 </template>
 
 <style lang="scss">
+.post-image {
+  @apply md:max-w-[50%] cursor-pointer;
+}
+
 .post-image > img {
-  @apply w-full rounded z-30 max-h-[400px] relative;
+  @apply rounded z-30;
 }
 </style>
 

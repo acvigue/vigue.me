@@ -19,9 +19,13 @@ const props = defineProps<{
 
 const renderList = () => {
   const tag = props.node.listType === "bullet" ? "ul" : "ol";
-  const classes = `pl-4 list-${
-    props.node.listType === "bullet" ? "disc" : "decimal"
-  }`;
+
+  const classes = {
+    "pl-4": true,
+    "list-disc": props.node.listType === "bullet",
+    "list-decimal": props.node.listType === "number",
+  };
+
   return h(
     tag,
     { class: classes },

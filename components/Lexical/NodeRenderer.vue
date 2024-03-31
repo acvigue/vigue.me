@@ -12,17 +12,17 @@
 <script setup lang="ts">
 import { type LexicalNode } from "@/utilities/LexicalTypes";
 
-import Text from "./Text.server.vue";
-import Heading from "./Heading.server.vue";
-import Paragraph from "./Paragraph.server.vue";
-import List from "./List.server.vue";
-import ListItem from "./ListItem.server.vue";
+import Text from "./Text.vue";
+import Heading from "./Heading.vue";
+import Paragraph from "./Paragraph.vue";
+import List from "./List.vue";
+import ListItem from "./ListItem.vue";
 import Image from "./Image.vue";
 import Code from "./Code.server.vue";
-import Blockquote from "./Blockquote.server.vue";
-import Bookmark from "./Bookmark.server.vue";
+import Blockquote from "./Blockquote.vue";
+import Bookmark from "./Bookmark.vue";
 import Gallery from "./Gallery.vue";
-import Link from "./Link.server.vue";
+import Link from "./Link.vue";
 
 const props = defineProps<{
   node: LexicalNode | LexicalNode[];

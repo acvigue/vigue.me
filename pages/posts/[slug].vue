@@ -103,7 +103,7 @@
       <div
         class="mb-8 flex w-full md:max-w-[80vw] max-w-[95vw] flex-col gap-5 px-4 antialiased md:px-0 mt-10"
       >
-        <!--<LexicalRenderer :state="data?.lexical ?? '{}'" />-->
+        <LexicalRenderer :state="data?.lexical ?? '{}'" />
       </div>
       <!--
       <div class="Mobiledoc mb-8 flex w-full max-w-5xl flex-col gap-5 px-4 antialiased md:px-0">
