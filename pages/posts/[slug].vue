@@ -90,6 +90,8 @@
             <NuxtPicture
               format="avif,webp,jpg"
               :src="data?.feature_image!"
+              :height="1500"
+              :width="2000"
               sizes="lg:550px md:500px sm:300px xs:150px"
               class="feature-image"
               placeholder="blur"
