@@ -1,24 +1,26 @@
 <template>
-  <TresCanvas
-    clear-color="#020617"
-    :window-size="true"
-    class="fixed top-0 left-0 w-screen h-screen"
-    :use-window-pointer="true"
-  >
-    <TresPerspectiveCamera :position="[0, 0, 5]" :look-at="[0, 0, 0]" />
-    <!--<OrbitControls />-->
-    <Stars
-      :rotation="[0, starsYRotation, 0]"
-      :radius="50"
-      :depth="50"
-      :count="5000"
-      :size="0.2"
-      :size-attenuation="true"
-    />
+  <ClientOnly>
+    <TresCanvas
+      clear-color="#020617"
+      :window-size="true"
+      class="fixed top-0 left-0 w-screen h-screen"
+      :use-window-pointer="true"
+    >
+      <TresPerspectiveCamera :position="[0, 0, 5]" :look-at="[0, 0, 0]" />
+      <!--<OrbitControls />-->
+      <Stars
+        :rotation="[0, starsYRotation, 0]"
+        :radius="50"
+        :depth="50"
+        :count="5000"
+        :size="0.2"
+        :size-attenuation="true"
+      />
 
-    <TresAmbientLight :intensity="1" />
-    <WebGLGalaxy />
-  </TresCanvas>
+      <TresAmbientLight :intensity="1" />
+      <WebGLGalaxy />
+    </TresCanvas>
+  </ClientOnly>
 </template>
 
 <script setup lang="ts">
