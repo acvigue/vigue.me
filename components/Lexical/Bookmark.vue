@@ -26,9 +26,6 @@
         </span>
       </div>
     </div>
-    <div class="absolute z-10 flex h-40 w-full justify-end opacity-25">
-      <img :src="node.metadata.thumbnail" class="h-40 flex-shrink-0" />
-    </div>
   </div>
 </template>
 
