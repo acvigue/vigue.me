@@ -1,8 +1,10 @@
 import type { BlockquoteNode } from "~/components/Lexical/Blockquote.vue";
 import type { BookmarkNode } from "~/components/Lexical/Bookmark.vue";
 import type { CodeNode } from "~/components/Lexical/Code.server.vue";
+import type { EmbedNode } from "~/components/Lexical/Embed.vue";
 import type { GalleryNode } from "~/components/Lexical/Gallery.vue";
 import type { HeadingNode } from "~/components/Lexical/Heading.vue";
+import type { HRNode } from "~/components/Lexical/HorizontalRule.vue";
 import type { ImageNode } from "~/components/Lexical/Image.vue";
 import type { LinkNode } from "~/components/Lexical/Link.vue";
 import type { ListNode } from "~/components/Lexical/List.vue";
@@ -27,6 +29,8 @@ export type LexicalNode =
   | GalleryNode
   | BlockquoteNode
   | BookmarkNode
+  | HRNode
+  | EmbedNode
   | CodeNode;
 
 export interface LexicalState {

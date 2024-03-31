@@ -22,6 +22,8 @@ import Blockquote from "./Blockquote.vue";
 import Bookmark from "./Bookmark.vue";
 import Gallery from "./Gallery.vue";
 import Link from "./Link.vue";
+import HorizontalRule from "./HorizontalRule.vue";
+import Embed from "./Embed.vue";
 
 const props = defineProps<{
   node: LexicalNode | LexicalNode[];
@@ -51,6 +53,10 @@ const renderNode = (props: { node: LexicalNode }) => {
       return h(Blockquote, { node: props.node });
     case "bookmark":
       return h(Bookmark, { node: props.node });
+    case "horizontalrule":
+      return h(HorizontalRule, { node: props.node });
+    case "html":
+      return h(Embed, { node: props.node });
     default:
       return h(
         "div",

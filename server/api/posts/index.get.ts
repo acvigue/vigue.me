@@ -15,7 +15,7 @@ export default defineEventHandler(async (event) => {
 
   if (featured) {
     const response = await api.posts
-      .browse({ filter: `featured:true` })
+      .browse({ filter: `featured:true+status:published` })
       .formats({ lexical: true, mobiledoc: true })
       .fetch();
     if (!response.success) {
@@ -35,7 +35,7 @@ export default defineEventHandler(async (event) => {
   }
 
   const response = await api.posts
-    .browse({ limit: 10, page: pageNum })
+    .browse({ limit: 10, page: pageNum, filter: "status:published" })
     .formats({ lexical: true, mobiledoc: true })
     .fetch();
   if (!response.success) {

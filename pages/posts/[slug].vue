@@ -1,10 +1,7 @@
 <template>
-  <Suspense>
-    <template #fallback>
-      <div class="w-full h-full bg-gray-300 animate-pulse"></div>
-    </template>
-    <main
-      class="mb-8 flex md:w-[85vw] w-[90vw] flex-col items-center justify-center py-8 bg-gray-900 rounded"
+  <main class="md:pt-32 pt-24 mb-8 py-8 flex justify-center">
+    <div
+      class="relative flex flex-col items-center justify-start bg-gray-900 pt-4 rounded-lg max-w-6xl w-[90vw] px-4"
     >
       <div
         class="container relative mx-auto lg:max-w-6xl flex flex-col items-center"
@@ -105,7 +102,9 @@
       >
         <LexicalRenderer :state="data?.lexical ?? '{}'" />
       </div>
-      <!--
+    </div>
+
+    <!--
       <div class="Mobiledoc mb-8 flex w-full max-w-5xl flex-col gap-5 px-4 antialiased md:px-0">
         <GhostRenderer mobiledoc={post.mobiledoc} lexical={post.lexical} />
         <DividerCard payload={{ key: 1 }}></DividerCard>
@@ -142,8 +141,8 @@
           </div>
         )}
       </div>
-    --></main>
-  </Suspense>
+    -->
+  </main>
 </template>
 
 <style lang="scss">

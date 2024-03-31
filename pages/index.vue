@@ -30,9 +30,7 @@ import ScrollSmoother from "gsap-trial/ScrollSmoother";
 
 const { $listen } = useNuxtApp();
 
-definePageMeta({
-  layout: "gl-layout",
-});
+const route = useRoute();
 
 let ctx: gsap.Context;
 

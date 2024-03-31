@@ -56,7 +56,10 @@ const scrollToBlock = (block: string) => {
   if (route.path === "/") {
     $event("scrollToBlock", block);
   } else {
-    navigateTo({ path: "/", hash: block });
+    navigateTo({ path: "/" });
+    setTimeout(() => {
+      $event("scrollToBlock", block);
+    }, 300);
   }
 };
 </script>

@@ -10,8 +10,9 @@
         <div class="rounded">
           <div class="relative w-full rounded-lg bg-cover bg-center">
             <NuxtPicture
+              v-if="post.feature_image"
               format="avif,webp,jpg"
-              :src="post.feature_image!"
+              :src="post.feature_image"
               sizes="lg:500px sm:300px xs:200px"
               :width="2000"
               :height="1500"
@@ -47,7 +48,7 @@
             <div
               v-for="tag in filteredTags"
               :key="tag.id"
-              class="flex flex-row items-center rounded-full bg-pink-600 p-1 text-xs font-medium uppercase shadow-2xl"
+              class="flex flex-row items-center rounded-md bg-pink-600 p-1 text-xs font-medium uppercase shadow-2xl"
             >
               {{ tag.name }}
             </div>
