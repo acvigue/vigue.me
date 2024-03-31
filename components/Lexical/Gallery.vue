@@ -17,6 +17,7 @@
         :height="image.height"
         class="gallery-image"
         placeholder="blur"
+        loading="lazy"
       />
     </div>
   </div>
