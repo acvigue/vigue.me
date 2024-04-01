@@ -1,60 +1,58 @@
 <template>
-  <div class="top-0 left-0 z-10" id="smooth-wrapper">
-    <div class="w-screen min-h-screen" id="smooth-content">
-      <Section id="jumbotron">
-        <Jumbotron />
-      </Section>
-      <Section id="about">
-        <SectionAbout />
-      </Section>
-      <Section id="projects" class="!min-h-0">
-        <SectionProjects />
-      </Section>
-      <Section id="work">
-        <SectionWork />
-      </Section>
-      <Section id="online">
-        <h1>Online Data</h1>
-      </Section>
-      <Section id="contact">
-        <h1>Contact</h1>
-      </Section>
+  <div ref="scroller">
+    <div class="h-full w-fit flex" ref="panelsContainer">
+      <Panel><SectionJumbotron /></Panel>
+      <Panel><SectionAbout /></Panel>
+      <Panel><SectionAbout /></Panel>
+      <Panel><SectionAbout /></Panel>
+      <Panel><SectionAbout /></Panel>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import gsap from "gsap-trial";
-import ScrollTrigger from "gsap-trial/ScrollTrigger";
-import ScrollSmoother from "gsap-trial/ScrollSmoother";
-
-const { $listen } = useNuxtApp();
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const route = useRoute();
+const panelsContainer = shallowRef<HTMLDivElement>();
+const scroller = ref<HTMLDivElement>();
 
 let ctx: gsap.Context;
 
-onNuxtReady(() => {
-  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+watch(
+  route,
+  (newRoute) => {
+    console.log(newRoute.name);
+  },
+  { immediate: true }
+);
 
-  const smoother = ScrollSmoother.create({
-    smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
-    effects: true, // looks for data-speed and data-lag attributes on elements
-    smoothTouch: 0.1, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
-  });
-
-  $listen("scrollToBlock", (blockId: string) => {
-    smoother.scrollTo(`#${blockId}`, true, "center center");
-  });
+onMounted(() => {
+  gsap.registerPlugin(ScrollTrigger);
 
   ctx = gsap.context(() => {
-    const tl = gsap.timeline();
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: scroller.value,
+        end: "+=5000",
+        scrub: 1,
+        pin: true,
+      },
+    });
+    tl.to(
+      panelsContainer.value!,
+      {
+        xPercent: -100,
+        x: () => innerWidth,
+        ease: "none",
+      },
+      "start"
+    );
   });
 });
 
 onBeforeUnmount(() => {
-  if (ctx) {
-    ctx.revert();
-  }
+  ctx.revert();
 });
 </script>

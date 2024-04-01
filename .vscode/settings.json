@@ -1,1 +1,12 @@
-{ "css.customData": [".vscode/tailwind.json"] }
+{
+  "css.customData": [".vscode/tailwind.json"],
+  "eslint.validate": [
+    "vue",
+    "html",
+    "javascript",
+    "typescript",
+    "javascriptreact",
+    "typescriptreact"
+  ],
+  "editor.formatOnSave": true
+}

@@ -3,7 +3,7 @@ import { splitVendorChunkPlugin } from "vite";
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/image"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/image", "nuxt-svgo"],
   css: ["assets/main.scss"],
   vite: {
     plugins: [glsl(), splitVendorChunkPlugin()],
@@ -12,10 +12,8 @@ export default defineNuxtConfig({
     ghostContentKey: "",
     ghostAdminKey: "",
     ghostWebhookKey: "",
-    ghostUrl: "https://cms.vigue.me",
-    public: {
-      formkitKey: "",
-    },
+    ghostUrl: "",
+    formkitKey: "",
   },
   image: {
     domains: ["blogcdn.vigue.me"],
@@ -26,5 +24,29 @@ export default defineNuxtConfig({
   },
   experimental: {
     componentIslands: true,
+  },
+  hooks: {
+    "pages:extend"(pages) {
+      pages.push({
+        name: "about",
+        path: "/about",
+        file: "~/pages/index.vue",
+      });
+      pages.push({
+        name: "projects",
+        path: "/projects",
+        file: "~/pages/index.vue",
+      });
+      pages.push({
+        name: "experience",
+        path: "/experience",
+        file: "~/pages/index.vue",
+      });
+      pages.push({
+        name: "contact",
+        path: "/contact",
+        file: "~/pages/index.vue",
+      });
+    },
   },
 });

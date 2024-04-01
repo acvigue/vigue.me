@@ -11,6 +11,13 @@ useHead({
   titleTemplate: (titleChunk) => {
     return titleChunk ? `${titleChunk} - ${config.name}` : config.name;
   },
+  link: [
+    {
+      rel: "stylesheet",
+      type: "text/css",
+      href: "https://use.typekit.net/zsv2ore.css",
+    },
+  ],
 });
 
 useSeoMeta({

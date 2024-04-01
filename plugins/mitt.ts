@@ -3,6 +3,7 @@ import mitt from "mitt";
 type AppEvents = {
   //Callable events to control from external context
   scrollToBlock: string;
+  closeNav: void;
 };
 
 export default defineNuxtPlugin(() => {

@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-app",
+  "name": "vigue.me",
   "private": true,
   "type": "module",
   "scripts": {
@@ -10,23 +10,18 @@
     "postinstall": "nuxt prepare && bash postinstall/gsap.sh"
   },
   "dependencies": {
-    "@bitpatty/imgproxy-url-builder": "^1.6.0",
-    "@formkit/core": "^1.6.1",
-    "@formkit/nuxt": "^1.6.1",
-    "@formkit/pro": "^0.122.13",
-    "@formkit/vue": "^1.6.1",
     "@heroicons/vue": "^2.1.1",
+    "@nuxt/fonts": "^0.5.1",
     "@nuxt/image": "^1.4.0",
     "@tresjs/cientos": "^3.3.0-next.0",
     "@tresjs/core": "npm:@aidenvigue/tresjs-core@^3.7.1",
     "@tresjs/nuxt": "npm:@aidenvigue/tresjs-nuxt@^2.1.1",
     "@ts-ghost/admin-api": "^4.1.0",
-    "@ts-ghost/content-api": "^4.0.12",
-    "@types/date-fns": "^2.6.0",
     "date-fns": "^3.6.0",
-    "gsap-trial": "^3.12.5",
+    "gsap": "npm:gsap-trial@^3.12.5",
     "highlight.js": "^11.9.0",
     "mitt": "^3.0.1",
+    "mouse-follower": "^1.1.2",
     "nuxt": "^3.10.3",
     "three": "^0.162.0",
     "tweakpane": "^4.0.3",
@@ -37,7 +32,9 @@
   "devDependencies": {
     "@nuxt/eslint-config": "^0.2.0",
     "@nuxtjs/tailwindcss": "^6.11.4",
+    "@types/date-fns": "^2.6.0",
     "@types/three": "^0.162.0",
+    "nuxt-svgo": "^4.0.0",
     "sass": "^1.71.1",
     "vite-plugin-glsl": "^1.2.1"
   }

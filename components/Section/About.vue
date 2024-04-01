@@ -1,225 +1,53 @@
 <template>
-  <div
-    class="flex flex-col items-start justify-start w-full min-h-screen gap-0"
-    id="about-container"
-  >
-    <div class="flex-1 z-[11]">
-      <h1
-        class="md:text-4xl text-3xl font-semibold font-mono drop-shadow-lg p-11 pt-[7.5rem] w-full"
-        id="about-section-title"
-        @pointerover="scrambleHeader"
-      >
-        about me
-      </h1>
-    </div>
+  <div class="flex justify-center items-center w-full">
     <div
-      class="absolute w-fit h-screen flex items-center justify-start overflow-clip md:text-5xl text-2xl font-bold leading-normal z-10"
-      style="min-width: none; max-width: none"
-      id="about-horiz-scroll"
+      class="flex flex-col h-full lg:max-w-2xl w-[80vw] justify-center gap-4"
     >
-      <div
-        class="w-[100vw] bg-pink-600 h-full flex items-center justify-center"
-        id="about-first-slide"
-      >
-        <span id="about-first-slide-icon-hat-left" class="opacity-0 rotate-45"
-          >🪚</span
-        >
-        <span id="about-first-slide-words">I do a lot of things...</span>
-        <span id="about-first-slide-icon-hat-right" class="opacity-0 -rotate-45"
-          >🪛</span
+      <span class="font-serif text-md font-bold">About Me</span>
+      <span class="font-serif2 text-3xl pl-4 mb-4">
+        As a
+        <b data-cursor-stick data-cursor="-pointer">computer science student</b>
+        at Purdue University with a passion for
+        <b data-cursor-stick data-cursor="-pointer">engineering</b>, my skills
+        intersect at designing digital products. I possess a wide range of
+        experience in several programming languages and tools, and my
+        involvement in numerous past projects has helped to solidify my
+        foundational expertise in the realm of embedded systems and
+        <b data-cursor-stick data-cursor="-pointer">software development</b>.
+      </span>
+      <div class="flex justify-end mr-48">
+        <span class="font-serif text-md text-licorice font-bold"
+          >Want to learn more?</span
         >
       </div>
-      <div
-        class="w-[100vw] h-full flex flex-col items-start justify-evenly px-12 pt-24"
-        id="about-second-slide"
-      >
-        <div
-          class="item flex flex-col gap-3"
-          v-for="item in aboutItems"
-          :key="item.icon"
+      <div class="flex justify-end items-center gap-4">
+        <NuxtLink
+          to="/contact"
+          class="flex text-licorice items-center gap-2 border-licorice border-2 rounded-full px-4 hover:bg-licorice hover:text-champagne duration-500"
         >
-          <span class="text-3xl text-pink-600"
-            >{{ item.icon }} {{ item.heading.toLocaleLowerCase() }}</span
-          >
-          <span class="text-lg">{{ item.body }}</span>
-        </div>
+          <span class="font-serif2 text-lg">Contact </span>
+          <ArrowUpRightIcon class="h-5" />
+        </NuxtLink>
+        <button
+          @click="cvOpen = true"
+          class="flex text-licorice items-center gap-2 border-licorice border-2 rounded-full px-4 hover:bg-licorice hover:text-champagne duration-500"
+        >
+          <span class="font-serif2 text-lg">My CV </span>
+          <ArrowDownTrayIcon class="h-5" />
+        </button>
       </div>
     </div>
-    <div class="flex-1"></div>
   </div>
+
+  <Teleport to="body">
+    <Transition name="fade-y">
+      <CVModal v-if="cvOpen" @close="cvOpen = false" />
+    </Transition>
+  </Teleport>
 </template>
 
 <script setup lang="ts">
-import gsap from "gsap-trial";
-import ScrambleTextPlugin from "gsap-trial/ScrambleTextPlugin";
-import ScrollTrigger from "gsap-trial/ScrollTrigger";
-import SplitText from "gsap-trial/SplitText";
-import GSDevTools from "gsap-trial/GSDevTools";
+import { ArrowUpRightIcon, ArrowDownTrayIcon } from "@heroicons/vue/24/solid";
 
-const { aboutItems } = useAppConfig();
-
-let ctx: gsap.Context;
-
-const scrambleHeader = (payload: PointerEvent) => {
-  gsap.to("#about-section-title", {
-    duration: 1,
-    scrambleText: "about me",
-  });
-};
-
-onNuxtReady(() => {
-  gsap.registerPlugin(ScrollTrigger, SplitText, ScrambleTextPlugin, GSDevTools);
-
-  ctx = gsap.context(() => {
-    const firstSlideWords = new SplitText("#about-first-slide-words", {
-      type: "words,lines",
-      wordsClass: "w-0 overflow-hidden word++",
-    });
-
-    const firstSlideTL = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#about-first-slide",
-        start: "top 60%",
-        end: "top top-=200",
-        scrub: true,
-      },
-    });
-    firstSlideTL.addLabel("start").to("#about-section-title", {
-      scrambleText: {
-        text: "about me",
-        chars: "lowerCase",
-        speed: 0.5,
-      },
-      duration: 0.05,
-    });
-    firstSlideTL.addLabel("wordsStart", 0.01);
-    firstSlideTL.to(
-      firstSlideWords.words[0],
-      {
-        css: { width: "auto" },
-        duration: 0.0,
-      },
-      "start"
-    );
-    firstSlideTL.fromTo(
-      firstSlideWords.words[1],
-      {
-        css: { width: "auto", height: "0" },
-      },
-      {
-        css: { width: "auto", height: "auto" },
-        duration: 0.005,
-      },
-      "wordsStart"
-    );
-    firstSlideTL.fromTo(
-      firstSlideWords.words[2],
-      {
-        css: { width: "0" },
-      },
-      {
-        css: { width: "auto" },
-        duration: 0.005,
-      },
-      ">"
-    );
-    firstSlideTL.fromTo(
-      firstSlideWords.words[3],
-      {
-        css: { width: "0" },
-      },
-      {
-        css: { width: "auto" },
-        duration: 0.015,
-      },
-      ">"
-    );
-    firstSlideTL.fromTo(
-      firstSlideWords.words[4],
-      {
-        css: { width: "auto", height: "0" },
-      },
-      {
-        css: { width: "auto", height: "auto" },
-        duration: 0.005,
-      },
-      ">"
-    );
-    firstSlideTL.fromTo(
-      firstSlideWords.words[5],
-      {
-        css: { width: "0" },
-      },
-      {
-        css: { width: "auto" },
-        duration: 0.005,
-      },
-      ">"
-    );
-    firstSlideTL.to(
-      "#about-first-slide-icon-hat-left",
-      {
-        css: { opacity: 1, translateY: "-3rem", rotate: 0, scale: 2 },
-        duration: 0.01,
-      },
-      ">"
-    );
-    firstSlideTL.to(
-      "#about-first-slide-icon-hat-right",
-      {
-        css: { opacity: 1, translateY: "-3rem", rotate: 0, scale: 2 },
-        duration: 0.01,
-      },
-      "<"
-    );
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#about",
-        start: "top top",
-        end: "top top-=200%",
-        pin: true,
-        scrub: true,
-      },
-    });
-    tl.addLabel("start");
-    tl.to(
-      "#about-horiz-scroll",
-      {
-        xPercent: -100,
-        x: () => innerWidth,
-        ease: "none",
-      },
-      "start"
-    );
-    tl.to(
-      "#about-section-title",
-      { css: { opacity: 0 }, duration: 0.1 },
-      "start"
-    );
-
-    /*
-    thirdSlideTL.to(
-      "#about-third-slide-icon-hat-left",
-      {
-        css: { opacity: 1, translateY: "-3rem", rotate: -45, scale: 2 },
-        duration: 0.01,
-      },
-      ">"
-    );
-    thirdSlideTL.to(
-      "#about-third-slide-icon-hat-right",
-      {
-        css: { opacity: 1, translateY: "-3rem", rotate: 45, scale: 2 },
-        duration: 0.01,
-      },
-      "<"
-    );
-*/
-  });
-});
-
-onBeforeUnmount(() => {
-  ctx.revert();
-});
+const cvOpen = ref(false);
 </script>

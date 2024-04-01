@@ -1,3 +1,7 @@
+* {
+  @apply overscroll-none;
+}
+
 .formkit-wrapper {
   --fk-max-width-input: none;
 }
@@ -47,15 +51,20 @@
 
 .fade-y-enter-active,
 .fade-y-leave-active {
-  transition:
-    opacity 0.3s,
-    transform 0.5s;
+  transition: opacity 0.3s, transform 0.5s;
 }
 
-.vfm--fixed {
-  ::-webkit-scrollbar {
-    @apply w-0 h-0;
-  }
+.fade-x-enter-from {
+  transform: translateX(-2000px);
+}
+
+.fade-x-leave-to {
+  transform: translateX(-2000px);
+}
+
+.fade-x-enter-active,
+.fade-x-leave-active {
+  transition: opacity 0.3s, transform 0.5s;
 }
 
 :root {
@@ -104,35 +113,12 @@
   --fk-icon-radioDecorator: var(--fk-icon-circle);
 }
 
-.is-typed {
-  font-family: unset;
-  display: inline;
+.text-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
 }
 
-.is-typed span.typed {
-  color: unset;
-}
-
-.is-typed span.cursor {
-  display: inline-block;
-  width: 3px;
-  background-color: unset;
-  animation: blink 1s infinite;
-}
-
-.is-typed span.underscore {
-  display: inline-flex;
-  width: 10px;
-  height: 1px;
-  align-items: flex-end;
-  background-color: unset;
-  animation: blink 1s infinite;
-}
-
-.is-typed span.cursor.typing {
-  animation: none;
-}
-
-html {
-  scroll-behavior: smooth;
+.text-horizontal {
+  writing-mode: unset;
+  text-orientation: unset;
 }

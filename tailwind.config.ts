@@ -9,7 +9,20 @@ export default {
     "./formkit.theme.ts",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        serif: ["larken", "ui-serif"],
+        serif2: ["condor", "ui-serif"],
+        luxury: ["amandine", "ui-serif"],
+      },
+      colors: {
+        champagne: "#F1E0C5",
+        khaki: "#C9B79C",
+        carribean: "#16697A",
+        licorice: "#1F1300",
+        taupe: "#8C5E58",
+      },
+    },
   },
   plugins: [],
 } satisfies Config;

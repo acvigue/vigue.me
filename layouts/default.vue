@@ -1,15 +1,27 @@
 <template>
-  <div class="relative text-gray-200">
-    <div class="fixed bg-slate-950 w-screen h-screen z-[-1]"></div>
-    <WebGLView class="z-0" />
-    <NavBar class="z-20" />
-    <div class="z-10">
-      <slot />
+  <NavBar />
+  <div class="min-w-screen min-h-screen z-0">
+    <div class="bg-champagne" id="smooth-wrapper">
+      <div id="smooth-content">
+        <slot />
+      </div>
     </div>
-    <ScrollIndicator class="text-gray-200" v-if="route.path === '/'" />
   </div>
+
+  <MouseFollower />
 </template>
 
 <script setup lang="ts">
-const route = useRoute();
+import { gsap } from "gsap";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
+
+onMounted(() => {
+  gsap.registerPlugin(ScrollSmoother);
+
+  ScrollSmoother.create({
+    smooth: 1, // how long (in seconds) it takes to "catch up" to the native scroll position
+    effects: true, // looks for data-speed and data-lag attributes on elements
+    smoothTouch: 0.1, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
+  });
+});
 </script>
