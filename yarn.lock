@@ -1062,7 +1062,7 @@
     "@nuxt/schema" "^3.9.1"
     execa "^7.2.0"
 
-"@nuxt/devtools-kit@^1.1.3":
+"@nuxt/devtools-kit@^1.1.5":
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/@nuxt/devtools-kit/-/devtools-kit-1.1.5.tgz#d5c1d2e70019754627c52bbe02c717c543dc596f"
   integrity sha512-Nb/NKFCRtxyqcPD6snB52rXtbRQMjGtn3ncpa8cLWsnoqnkd9emQ4uwV8IwCNxTnqUBtbGU79/TlJ79SKH9TAw==
@@ -1138,12 +1138,12 @@
     eslint-plugin-vue "^9.17.0"
     typescript "^5.2.2"
 
-"@nuxt/fonts@^0.5.1":
-  version "0.5.1"
-  resolved "https://registry.yarnpkg.com/@nuxt/fonts/-/fonts-0.5.1.tgz#538cc0bb222a6ba1a2eed158ee1f9a6ee36d8690"
-  integrity sha512-6+IdrdjQdSre/XPPKGNau2EUoJIfB36FCkVhLM8iUap8rcxaH6iEniKS781hioXM025jUOCjTQjE6OD/FovCcA==
+"@nuxt/fonts@^0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@nuxt/fonts/-/fonts-0.6.1.tgz#6e61aa9614aa3726592ab26e52e7dff9a23da5bf"
+  integrity sha512-YeoXSHgRGoKYGLYu/gw7XDQ9mqyO+ihrCCwjxtH6Ke/2r5A9xI3frPzC5RVCgzZjxbd7W3EDAlyVwwEjCb9x+g==
   dependencies:
-    "@nuxt/devtools-kit" "^1.1.3"
+    "@nuxt/devtools-kit" "^1.1.5"
     "@nuxt/kit" "^3.11.1"
     chalk "^5.3.0"
     css-tree "^2.3.1"
@@ -1160,7 +1160,7 @@
     pathe "^1.1.2"
     sirv "^2.0.4"
     ufo "^1.5.3"
-    unplugin "^1.10.0"
+    unplugin "^1.10.1"
     unstorage "^1.10.2"
 
 "@nuxt/image@^1.4.0":
@@ -1205,7 +1205,7 @@
     unimport "^3.7.1"
     untyped "^1.4.2"
 
-"@nuxt/kit@^3.11.1", "@nuxt/kit@^3.4.0":
+"@nuxt/kit@^3.11.1", "@nuxt/kit@^3.4.0", "@nuxt/kit@^3.5.0":
   version "3.11.1"
   resolved "https://registry.yarnpkg.com/@nuxt/kit/-/kit-3.11.1.tgz#342335f1cbf7422a3e65be67f3ff975e6075decf"
   integrity sha512-8VVlhaY4N+wipgHmSXP+gLM+esms9TEBz13I/J++PbOUJuf2cJlUUTyqMoRVL0xudVKK/8fJgSndRkyidy1m2w==
@@ -1481,6 +1481,14 @@
     "@parcel/watcher-win32-arm64" "2.4.1"
     "@parcel/watcher-win32-ia32" "2.4.1"
     "@parcel/watcher-win32-x64" "2.4.1"
+
+"@pinia/nuxt@^0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@pinia/nuxt/-/nuxt-0.5.1.tgz#ee7c979d365a5dfda882430ddfae405fbd78d8d5"
+  integrity sha512-6wT6TqY81n+7/x3Yhf0yfaJVKkZU42AGqOR0T3+UvChcaOJhSma7OWPN64v+ptYlznat+fS1VTwNAcbi2lzHnw==
+  dependencies:
+    "@nuxt/kit" "^3.5.0"
+    pinia ">=2.1.7"
 
 "@pkgjs/parseargs@^0.11.0":
   version "0.11.0"
@@ -2513,7 +2521,7 @@
     "@vue/compiler-dom" "3.4.21"
     "@vue/shared" "3.4.21"
 
-"@vue/devtools-api@^6.5.1":
+"@vue/devtools-api@^6.5.0", "@vue/devtools-api@^6.5.1":
   version "6.6.1"
   resolved "https://registry.yarnpkg.com/@vue/devtools-api/-/devtools-api-6.6.1.tgz#7c14346383751d9f6ad4bea0963245b30220ef83"
   integrity sha512-LgPscpE3Vs0x96PzSSB4IGVSZXZBZHpfxs+ZA1d+VEPwHdOXowy/Y2CsvCAIFrf+ssVU1pD1jidj505EpUnfbA==
@@ -6112,6 +6120,14 @@ pify@^2.3.0:
   resolved "https://registry.yarnpkg.com/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
   integrity sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog==
 
+pinia@>=2.1.7:
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/pinia/-/pinia-2.1.7.tgz#4cf5420d9324ca00b7b4984d3fbf693222115bbc"
+  integrity sha512-+C2AHFtcFqjPih0zpYuvof37SFxMQ7OEG2zV9jRI12i9BOy3YQVAHwdKtyyc8pDcDyIc33WCIsZaCFWU7WWxGQ==
+  dependencies:
+    "@vue/devtools-api" "^6.5.0"
+    vue-demi ">=0.14.5"
+
 pirates@^4.0.1:
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/pirates/-/pirates-4.0.6.tgz#3018ae32ecfcff6c29ba2267cbf21166ac1f36b9"
@@ -7661,7 +7677,7 @@ unplugin-vue-router@^0.7.0:
     unplugin "^1.5.0"
     yaml "^2.3.2"
 
-unplugin@^1.10.0, unplugin@^1.8.3:
+unplugin@^1.10.1, unplugin@^1.8.3:
   version "1.10.1"
   resolved "https://registry.yarnpkg.com/unplugin/-/unplugin-1.10.1.tgz#8ceda065dc71bc67d923dea0920f05c67f2cd68c"
   integrity sha512-d6Mhq8RJeGA8UfKCu54Um4lFA0eSaRa3XxdAJg8tIdxbu1ubW0hBCZUL7yI2uGyYCRndvbK8FLHzqy2XKfeMsg==
@@ -7926,7 +7942,7 @@ vue-bundle-renderer@^2.0.0:
   dependencies:
     ufo "^1.2.0"
 
-vue-demi@>=0.14.7:
+vue-demi@>=0.14.5, vue-demi@>=0.14.7:
   version "0.14.7"
   resolved "https://registry.yarnpkg.com/vue-demi/-/vue-demi-0.14.7.tgz#8317536b3ef74c5b09f268f7782e70194567d8f2"
   integrity sha512-EOG8KXDQNwkJILkx/gPcoL/7vH+hORoBaKgGe+6W7VFMvCYJfmF2dGbvgDroVnI8LU7/kTu8mbjRZGBU1z9NTA==

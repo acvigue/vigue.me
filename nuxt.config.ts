@@ -3,7 +3,7 @@ import { splitVendorChunkPlugin } from "vite";
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/image", "nuxt-svgo"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/image", "nuxt-svgo", "@nuxt/fonts"],
   css: ["assets/main.scss"],
   vite: {
     plugins: [glsl(), splitVendorChunkPlugin()],

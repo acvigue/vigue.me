@@ -1,52 +1,22 @@
 <template>
-  <!-- Vertical left navbar -->
-  <div
-    class="fixed top-0 left-0 hidden lg:flex h-dvh w-24 flex-col border-khaki border-r items-center p-5 bg-champagne z-50"
-  >
-    <div class="flex-1 flex items-start h-10">
-      <button
-        class="cursor-pointer hover:scale-125 duration-500 h-10"
-        data-cursor-stick
-        @click="openNavbar"
-      >
-        <Bars3BottomLeftIcon class="h-full" />
-      </button>
-    </div>
-    <NuxtLink
-      to="/"
-      class="text-vertical rotate-180 flex flex-col items-center hover:scale-105 duration-500"
-      data-cursor-stick
-    >
-      <span class="font-serif italic text-lg">Online Portfolio</span>
-      <span class="font-serif2 text-xl">{{ appConfig.name }}</span>
-    </NuxtLink>
-    <div class="flex-1 flex flex-col items-center justify-end">
-      <div class="text-vertical rotate-180">
-        <span class="font-serif2 text-sm">Mar. 2024</span>
-      </div>
-    </div>
-  </div>
-
   <!-- Horizontal top navbar -->
   <div
-    class="fixed top-0 left-0 lg:hidden flex w-dvw border-khaki border-b items-center h-20 p-5 bg-champagne z-50"
+    class="fixed top-0 left-0 flex w-full border-khaki border-b items-center h-20 p-5 bg-champagne z-50 text-licorice"
   >
-    <NuxtLink
-      to="/"
-      class="flex flex-col items-start hover:scale-105 duration-500"
-      data-cursor-stick
-    >
-      <span class="font-serif italic text-sm">Online Portfolio</span>
-      <span class="font-serif2 text-md">{{ appConfig.name }}</span>
-    </NuxtLink>
+    <div class="flex-1 hidden lg:flex">
+      <NavLogoBlock />
+    </div>
+
+    <NavNameBlock class="stroke-licorice lg:items-center items-start" />
 
     <div class="flex-1 flex justify-end h-10">
       <button
-        class="cursor-pointer hover:scale-125 duration-500 h-10"
-        data-cursor-stick
+        to="/contact"
+        class="flex text-licorice items-center gap-4 border-licorice border-2 rounded-full px-4 hover:bg-licorice hover:text-champagne duration-500"
         @click="openNavbar"
       >
-        <Bars3BottomLeftIcon class="h-full" />
+        <span class="font-serif2 text-lg">Menu </span>
+        <Bars3BottomLeftIcon class="h-5" />
       </button>
     </div>
   </div>
@@ -67,14 +37,7 @@
             <XMarkIcon class="h-full" />
           </button>
         </div>
-        <NuxtLink
-          to="/"
-          class="flex flex-col items-center hover:scale-105 duration-500"
-          data-cursor-stick
-        >
-          <span class="font-serif2 text-xl">{{ appConfig.name }}</span>
-          <span class="font-serif italic">Online Portfolio</span>
-        </NuxtLink>
+        <NavNameBlock class="!items-center" />
         <div class="flex-1"></div>
       </div>
       <div class="flex flex-col items-center justify-center flex-1">

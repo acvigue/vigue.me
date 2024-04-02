@@ -11,8 +11,9 @@
   },
   "dependencies": {
     "@heroicons/vue": "^2.1.1",
-    "@nuxt/fonts": "^0.5.1",
+    "@nuxt/fonts": "^0.6.1",
     "@nuxt/image": "^1.4.0",
+    "@pinia/nuxt": "^0.5.1",
     "@tresjs/cientos": "^3.3.0-next.0",
     "@tresjs/core": "npm:@aidenvigue/tresjs-core@^3.7.1",
     "@tresjs/nuxt": "npm:@aidenvigue/tresjs-nuxt@^2.1.1",

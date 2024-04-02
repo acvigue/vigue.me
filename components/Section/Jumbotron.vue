@@ -1,28 +1,44 @@
 <template>
-  <div
-    class="flex justify-center items-center w-full flex-col h-full"
-    ref="panel"
-  >
-    <div class="flex-1"></div>
-    <div class="flex flex-col items-center w-full">
-      <span class="font-serif text-8xl italic" ref="firstName">Aiden</span>
-      <span class="font-serif text-8xl italic" ref="lastName">Vigue</span>
-      <div
-        class="flex max-w-[60vw] lg:max-w-2xl justify-between items-center w-full mt-8"
-      >
-        <span class="font-serif2 text-3xl text-taupe" ref="item1">Student</span>
-        <span class="font-serif2 text-3xl text-taupe" ref="item2"
-          >Developer</span
+  <Panel>
+    <div
+      class="flex justify-center items-center w-full flex-col h-full"
+      ref="panel"
+    >
+      <div class="flex-1"></div>
+      <div class="flex flex-col items-center w-full text-licorice">
+        <span
+          class="font-serif italic font-bold text-8xl opacity-0"
+          ref="firstName"
+          data-cursor="-pointer"
+          >Aiden</span
         >
-        <span class="font-serif2 text-3xl text-taupe" ref="item3">Maker</span>
+        <span
+          class="font-serif italic font-bold text-8xl opacity-0"
+          ref="lastName"
+          data-cursor="-pointer"
+          >Vigue</span
+        >
+        <div
+          class="flex max-w-[60vw] lg:max-w-2xl justify-between items-center w-full mt-8"
+        >
+          <span class="font-serif2 text-3xl text-taupe opacity-0" ref="item1"
+            >Student</span
+          >
+          <span class="font-serif2 text-3xl text-taupe opacity-0" ref="item2"
+            >Developer</span
+          >
+          <span class="font-serif2 text-3xl text-taupe opacity-0" ref="item3"
+            >Maker</span
+          >
+        </div>
+      </div>
+      <div class="flex-1 flex flex-col justify-end">
+        <div class="mb-12 opacity-0" ref="scrollIndicator">
+          <ScrollIndicator />
+        </div>
       </div>
     </div>
-    <div class="flex-1 flex flex-col justify-end">
-      <div class="mb-12" ref="scrollIndicator">
-        <ScrollIndicator />
-      </div>
-    </div>
-  </div>
+  </Panel>
 </template>
 
 <script setup lang="ts">
@@ -45,17 +61,7 @@ onMounted(() => {
   gsap.registerPlugin(ScrollTrigger);
 
   ctx = gsap.context(() => {
-    if (!panel.value) return;
-
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: panel.value,
-        start: "top top+=10%",
-        end: "bottom top",
-      },
-    });
-
-    tl.addLabel("start");
+    const tl = gsap.timeline();
 
     tl.fromTo(
       firstName.value!,
@@ -71,7 +77,7 @@ onMounted(() => {
         ease: "power1.inOut",
         duration: 0.7,
       },
-      "start"
+      0
     );
 
     tl.fromTo(
@@ -88,7 +94,7 @@ onMounted(() => {
         ease: "power1.inOut",
         duration: 0.7,
       },
-      "start"
+      "<"
     );
 
     tl.fromTo(
@@ -158,6 +164,18 @@ onMounted(() => {
       },
       "<+0.5"
     );
+
+    gsap.to("#scroll-indicator", {
+      scrollTrigger: {
+        trigger: panel.value!,
+        start: "top 90%",
+        end: "bottom 10%",
+        scrub: 1,
+      },
+      opacity: 0,
+      ease: "power1.inOut",
+      duration: 0.5,
+    });
   });
 });
 
