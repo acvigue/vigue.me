@@ -81,7 +81,7 @@ onNuxtReady(() => {
       scrollTrigger: {
         trigger: panel.value,
         start: "top 80%",
-        end: "bottom bottom",
+        end: "top 20%",
         scrub: 1,
       },
     });
