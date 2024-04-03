@@ -2,7 +2,8 @@
   <div ref="panelsContainer" id="panels-container">
     <SectionJumbotron />
     <SectionAbout />
-    <SectionProjects />
+    <SectionFeaturedProjects />
+    <SectionContact />
   </div>
 </template>
 

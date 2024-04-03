@@ -5,10 +5,10 @@
       <div
         class="flex flex-col h-full lg:max-w-4xl w-[80vw] justify-center gap-4"
       >
-        <span class="font-serif text-md font-bold" ref="panelHeader"
+        <span class="font-serif text-lg font-bold" ref="panelHeader"
           >About Me</span
         >
-        <span class="font-serif text-3xl pl-4 mb-4" ref="bodyText">
+        <span class="font-serif md:text-3xl text-xl pl-4 mb-4" ref="bodyText">
           As a
           <b data-cursor="-pointer" class="text-taupe font-serif2"
             >computer science student</b
@@ -21,8 +21,8 @@
           involvement in numerous past projects has helped to solidify my
           foundational expertise in the realm of embedded systems and
           <b data-cursor="-pointer" class="text-taupe font-serif2"
-            >software development</b
-          >.
+            >software development.</b
+          >
         </span>
         <div class="flex flex-col gap-4" ref="cta">
           <div class="flex justify-end mr-48">

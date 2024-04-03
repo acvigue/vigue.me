@@ -21,13 +21,19 @@
         <div
           class="flex max-w-[60vw] lg:max-w-2xl justify-between items-center w-full mt-8"
         >
-          <span class="font-serif2 text-3xl text-taupe opacity-0" ref="item1"
+          <span
+            class="font-serif2 md:text-3xl text-xl text-taupe opacity-0"
+            ref="item1"
             >Student</span
           >
-          <span class="font-serif2 text-3xl text-taupe opacity-0" ref="item2"
+          <span
+            class="font-serif2 md:text-3xl text-xl text-taupe opacity-0"
+            ref="item2"
             >Developer</span
           >
-          <span class="font-serif2 text-3xl text-taupe opacity-0" ref="item3"
+          <span
+            class="font-serif2 md:text-3xl text-xl text-taupe opacity-0"
+            ref="item3"
             >Maker</span
           >
         </div>
@@ -168,8 +174,8 @@ onMounted(() => {
     gsap.to("#scroll-indicator", {
       scrollTrigger: {
         trigger: panel.value!,
-        start: "top 90%",
-        end: "bottom 10%",
+        start: "bottom bottom",
+        end: "bottom 80%",
         scrub: 1,
       },
       opacity: 0,

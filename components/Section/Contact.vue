@@ -1,49 +1,52 @@
 <template>
-  <Separator :index="2">Projects</Separator>
+  <Separator :index="3">Contact</Separator>
   <Panel>
-    <div class="flex justify-center items-center w-full" ref="panel">
-      <div class="flex flex-col h-full lg:max-w-7xl w-[80vw]">
-        <div class="flex flex-col flex-1 justify-center">
+    <div class="flex justify-center items-center w-full py-[4rem]" ref="panel">
+      <div
+        class="flex flex-col h-full lg:max-w-4xl w-[80vw] justify-center gap-4"
+      >
+        <div class="flex flex-1 justify-start items-center gap-2">
           <span
-            class="font-serif italic text-7xl font-bold leading-3"
+            class="font-serif italic md:text-7xl text-4xl text-taupe font-bold"
             ref="panelHeader"
-            >Featured</span
+            >Let's</span
           >
           <span
-            class="font-serif italic text-7xl text-taupe ml-72"
-            ref="panelHeader"
-            >Projects</span
+            class="font-serif italic md:text-6xl text-4xl mt-6"
+            ref="panelHeader2"
+            >Connect</span
           >
         </div>
-
-        <div class="flex flex-col justify-start items-end w-full px-20">
-          <div class="flex project p-4 w-full">
-            <span class="text-4xl font-serif">Project 1 Title</span>
-          </div>
-          <div class="flex project p-4 w-full">
-            <span class="text-4xl font-serif">Project 2 Title</span>
-          </div>
-          <div class="flex project p-4 w-full">
-            <span class="text-4xl font-serif">Project 3 Title</span>
-          </div>
+        <div class="rounded-lg p-4 border border-khaki shadow-lg">
+          <FormKit type="form" class="lg:w-2xl" :actions="false">
+            <FormKit type="text" label="Name" validation="required" />
+            <FormKit type="text" label="Email" validation="required|email" />
+            <FormKit type="textarea" label="Message" validation="required" />
+            <button
+              type="submit"
+              class="flex text-licorice items-center gap-2 border-licorice border-2 rounded-full px-4 hover:bg-licorice hover:text-champagne duration-500"
+              data-cursor-stick
+            >
+              <span class="font-serif2 text-lg">Send </span>
+              <EnvelopeIcon class="h-5" />
+            </button>
+          </FormKit>
         </div>
 
         <div class="flex-1"></div>
       </div>
     </div>
   </Panel>
+
+  <Teleport to="body">
+    <Transition name="fade-y">
+      <CVModal v-if="cvOpen" @close="cvOpen = false" />
+    </Transition>
+  </Teleport>
 </template>
 
-<style lang="scss" scoped>
-.project {
-  &:not(:last-of-type) {
-    @apply border-b-2 border-khaki;
-  }
-}
-</style>
-
 <script setup lang="ts">
-import { ArrowUpRightIcon, ArrowDownTrayIcon } from "@heroicons/vue/24/solid";
+import { EnvelopeIcon } from "@heroicons/vue/24/outline";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
@@ -56,20 +59,24 @@ const bodyText = shallowRef<HTMLSpanElement>();
 
 const cta = shallowRef<HTMLDivElement>();
 
+const contactMessage = shallowRef("");
+
 const cvOpen = ref(false);
 
 onNuxtReady(() => {
   gsap.registerPlugin(SplitText, ScrollTrigger);
-  /*
+
   ctx = gsap.context(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: panel.value,
         start: "top 60%",
-        end: "bottom bottom",
+        end: "top 20%",
         scrub: 1,
       },
     });
+
+    /*
 
     const lines = new SplitText(bodyText.value!, { type: "lines" }).lines;
 
@@ -125,8 +132,9 @@ onNuxtReady(() => {
       },
       "<+=0.03"
     );
+
+    */
   });
-  */
 });
 
 onBeforeUnmount(() => {

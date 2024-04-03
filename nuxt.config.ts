@@ -3,7 +3,13 @@ import { splitVendorChunkPlugin } from "vite";
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ["@nuxtjs/tailwindcss", "@nuxt/image", "nuxt-svgo", "@nuxt/fonts"],
+  modules: [
+    "@nuxtjs/tailwindcss",
+    "@nuxt/image",
+    "nuxt-svgo",
+    "@nuxt/fonts",
+    "@formkit/nuxt",
+  ],
   css: ["assets/main.scss"],
   vite: {
     plugins: [glsl(), splitVendorChunkPlugin()],
@@ -17,6 +23,10 @@ export default defineNuxtConfig({
   },
   image: {
     domains: ["blogcdn.vigue.me"],
+  },
+  formkit: {
+    // Experimental support for auto loading (see note):
+    autoImport: true,
   },
   routeRules: {
     "/": { isr: true },
@@ -33,8 +43,8 @@ export default defineNuxtConfig({
         file: "~/pages/index.vue",
       });
       pages.push({
-        name: "projects",
-        path: "/projects",
+        name: "featured_projects",
+        path: "/featured_projects",
         file: "~/pages/index.vue",
       });
       pages.push({
