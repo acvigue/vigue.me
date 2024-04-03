@@ -12,7 +12,7 @@
             >Let's</span
           >
           <span
-            class="font-serif italic md:text-6xl text-4xl mt-6"
+            class="font-serif italic md:text-6xl text-4xl mt-8"
             ref="panelHeader2"
             >Connect</span
           >

@@ -795,11 +795,6 @@
     "@formkit/core" "1.6.1"
     "@formkit/utils" "1.6.1"
 
-"@formkit/drag-and-drop@^0.0.30":
-  version "0.0.30"
-  resolved "https://registry.yarnpkg.com/@formkit/drag-and-drop/-/drag-and-drop-0.0.30.tgz#fdc93d3824c0923c2a6990fb784b43093a0636b5"
-  integrity sha512-2DjdagW6ibG/SfTwOxH1y/NBK50nSV2tfZ0iXMbdI/NCAsXr4UrKI/ytjm38qunpzb1w68r4b5iODV7YE/lbgA==
-
 "@formkit/i18n@1.6.1":
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/@formkit/i18n/-/i18n-1.6.1.tgz#53ed24958501a2c1b4eba0de364a57022c4bec4b"
@@ -846,14 +841,6 @@
     "@formkit/core" "1.6.1"
     "@formkit/utils" "1.6.1"
 
-"@formkit/pro@^0.122.15":
-  version "0.122.15"
-  resolved "https://registry.yarnpkg.com/@formkit/pro/-/pro-0.122.15.tgz#f2f43b170c91dc1d21d43f3410c72584b7bedf7e"
-  integrity sha512-g0XvP9w11IrxsiLEjge3JUTBf+ijJTfkHM4YrOLRKvT0kGsswX4Cy1VyJoByyTSjeX3oYc12zRP7i2se+GMvXw==
-  dependencies:
-    "@formkit/drag-and-drop" "^0.0.30"
-    "@formkit/tempo" "^0.0.8"
-
 "@formkit/rules@1.6.1":
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/@formkit/rules/-/rules-1.6.1.tgz#8aeaf7fd0605a96952cd693e04589ee820dd2197"
@@ -862,11 +849,6 @@
     "@formkit/core" "1.6.1"
     "@formkit/utils" "1.6.1"
     "@formkit/validation" "1.6.1"
-
-"@formkit/tempo@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@formkit/tempo/-/tempo-0.0.8.tgz#2ec9e6180813bce01a2093ced3840a01c4c4958c"
-  integrity sha512-q9Ch3Epjb5yFVNV2vAruHyPwcvZujiPcBQ7r6if+HmOciMhwkQccL9NOm9LNmN23hNk2y3+El/ygUH2/x539sg==
 
 "@formkit/themes@1.6.1":
   version "1.6.1"
