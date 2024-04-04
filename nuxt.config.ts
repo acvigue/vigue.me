@@ -31,8 +31,7 @@ export default defineNuxtConfig({
     autoImport: false,
   },
   routeRules: {
-    "/": { isr: true },
-    //"/posts/**": { isr: true },
+    "/**": { isr: 86400 },
   },
   experimental: {
     componentIslands: true,
@@ -63,5 +62,6 @@ export default defineNuxtConfig({
   },
   sitemap: {
     sources: ["/api/sitemap"],
+    cacheMaxAgeSeconds: 3600,
   },
 });
