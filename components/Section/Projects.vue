@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+const { $gsap } = useNuxtApp()
 
 let ctx: gsap.Context
 
@@ -15,11 +14,9 @@ const { data } = await useFetch('/api/posts', {
   query: { limit: 6, featured: true },
 })
 
-onNuxtReady(() => {
-  gsap.registerPlugin(ScrollTrigger)
-
-  ctx = gsap.context(() => {
-    const tl = gsap.timeline({
+onMounted(() => {
+  ctx = $gsap.context(() => {
+    const tl = $gsap.timeline({
       scrollTrigger: {
         trigger: panel.value,
         start: 'top 80%',
@@ -97,7 +94,7 @@ onNuxtReady(() => {
       '<+=0.03',
     )
 
-    const hideTL = gsap.timeline({
+    const hideTL = $gsap.timeline({
       scrollTrigger: {
         trigger: panel.value,
         start: 'bottom 40%',
@@ -123,7 +120,8 @@ onNuxtReady(() => {
 })
 
 onBeforeUnmount(() => {
-  ctx.revert()
+  if (ctx)
+    ctx.revert()
 })
 </script>
 

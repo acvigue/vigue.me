@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { ArrowDownTrayIcon, ArrowUpRightIcon } from '@heroicons/vue/24/solid'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { SplitText } from 'gsap/SplitText'
+
+const { $gsap, $SplitText } = useNuxtApp()
 
 let ctx: gsap.Context
 
@@ -12,11 +11,9 @@ const bodyText = shallowRef<HTMLSpanElement>()
 
 const cta = shallowRef<HTMLDivElement>()
 
-onNuxtReady(() => {
-  gsap.registerPlugin(SplitText, ScrollTrigger)
-
-  ctx = gsap.context(() => {
-    const tl = gsap.timeline({
+onMounted(() => {
+  ctx = $gsap.context(() => {
+    const tl = $gsap.timeline({
       scrollTrigger: {
         trigger: panel.value,
         start: 'top 60%',
@@ -25,7 +22,7 @@ onNuxtReady(() => {
       },
     })
 
-    const lines = new SplitText(bodyText.value!, { type: 'lines' }).lines
+    const lines = new $SplitText(bodyText.value!, { type: 'lines' }).lines
 
     tl.addLabel('start')
 
@@ -80,7 +77,7 @@ onNuxtReady(() => {
       '<+=0.03',
     )
 
-    const hideTL = gsap.timeline({
+    const hideTL = $gsap.timeline({
       scrollTrigger: {
         trigger: panel.value,
         start: 'bottom 40%',
@@ -106,7 +103,8 @@ onNuxtReady(() => {
 })
 
 onBeforeUnmount(() => {
-  ctx.revert()
+  if (ctx)
+    ctx.revert()
 })
 </script>
 

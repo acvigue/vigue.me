@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+const { $gsap } = useNuxtApp()
 
 let ctx: gsap.Context
 
@@ -15,10 +14,8 @@ const item3 = shallowRef<HTMLDivElement>()
 const scrollIndicator = shallowRef<HTMLDivElement>()
 
 onMounted(() => {
-  gsap.registerPlugin(ScrollTrigger)
-
-  ctx = gsap.context(() => {
-    const tl = gsap.timeline()
+  ctx = $gsap.context(() => {
+    const tl = $gsap.timeline()
 
     tl.fromTo(
       firstName.value!,
@@ -122,7 +119,7 @@ onMounted(() => {
       '<+0.5',
     )
 
-    gsap.to('#scroll-indicator', {
+    $gsap.to('#scroll-indicator', {
       scrollTrigger: {
         trigger: panel.value!,
         start: 'bottom bottom',
@@ -137,7 +134,8 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
-  ctx.revert()
+  if (ctx)
+    ctx.revert()
 })
 </script>
 

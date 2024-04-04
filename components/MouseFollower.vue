@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import MouseFollower from 'mouse-follower'
-import gsap from 'gsap'
 
-MouseFollower.registerGSAP(gsap)
+const { $gsap } = useNuxtApp()
+
+MouseFollower.registerGSAP($gsap)
 
 const cursorRef = ref()
 
-onNuxtReady(() => {
+onMounted(() => {
   const _x = new MouseFollower({
     el: cursorRef.value,
     speed: 0.8,

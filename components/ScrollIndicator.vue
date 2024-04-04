@@ -1,6 +1,3 @@
-<script setup lang="ts">
-</script>
-
 <template>
   <div id="scroll-indicator" class="flex gap-3 items-center">
     <span class="text-persian font-serif">scroll down</span>

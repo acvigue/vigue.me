@@ -77,7 +77,8 @@ onNuxtReady(() => {
 */
 
 onBeforeUnmount(() => {
-  ctx.revert()
+  if (ctx)
+    ctx.revert()
 })
 </script>
 
