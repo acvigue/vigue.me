@@ -33,20 +33,40 @@
           </FormKit>
         </div>
 
-        <div class="flex-1"></div>
+        <div class="flex-1 flex items-center justify-center gap-4">
+          <NuxtLink
+            to="https://www.linkedin.com/in/aidenvigue"
+            data-cursor-stick
+          >
+            <linkedin class="stroke-[2px] stroke-licorice icon !h-6 !w-6" />
+          </NuxtLink>
+          <NuxtLink to="https://github.com/acvigue" data-cursor-stick>
+            <github class="stroke-[2px] stroke-licorice icon !h-6 !w-6" />
+          </NuxtLink>
+          <NuxtLink
+            to="https://open.spotify.com/user/w3g33ot2c4zxlxtzy15i7ldxi?si=bbdc95da1a284d60"
+            data-cursor-stick
+          >
+            <music class="stroke-[2px] stroke-licorice icon !h-6 !w-6" />
+          </NuxtLink>
+        </div>
       </div>
     </div>
   </Panel>
-
-  <Teleport to="body">
-    <Transition name="fade-y">
-      <CVModal v-if="cvOpen" @close="cvOpen = false" />
-    </Transition>
-  </Teleport>
 </template>
+
+<style lang="scss">
+.icon * {
+  @apply fill-transparent;
+}
+</style>
 
 <script setup lang="ts">
 import { EnvelopeIcon } from "@heroicons/vue/24/outline";
+import linkedin from "@/assets/linkedin.svg";
+import github from "@/assets/github.svg";
+import music from "@/assets/music.svg";
+
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
@@ -58,13 +78,6 @@ let ctx: gsap.Context;
 
 const panel = shallowRef<HTMLDivElement>();
 const panelHeader = shallowRef<HTMLSpanElement>();
-const bodyText = shallowRef<HTMLSpanElement>();
-
-const cta = shallowRef<HTMLDivElement>();
-
-const contactMessage = shallowRef("");
-
-const cvOpen = ref(false);
 
 onNuxtReady(() => {
   gsap.registerPlugin(SplitText, ScrollTrigger);

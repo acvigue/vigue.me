@@ -36,28 +36,22 @@
               class="flex text-licorice items-center gap-2 border-licorice border-2 rounded-full px-4 hover:bg-licorice hover:text-champagne duration-500"
               data-cursor-stick
             >
-              <span class="font-serif2 text-lg">Contact </span>
+              <span class="font-serif2 text-lg">Contact</span>
               <ArrowUpRightIcon class="h-5" />
             </NuxtLink>
-            <button
-              @click="cvOpen = true"
+            <NuxtLink
+              to="https://blogcdn.vigue.me/Resume.pdf"
               class="flex text-licorice items-center gap-2 border-licorice border-2 rounded-full px-4 hover:bg-licorice hover:text-champagne duration-500"
               data-cursor-stick
             >
-              <span class="font-serif2 text-lg">My CV </span>
+              <span class="font-serif2 text-lg">My Resume</span>
               <ArrowDownTrayIcon class="h-5" />
-            </button>
+            </NuxtLink>
           </div>
         </div>
       </div>
     </div>
   </Panel>
-
-  <Teleport to="body">
-    <Transition name="fade-y">
-      <CVModal v-if="cvOpen" @close="cvOpen = false" />
-    </Transition>
-  </Teleport>
 </template>
 
 <script setup lang="ts">
@@ -76,8 +70,6 @@ const panelHeader = shallowRef<HTMLSpanElement>();
 const bodyText = shallowRef<HTMLSpanElement>();
 
 const cta = shallowRef<HTMLDivElement>();
-
-const cvOpen = ref(true);
 
 onNuxtReady(() => {
   gsap.registerPlugin(SplitText, ScrollTrigger);

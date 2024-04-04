@@ -16,6 +16,7 @@
     "@nuxt/fonts": "^0.6.1",
     "@nuxt/image": "^1.4.0",
     "@pinia/nuxt": "^0.5.1",
+    "@tato30/vue-pdf": "^1.9.6",
     "@tresjs/cientos": "^3.3.0-next.0",
     "@tresjs/core": "npm:@aidenvigue/tresjs-core@^3.7.1",
     "@tresjs/nuxt": "npm:@aidenvigue/tresjs-nuxt@^2.1.1",
@@ -30,7 +31,7 @@
     "tweakpane": "^4.0.3",
     "vue": "^3.4.19",
     "vue-easy-lightbox": "^1.19.0",
-    "vue-pdf-embed": "^2.0.3",
+    "vue-feather-icons": "^5.1.0",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
@@ -38,6 +39,7 @@
     "@nuxtjs/tailwindcss": "^6.11.4",
     "@types/date-fns": "^2.6.0",
     "@types/three": "^0.162.0",
+    "@types/vue-feather-icons": "^5.0.8",
     "nuxt-svgo": "^4.0.0",
     "sass": "^1.71.1",
     "vite-plugin-glsl": "^1.2.1"
