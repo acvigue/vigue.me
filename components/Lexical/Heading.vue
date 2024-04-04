@@ -25,7 +25,7 @@ const classes = () => {
     "!text-lg": props.node.tag === "h4",
     "!text-md": props.node.tag === "h5",
     "!text-sm": props.node.tag === "h6",
-    "text-taupe": true,
+    "text-persian": true,
     "font-serif": true,
     "font-bold": true,
   };

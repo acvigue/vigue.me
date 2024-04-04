@@ -3,7 +3,7 @@
     <div class="flex flex-col h-full lg:max-w-7xl w-[80vw] gap-4">
       <div class="flex flex-1 justify-start gap-2">
         <span
-          class="font-serif italic md:text-7xl text-4xl text-taupe font-bold"
+          class="font-serif italic md:text-7xl text-4xl text-persian font-bold"
           ref="panelHeader"
           >All</span
         >
@@ -29,23 +29,26 @@
         <button
           :disabled="page == 1"
           @click="goToPage(page - 1)"
-          class="rounded-l-lg text-taupe p-2 border-taupe border-2 border-r-0 h-10 w-10 flex items-center justify-center font-bold font-serif2 disabled:border-khaki disabled:text-khaki"
+          class="rounded-l-lg text-persian p-2 border-persian border-2 border-r-0 h-10 w-10 flex items-center justify-center font-bold font-serif2 disabled:border-khaki disabled:text-khaki"
         >
           <ArrowLeftIcon class="h-5 w-5" />
         </button>
         <button
           @click="goToPage(p.name)"
           :disabled="p.isDisabled"
+          :class="{
+            'bg-persian !border-persian !text-champagne': p.name === page
+          }"
           v-for="p in pages"
           :key="p.name"
-          class="text-taupe p-2 border-taupe border-2 border-l-1 border-r-0 h-10 w-10 flex items-center justify-center font-bold font-serif2 disabled:border-khaki disabled:text-khaki"
+          class="text-persian p-2 border-persian border-2 border-l-1 border-r-0 h-10 w-10 flex items-center justify-center font-bold font-serif2 disabled:border-khaki disabled:text-khaki"
         >
           {{ p.name }}
         </button>
         <button
           :disabled="page == totalPages"
           @click="goToPage(page + 1)"
-          class="rounded-r-lg text-taupe p-2 border-taupe border-2 border-l-1 h-10 w-10 flex items-center justify-center font-bold font-serif2 disabled:border-khaki disabled:text-khaki"
+          class="rounded-r-lg text-persian p-2 border-persian border-2 border-l-1 h-10 w-10 flex items-center justify-center font-bold font-serif2 disabled:border-khaki disabled:text-khaki"
         >
           <ArrowRightIcon class="h-5 w-5" />
         </button>

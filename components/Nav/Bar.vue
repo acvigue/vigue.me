@@ -40,10 +40,10 @@
         <div class="flex-1"></div>
       </div>
       <div class="flex flex-col items-center justify-center flex-1">
-        <NavItem to="/about">about</NavItem>
-        <NavItem to="/projects">projects</NavItem>
-        <NavItem to="/experience">experience</NavItem>
-        <NavItem to="/contact">contact</NavItem>
+        <NavItem to="/about" @click="closeNavbar">about</NavItem>
+        <NavItem to="/projects/1" @click="closeNavbar">projects</NavItem>
+        <NavItem to="/experience" @click="closeNavbar">experience</NavItem>
+        <NavItem to="/contact" @click="closeNavbar">contact</NavItem>
       </div>
     </div>
   </Transition>
@@ -52,14 +52,7 @@
 <script setup lang="ts">
 import { Bars3BottomLeftIcon, XMarkIcon } from "@heroicons/vue/24/outline";
 
-const { $listen } = useNuxtApp();
-const appConfig = useAppConfig();
-
 const isOpen = ref(false);
-
-const props = defineProps<{
-  vertical?: boolean;
-}>();
 
 const openNavbar = () => {
   isOpen.value = true;
@@ -68,8 +61,4 @@ const openNavbar = () => {
 const closeNavbar = () => {
   isOpen.value = false;
 };
-
-onMounted(() => {
-  $listen("closeNav", closeNavbar);
-});
 </script>

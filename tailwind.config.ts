@@ -20,7 +20,7 @@ export default {
         khaki: "#C9B79C",
         carribean: "#16697A",
         licorice: "#1F1300",
-        taupe: "#8C5E58",
+        persian: "#BB4430",
       },
     },
   },

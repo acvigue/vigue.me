@@ -1,5 +1,5 @@
 <template>
-  <a :href="node.url" class="text-taupe underline">
+  <a :href="node.url" class="text-persian underline">
     <LexicalNodeRenderer :node="props.node.children" />
   </a>
 </template>

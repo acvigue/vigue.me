@@ -3,17 +3,17 @@
     <div class="flex flex-col h-full lg:max-w-7xl w-[95vw] gap-4">
       <div class="flex flex-col items-center text-white mb-4 gap-4">
         <h1
-          class="text-center text-4xl font-serif font-extrabold text-taupe md:w-2/3 lg:w-full lg:text-5xl"
+          class="text-center text-4xl font-serif font-extrabold text-persian md:w-2/3 lg:w-full lg:text-5xl"
         >
           {{ data?.title }}
         </h1>
         <h4
-          class="text-md inline text-center font-semibold leading-none text-taupe"
+          class="text-md inline text-center font-semibold leading-none text-persian"
         >
           <i>{{ data?.excerpt }}</i>
         </h4>
         <div
-          class="flex items-center text-xs uppercase tracking-wide text-taupe"
+          class="flex items-center text-xs uppercase tracking-wide text-persian"
         >
           <svg
             width="24"
@@ -129,10 +129,6 @@ if (!data.value) {
     message: error.value?.message,
     fatal: true,
   });
-}
-
-if (data) {
-  console.log(data);
 }
 
 useSeoMeta({

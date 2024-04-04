@@ -21,7 +21,7 @@ watch(
 );
 
 useSeoMeta({
-  title: `${route.name?.toString()} - ${appConfig.name}`,
+  title: `Home - ${appConfig.name}`,
   description: appConfig.description,
   ogImage: appConfig.defaultOGImage,
   ogType: "website",

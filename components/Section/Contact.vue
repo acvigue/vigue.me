@@ -7,7 +7,7 @@
       >
         <div class="flex flex-1 justify-start items-center gap-2">
           <span
-            class="font-serif italic md:text-7xl text-4xl text-taupe font-bold"
+            class="font-serif italic md:text-7xl text-4xl text-persian font-bold"
             ref="panelHeader"
             >Let's</span
           >
@@ -46,16 +46,9 @@
 
 <script setup lang="ts">
 import { EnvelopeIcon } from "@heroicons/vue/24/outline";
-import linkedin from "@/assets/linkedin.svg";
-import github from "@/assets/github.svg";
-import music from "@/assets/music.svg";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SplitText } from "gsap/SplitText";
-
-const { $listen } = useNuxtApp();
-const gsapStore = useGSAPStore();
 
 let ctx: gsap.Context;
 
@@ -63,7 +56,7 @@ const panel = shallowRef<HTMLDivElement>();
 const panelHeader = shallowRef<HTMLSpanElement>();
 
 onNuxtReady(() => {
-  gsap.registerPlugin(SplitText, ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger);
 
   ctx = gsap.context(() => {
     const tl = gsap.timeline({
@@ -133,16 +126,6 @@ onNuxtReady(() => {
     );
 
     */
-
-    $listen("scrollToSlug", (slug: string) => {
-      if (slug === "/contact") {
-        gsapStore.scrollSmoother?.scrollTo(
-          panel.value!,
-          false,
-          "bottom bottom"
-        );
-      }
-    });
   });
 });
 

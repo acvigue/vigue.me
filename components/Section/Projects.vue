@@ -5,7 +5,7 @@
       <div class="flex flex-col h-full lg:max-w-7xl w-[80vw] gap-4">
         <div class="flex flex-1 justify-start gap-2">
           <span
-            class="font-serif italic md:text-7xl text-4xl text-taupe font-bold"
+            class="font-serif italic md:text-7xl text-4xl text-persian font-bold"
             ref="panelHeader"
             >Featured</span
           >
@@ -58,12 +58,8 @@
 <script setup lang="ts">
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SplitText } from "gsap/SplitText";
 
 let ctx: gsap.Context;
-
-const { $listen } = useNuxtApp();
-const gsapStore = useGSAPStore();
 
 const panel = shallowRef<HTMLDivElement>();
 const panelHeader = shallowRef<HTMLSpanElement>();
@@ -77,7 +73,7 @@ const { data, pending } = await useFetch("/api/posts", {
 });
 
 onNuxtReady(() => {
-  gsap.registerPlugin(SplitText, ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger);
 
   ctx = gsap.context(() => {
     const tl = gsap.timeline({
@@ -180,12 +176,6 @@ onNuxtReady(() => {
         duration: 0.5,
       }
     );
-
-    $listen("scrollToSlug", (slug: string) => {
-      if (slug === "/projects") {
-        gsapStore.scrollSmoother?.scrollTo(panel.value!, false, "top 120px");
-      }
-    });
   });
 });
 

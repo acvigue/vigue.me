@@ -10,17 +10,17 @@
         >
         <span class="font-serif md:text-3xl text-xl pl-4 mb-4" ref="bodyText">
           As a
-          <b data-cursor="-pointer" class="text-taupe font-serif2"
+          <b data-cursor="-pointer" class="text-persian font-serif2"
             >computer science student</b
           >
           at Purdue University with a passion for
-          <b data-cursor="-pointer" class="text-taupe font-serif2"
+          <b data-cursor="-pointer" class="text-persian font-serif2"
             >engineering</b
           >, my skills intersect to design digital products. I possess a wide
           range of experience in several programming languages and tools, and my
           involvement in numerous past projects has helped to solidify my
           foundational expertise in the realm of embedded systems and
-          <b data-cursor="-pointer" class="text-taupe font-serif2"
+          <b data-cursor="-pointer" class="text-persian font-serif2"
             >software development.</b
           >
         </span>
@@ -61,9 +61,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 
 let ctx: gsap.Context;
-
-const { $listen } = useNuxtApp();
-const gsapStore = useGSAPStore();
 
 const panel = shallowRef<HTMLDivElement>();
 const panelHeader = shallowRef<HTMLSpanElement>();
@@ -161,12 +158,6 @@ onNuxtReady(() => {
         duration: 0.5,
       }
     );
-  });
-
-  $listen("scrollToSlug", (slug: string) => {
-    if (slug === "/about") {
-      gsapStore.scrollSmoother?.scrollTo(panel.value!, false, "bottom bottom");
-    }
   });
 });
 

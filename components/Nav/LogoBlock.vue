@@ -6,5 +6,5 @@
 </template>
 
 <script setup lang="ts">
-import SiteLogo from "~/assets/logo.svg";
+import SiteLogo from "~/assets/icons/logo.svg";
 </script>

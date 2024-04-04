@@ -5,7 +5,7 @@
     <NuxtLink :to="`/projects/${post.slug}`">
       <div class="group relative w-full rounded">
         <div
-          class="absolute h-full w-full -rotate-3 transform-gpu rounded-lg bg-taupe opacity-20 transition duration-300 group-hover:rotate-0 dark:opacity-25 dark:mix-blend-overlay"
+          class="absolute h-full w-full -rotate-3 transform-gpu rounded-lg bg-persian opacity-20 transition duration-300 group-hover:rotate-0 dark:opacity-25 dark:mix-blend-overlay"
         ></div>
         <div class="rounded">
           <div class="relative w-full rounded-lg bg-cover bg-center">
@@ -51,7 +51,7 @@
             <div
               v-for="tag in filteredTags"
               :key="tag.id"
-              class="flex flex-row items-center rounded-md bg-taupe text-champagne p-1 text-xs font-medium uppercase"
+              class="flex flex-row items-center rounded-md bg-persian text-champagne p-1 text-xs font-medium uppercase"
             >
               {{ tag.name }}
             </div>

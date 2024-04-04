@@ -22,17 +22,17 @@
           class="flex max-w-[60vw] lg:max-w-2xl justify-between items-center w-full mt-8"
         >
           <span
-            class="font-serif2 md:text-3xl text-xl text-taupe opacity-0"
+            class="font-serif2 md:text-3xl text-xl text-persian opacity-0"
             ref="item1"
             >Student</span
           >
           <span
-            class="font-serif2 md:text-3xl text-xl text-taupe opacity-0"
+            class="font-serif2 md:text-3xl text-xl text-persian opacity-0"
             ref="item2"
             >Developer</span
           >
           <span
-            class="font-serif2 md:text-3xl text-xl text-taupe opacity-0"
+            class="font-serif2 md:text-3xl text-xl text-persian opacity-0"
             ref="item3"
             >Maker</span
           >
