@@ -47,6 +47,7 @@ const filteredTags = computed(() => {
               loading="lazy"
               :placeholder="[50, 25]"
               class="blogpost-image"
+              alt="Post Feature Image"
             />
           </div>
           <div
@@ -92,6 +93,6 @@ const filteredTags = computed(() => {
 
 <style lang="scss">
 .blogpost-image > img {
-  @apply rounded-lg z-30;
+  @apply rounded-lg z-30 h-72;
 }
 </style>

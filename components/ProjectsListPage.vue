@@ -66,7 +66,7 @@ function goToPage(page: number) {
 
 <template>
   <div class="flex justify-center items-center w-full py-10">
-    <div class="flex flex-col h-full lg:max-w-7xl w-[80vw] gap-4">
+    <div class="flex flex-col h-full lg:max-w-7xl w-[90vw] gap-4">
       <div class="flex flex-1 justify-start gap-2">
         <span
           class="font-serif italic md:text-7xl text-4xl text-persian font-bold"
@@ -78,12 +78,12 @@ function goToPage(page: number) {
 
       <div
         v-if="data"
-        class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 w-full"
+        class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-1 w-full"
       >
         <div v-for="project in data.posts" :key="project.id">
           <BlogPost
             :post="project"
-            class="flex p-4 w-full justify-between items-center gap-4"
+            class="flex p-4 w-full justify-between items-center gap-2"
           />
         </div>
       </div>
