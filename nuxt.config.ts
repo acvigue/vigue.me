@@ -31,7 +31,7 @@ export default defineNuxtConfig({
     autoImport: false,
   },
   routeRules: {
-    "/**": { isr: 86400 },
+    "/**": { swr: 120 },
   },
   experimental: {
     componentIslands: true,
