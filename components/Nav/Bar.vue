@@ -1,3 +1,17 @@
+<script setup lang="ts">
+import { Bars3BottomLeftIcon, XMarkIcon } from '@heroicons/vue/24/outline'
+
+const isOpen = ref(false)
+
+function openNavbar() {
+  isOpen.value = true
+}
+
+function closeNavbar() {
+  isOpen.value = false
+}
+</script>
+
 <template>
   <!-- Horizontal top navbar -->
   <div
@@ -23,8 +37,8 @@
   <!-- Nav menu -->
   <Transition name="fade-x">
     <div
-      class="fixed top-0 left-0 w-full h-full bg-licorice flex flex-col p-5 text-champagne z-50"
       v-if="isOpen"
+      class="fixed top-0 left-0 w-full h-full bg-licorice flex flex-col p-5 text-champagne z-50"
     >
       <div class="flex">
         <div class="flex flex-1 justify-start">
@@ -37,28 +51,22 @@
           </button>
         </div>
         <NavNameBlock class="!items-center" />
-        <div class="flex-1"></div>
+        <div class="flex-1" />
       </div>
       <div class="flex flex-col items-center justify-center flex-1">
-        <NavItem to="/about" @click="closeNavbar">about</NavItem>
-        <NavItem to="/projects/1" @click="closeNavbar">projects</NavItem>
-        <NavItem to="/experience" @click="closeNavbar">experience</NavItem>
-        <NavItem to="/contact" @click="closeNavbar">contact</NavItem>
+        <NavItem to="/about" @click="closeNavbar">
+          about
+        </NavItem>
+        <NavItem to="/projects/1" @click="closeNavbar">
+          projects
+        </NavItem>
+        <NavItem to="/experience" @click="closeNavbar">
+          experience
+        </NavItem>
+        <NavItem to="/contact" @click="closeNavbar">
+          contact
+        </NavItem>
       </div>
     </div>
   </Transition>
 </template>
-
-<script setup lang="ts">
-import { Bars3BottomLeftIcon, XMarkIcon } from "@heroicons/vue/24/outline";
-
-const isOpen = ref(false);
-
-const openNavbar = () => {
-  isOpen.value = true;
-};
-
-const closeNavbar = () => {
-  isOpen.value = false;
-};
-</script>

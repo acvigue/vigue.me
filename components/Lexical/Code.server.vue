@@ -1,6 +1,27 @@
+<script setup lang="ts">
+import highlight from 'highlight.js'
+
+export interface CodeNode {
+  type: 'codeblock'
+  language: string
+  code: string
+}
+
+const props = defineProps<{
+  node: CodeNode
+}>()
+
+const html = computed(() => {
+  const { value } = highlight.highlight(props.node.code, {
+    language: props.node.language,
+  })
+  return value
+})
+</script>
+
 <template>
   <div class="rounded-lg bg-licorice p-4 shadow-inner relative">
-    <pre v-html="html" class="overflow-x-auto"></pre>
+    <pre class="overflow-x-auto" v-html="html" />
     <div
       class="absolute top-0 right-0 p-3 bg-gray-500 bg-opacity-80 text-xs text-gray-200 rounded-tr-md"
     >
@@ -83,24 +104,3 @@ code.hljs {
   color: #75715e;
 }
 </style>
-
-<script setup lang="ts">
-import highlight from "highlight.js";
-
-export type CodeNode = {
-  type: "codeblock";
-  language: string;
-  code: string;
-};
-
-const props = defineProps<{
-  node: CodeNode;
-}>();
-
-const html = computed(() => {
-  const { value } = highlight.highlight(props.node.code, {
-    language: props.node.language,
-  });
-  return value;
-});
-</script>

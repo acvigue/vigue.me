@@ -1,5 +1,22 @@
+<script setup lang="ts">
+import MouseFollower from 'mouse-follower'
+import gsap from 'gsap'
+
+MouseFollower.registerGSAP(gsap)
+
+const cursorRef = ref()
+
+onNuxtReady(() => {
+  const _x = new MouseFollower({
+    el: cursorRef.value,
+    speed: 0.8,
+    skewing: 3,
+  })
+})
+</script>
+
 <template>
-  <div class="cursor mf-cursor -exclusion" ref="cursorRef"></div>
+  <div ref="cursorRef" class="cursor mf-cursor -exclusion" />
 </template>
 
 <style lang="scss" scoped>
@@ -165,20 +182,3 @@ $mf-color-text: #fff !default;
   }
 }
 </style>
-
-<script setup lang="ts">
-import MouseFollower from "mouse-follower";
-import gsap from "gsap";
-
-MouseFollower.registerGSAP(gsap);
-
-const cursorRef = ref();
-
-onNuxtReady(() => {
-  const cursor = new MouseFollower({
-    el: cursorRef.value,
-    speed: 0.8,
-    skewing: 3,
-  });
-});
-</script>

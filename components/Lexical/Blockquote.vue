@@ -1,3 +1,16 @@
+<script setup lang="ts">
+import type { LexicalNode } from '~/utilities/LexicalTypes'
+
+export interface BlockquoteNode {
+  type: 'quote'
+  children: LexicalNode[]
+}
+
+const props = defineProps<{
+  node: BlockquoteNode
+}>()
+</script>
+
 <template>
   <blockquote class="text-xl py-4">
     <LexicalNodeRenderer :node="props.node.children" />
@@ -21,16 +34,3 @@ blockquote::before {
   @apply bg-persian;
 }
 </style>
-
-<script setup lang="ts">
-import type { LexicalNode } from "~/utilities/LexicalTypes";
-
-export type BlockquoteNode = {
-  type: "quote";
-  children: LexicalNode[];
-};
-
-const props = defineProps<{
-  node: BlockquoteNode;
-}>();
-</script>

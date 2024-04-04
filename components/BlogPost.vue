@@ -1,3 +1,31 @@
+<script setup lang="ts">
+import { format } from 'date-fns'
+
+const props = defineProps<{
+  post: Awaited<
+    ReturnType<typeof import('@/server/api/post/[slug].get').default>
+  >
+}>()
+
+const postDataString = computed(() => {
+  const strParts = []
+  if (props.post.published_at)
+    strParts.push(format(Date.parse(props.post.published_at), 'MMMM d, yyyy'))
+
+  if (props.post.featured)
+    strParts.push('Featured')
+
+  return strParts.join(' • ')
+})
+
+const filteredTags = computed(() => {
+  if (!props.post.tags)
+    return []
+
+  return props.post.tags.filter(tag => tag.slug !== 'projects')
+})
+</script>
+
 <template>
   <div
     class="w-full transform-gpu rounded-lg transition duration-300 hover:scale-95"
@@ -6,7 +34,7 @@
       <div class="group relative w-full rounded">
         <div
           class="absolute h-full w-full -rotate-3 transform-gpu rounded-lg bg-persian opacity-20 transition duration-300 group-hover:rotate-0 dark:opacity-25 dark:mix-blend-overlay"
-        ></div>
+        />
         <div class="rounded">
           <div class="relative w-full rounded-lg bg-cover bg-center">
             <NuxtPicture
@@ -67,31 +95,3 @@
   @apply rounded-lg z-30;
 }
 </style>
-
-<script setup lang="ts">
-import { format } from "date-fns";
-
-const props = defineProps<{
-  post: Awaited<
-    ReturnType<typeof import("@/server/api/post/[slug].get").default>
-  >;
-}>();
-
-const postDataString = computed(() => {
-  const strParts = [];
-  if (props.post.published_at) {
-    strParts.push(format(Date.parse(props.post.published_at), "MMMM d, yyyy"));
-  }
-  if (props.post.featured) {
-    strParts.push("Featured");
-  }
-  return strParts.join(" • ");
-});
-
-const filteredTags = computed(() => {
-  if (!props.post.tags) {
-    return [];
-  }
-  return props.post.tags.filter((tag) => tag.slug !== "projects");
-});
-</script>

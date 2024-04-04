@@ -1,3 +1,7 @@
+<script setup lang="ts">
+const appConfig = useAppConfig()
+</script>
+
 <template>
   <NuxtLink
     to="/"
@@ -8,7 +12,3 @@
     <span class="font-serif2 text-md">{{ appConfig.name }}</span>
   </NuxtLink>
 </template>
-
-<script setup lang="ts">
-const appConfig = useAppConfig();
-</script>

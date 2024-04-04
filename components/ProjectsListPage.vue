@@ -1,102 +1,47 @@
-<template>
-  <div class="flex justify-center items-center w-full py-10" ref="panel">
-    <div class="flex flex-col h-full lg:max-w-7xl w-[80vw] gap-4">
-      <div class="flex flex-1 justify-start gap-2">
-        <span
-          class="font-serif italic md:text-7xl text-4xl text-persian font-bold"
-          ref="panelHeader"
-          >All</span
-        >
-        <span
-          class="font-serif italic md:text-7xl text-4xl mt-6"
-          ref="panelHeader2"
-          >Projects</span
-        >
-      </div>
-
-      <div
-        class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 w-full"
-        v-if="data"
-      >
-        <div v-for="project in data.posts" ref="projectRefs" :key="project.id">
-          <BlogPost
-            :post="project"
-            class="flex p-4 w-full justify-between items-center gap-4"
-          />
-        </div>
-      </div>
-      <div class="flex-1 flex justify-center items-start">
-        <button
-          :disabled="page == 1"
-          @click="goToPage(page - 1)"
-          class="rounded-l-lg text-persian p-2 border-persian border-2 border-r-0 h-10 w-10 flex items-center justify-center font-bold font-serif2 disabled:border-khaki disabled:text-khaki"
-        >
-          <ArrowLeftIcon class="h-5 w-5" />
-        </button>
-        <button
-          @click="goToPage(p.name)"
-          :disabled="p.isDisabled"
-          :class="{
-            'bg-persian !border-persian !text-champagne': p.name === page
-          }"
-          v-for="p in pages"
-          :key="p.name"
-          class="text-persian p-2 border-persian border-2 border-l-1 border-r-0 h-10 w-10 flex items-center justify-center font-bold font-serif2 disabled:border-khaki disabled:text-khaki"
-        >
-          {{ p.name }}
-        </button>
-        <button
-          :disabled="page == totalPages"
-          @click="goToPage(page + 1)"
-          class="rounded-r-lg text-persian p-2 border-persian border-2 border-l-1 h-10 w-10 flex items-center justify-center font-bold font-serif2 disabled:border-khaki disabled:text-khaki"
-        >
-          <ArrowRightIcon class="h-5 w-5" />
-        </button>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
-import { ArrowLeftIcon, ArrowRightIcon } from "@heroicons/vue/24/outline";
-const appConfig = useAppConfig();
+import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/vue/24/outline'
 
 const props = defineProps<{
-  page: number;
-}>();
+  page: number
+}>()
+
+const appConfig = useAppConfig()
 
 useSeoMeta({
   title: `Projects - Page ${props.page} - ${appConfig.name}`,
   description: appConfig.description,
   ogImage: appConfig.defaultOGImage,
-  ogType: "website",
+  ogType: 'website',
   ogUrl: `${appConfig.baseUrl}/projects/${props.page}`,
-});
+})
 
-const maxVisibleButtons = 5;
+const maxVisibleButtons = 5
+
+const { data } = await useFetch('/api/posts', {
+  query: { page: props.page },
+})
+
+const totalPages = computed(() => {
+  if (!data.value)
+    return 0
+  return data.value.pagination.pages
+})
 
 const startPage = computed(() => {
   // When on the first page
-  if (props.page === 1) {
-    return 1;
-  }
+  if (props.page === 1)
+    return 1
 
   // When on the last page
-  if (props.page === totalPages.value) {
-    return Math.max(1, totalPages.value - maxVisibleButtons);
-  }
+  if (props.page === totalPages.value)
+    return Math.max(1, totalPages.value - maxVisibleButtons)
 
   // When inbetween
-  return props.page - 1;
-});
-
-const totalPages = computed(() => {
-  if (!data.value) return 0;
-  return data.value.pagination.pages;
-});
+  return props.page - 1
+})
 
 const pages = computed(() => {
-  const range = [];
+  const range = []
 
   for (
     let i = startPage.value;
@@ -106,18 +51,70 @@ const pages = computed(() => {
     range.push({
       name: i,
       isDisabled: i === props.page,
-    });
+    })
   }
 
-  return range;
-});
+  return range
+})
 
-const goToPage = (page: number) => {
-  if (page === props.page) return;
-  navigateTo(`/projects/${page}`);
-};
-
-const { data, pending } = await useFetch("/api/posts", {
-  query: { page: props.page },
-});
+function goToPage(page: number) {
+  if (page === props.page)
+    return
+  navigateTo(`/projects/${page}`)
+}
 </script>
+
+<template>
+  <div class="flex justify-center items-center w-full py-10">
+    <div class="flex flex-col h-full lg:max-w-7xl w-[80vw] gap-4">
+      <div class="flex flex-1 justify-start gap-2">
+        <span
+          class="font-serif italic md:text-7xl text-4xl text-persian font-bold"
+        >All</span>
+        <span
+          class="font-serif italic md:text-7xl text-4xl mt-6"
+        >Projects</span>
+      </div>
+
+      <div
+        v-if="data"
+        class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 w-full"
+      >
+        <div v-for="project in data.posts" :key="project.id">
+          <BlogPost
+            :post="project"
+            class="flex p-4 w-full justify-between items-center gap-4"
+          />
+        </div>
+      </div>
+      <div class="flex-1 flex justify-center items-start">
+        <button
+          :disabled="page === 1"
+          class="rounded-l-lg text-persian p-2 border-persian border-2 border-r-0 h-10 w-10 flex items-center justify-center font-bold font-serif2 disabled:border-khaki disabled:text-khaki"
+          @click="goToPage(page - 1)"
+        >
+          <ArrowLeftIcon class="h-5 w-5" />
+        </button>
+        <button
+          v-for="p in pages"
+          :key="p.name"
+          :disabled="p.isDisabled"
+          :class="{
+            'bg-persian !border-persian !text-champagne': p.name === page,
+          }"
+          class="text-persian p-2 border-persian border-2 border-l-1 border-r-0 h-10 w-10 flex items-center justify-center font-bold font-serif2 disabled:border-khaki disabled:text-khaki"
+          @click="goToPage(p.name)"
+        >
+          {{ p.name }}
+        </button>
+        <button
+          :disabled="page === totalPages"
+          class="rounded-r-lg text-persian p-2 border-persian border-2 border-l-1 h-10 w-10 flex items-center justify-center font-bold font-serif2 disabled:border-khaki disabled:text-khaki"
+          @click="goToPage(page + 1)"
+        >
+          <ArrowRightIcon class="h-5 w-5" />
+        </button>
+      </div>
+    </div>
+  </div>
+</template>

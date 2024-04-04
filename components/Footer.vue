@@ -1,3 +1,11 @@
+<script setup lang="ts">
+import linkedin from '@/assets/icons/linkedin.svg'
+import github from '@/assets/icons/github.svg'
+import music from '@/assets/icons/music.svg'
+
+const currentYear = new Date().getFullYear()
+</script>
+
 <template>
   <div class="w-full flex flex-col items-center justify-center gap-4">
     <div class="w-full flex items-center justify-center gap-4">
@@ -14,16 +22,6 @@
         <music class="stroke-persian text-transparent fill-transparent icon !h-7 !w-7" />
       </NuxtLink>
     </div>
-    <span class="text-persian text-lg font-serif2"
-      >© {{ currentYear }} Aiden Vigue</span
-    >
+    <span class="text-persian text-lg font-serif2">© {{ currentYear }} Aiden Vigue</span>
   </div>
 </template>
-
-<script setup lang="ts">
-import linkedin from "@/assets/icons/linkedin.svg";
-import github from "@/assets/icons/github.svg";
-import music from "@/assets/icons/music.svg";
-
-const currentYear = new Date().getFullYear();
-</script>

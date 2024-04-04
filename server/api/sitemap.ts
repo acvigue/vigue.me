@@ -1,13 +1,13 @@
-import { TSGhostAdminAPI } from "@ts-ghost/admin-api";
+import { TSGhostAdminAPI } from '@ts-ghost/admin-api'
 
-export const getAllPosts = async () => {
-  const config = useRuntimeConfig();
+export async function getAllPosts() {
+  const config = useRuntimeConfig()
 
   const api = new TSGhostAdminAPI(
     config.ghostUrl,
     config.ghostAdminKey,
-    "v5.47.0"
-  );
+    'v5.47.0',
+  )
 
   const response = await api.posts
     .browse({ limit: 10, page: 1 })
@@ -24,17 +24,17 @@ export const getAllPosts = async () => {
       feature_image: true,
       excerpt: true,
     })
-    .fetch();
+    .fetch()
   if (!response.success) {
     const errorString = response.errors
-      .flatMap((error) => error.message)
-      .join(", ");
-    throw new Error(errorString);
+      .flatMap(error => error.message)
+      .join(', ')
+    throw new Error(errorString)
   }
 
   for (let i = 2; i <= response.meta.pagination.pages; i++) {
     const tempResponse = await api.posts
-      .browse({ limit: 10, page: i, filter: "status:published" })
+      .browse({ limit: 10, page: i, filter: 'status:published' })
       .fields({
         id: true,
         slug: true,
@@ -48,35 +48,33 @@ export const getAllPosts = async () => {
         feature_image: true,
         excerpt: true,
       })
-      .fetch();
-    if (!tempResponse.success) {
-      throw new Error(tempResponse.errors.join(", "));
-    }
+      .fetch()
+    if (!tempResponse.success)
+      throw new Error(tempResponse.errors.join(', '))
+
     tempResponse.data.forEach((p) => {
-      response.data.push(p);
-    });
+      response.data.push(p)
+    })
   }
 
-  return { posts: response.data, pagination: response.meta.pagination };
-};
+  return { posts: response.data, pagination: response.meta.pagination }
+}
 
-export default defineSitemapEventHandler(async (e) => {
-  const allPosts = await getAllPosts();
+export default defineSitemapEventHandler(async (_e) => {
+  const allPosts = await getAllPosts()
 
   const locs: any = allPosts.posts.map((p: any) => {
     return {
       loc: `https://vigue.me/projects/${p.slug}`,
       lastmod: p.updated_at,
-    };
-  });
+    }
+  })
 
   for (let i = 1; i <= allPosts.pagination.pages; i++) {
     locs.push({
       loc: `https://vigue.me/projects/${i}`,
-    });
+    })
   }
 
-  console.log(locs);
-
-  return locs;
-});
+  return locs
+})
