@@ -1,6 +1,6 @@
 <template>
   <Separator :index="2">Projects</Separator>
-  <Panel class="expandable pt-[3rem]">
+  <Panel class="expandable py-[3rem]">
     <div class="flex justify-center items-center w-full" ref="panel">
       <div class="flex flex-col h-full lg:max-w-7xl w-[80vw] gap-4">
         <div class="flex flex-1 justify-start gap-2">
@@ -32,14 +32,15 @@
           </div>
         </div>
         <div class="flex-1 flex justify-center items-start">
-          <NuxtLink
-            to="/projects"
-            class="flex text-licorice items-center gap-2 border-licorice border-2 rounded-full px-4 hover:bg-licorice hover:text-champagne duration-500"
-            data-cursor-stick
-            ref="cta"
-          >
-            <span class="font-serif2 text-lg">see more</span>
-          </NuxtLink>
+          <div ref="cta">
+            <NuxtLink
+              to="/projects"
+              class="flex text-licorice items-center gap-2 border-licorice border-2 rounded-full px-4 hover:bg-licorice hover:text-champagne duration-500"
+              data-cursor-stick
+            >
+              <span class="font-serif2 text-lg">see more</span>
+            </NuxtLink>
+          </div>
         </div>
       </div>
     </div>
@@ -55,12 +56,14 @@
 </style>
 
 <script setup lang="ts">
-import { ArrowUpRightIcon, ArrowDownTrayIcon } from "@heroicons/vue/24/solid";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 
 let ctx: gsap.Context;
+
+const { $listen } = useNuxtApp();
+const gsapStore = useGSAPStore();
 
 const panel = shallowRef<HTMLDivElement>();
 const panelHeader = shallowRef<HTMLSpanElement>();
@@ -154,6 +157,35 @@ onNuxtReady(() => {
       },
       "<+=0.03"
     );
+
+    const hideTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: panel.value,
+        start: "bottom 40%",
+        end: "bottom 30%",
+        scrub: 1,
+      },
+    });
+
+    hideTL.fromTo(
+      panel.value!,
+      {
+        opacity: 1,
+        ease: "power1.inOut",
+        duration: 0.5,
+      },
+      {
+        opacity: 0,
+        ease: "power1.inOut",
+        duration: 0.5,
+      }
+    );
+
+    $listen("scrollToSlug", (slug: string) => {
+      if (slug === "/projects") {
+        gsapStore.scrollSmoother?.scrollTo(panel.value!, false, "top 120px");
+      }
+    });
   });
 });
 

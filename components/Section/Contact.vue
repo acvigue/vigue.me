@@ -51,6 +51,9 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 
+const { $listen } = useNuxtApp();
+const gsapStore = useGSAPStore();
+
 let ctx: gsap.Context;
 
 const panel = shallowRef<HTMLDivElement>();
@@ -134,6 +137,16 @@ onNuxtReady(() => {
     );
 
     */
+
+    $listen("scrollToSlug", (slug: string) => {
+      if (slug === "/contact") {
+        gsapStore.scrollSmoother?.scrollTo(
+          panel.value!,
+          false,
+          "bottom bottom"
+        );
+      }
+    });
   });
 });
 

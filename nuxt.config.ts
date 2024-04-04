@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     "nuxt-svgo",
     "@nuxt/fonts",
     "@formkit/nuxt",
+    "@pinia/nuxt",
   ],
   css: ["assets/main.scss"],
   vite: {
@@ -26,7 +27,7 @@ export default defineNuxtConfig({
   },
   formkit: {
     // Experimental support for auto loading (see note):
-    autoImport: true,
+    autoImport: false,
   },
   routeRules: {
     "/": { isr: true },
@@ -43,8 +44,8 @@ export default defineNuxtConfig({
         file: "~/pages/index.vue",
       });
       pages.push({
-        name: "featured_projects",
-        path: "/featured_projects",
+        name: "projects",
+        path: "/projects",
         file: "~/pages/index.vue",
       });
       pages.push({

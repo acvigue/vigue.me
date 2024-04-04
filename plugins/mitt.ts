@@ -2,7 +2,7 @@ import mitt from "mitt";
 
 type AppEvents = {
   //Callable events to control from external context
-  scrollToBlock: string;
+  scrollToSlug: string;
   closeNav: void;
 };
 

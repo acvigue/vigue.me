@@ -68,13 +68,16 @@ import { SplitText } from "gsap/SplitText";
 
 let ctx: gsap.Context;
 
+const { $listen } = useNuxtApp();
+const gsapStore = useGSAPStore();
+
 const panel = shallowRef<HTMLDivElement>();
 const panelHeader = shallowRef<HTMLSpanElement>();
 const bodyText = shallowRef<HTMLSpanElement>();
 
 const cta = shallowRef<HTMLDivElement>();
 
-const cvOpen = ref(false);
+const cvOpen = ref(true);
 
 onNuxtReady(() => {
   gsap.registerPlugin(SplitText, ScrollTrigger);
@@ -143,6 +146,35 @@ onNuxtReady(() => {
       },
       "<+=0.03"
     );
+
+    const hideTL = gsap.timeline({
+      scrollTrigger: {
+        trigger: panel.value,
+        start: "bottom 40%",
+        end: "bottom 30%",
+        scrub: 1,
+      },
+    });
+
+    hideTL.fromTo(
+      panel.value!,
+      {
+        opacity: 1,
+        ease: "power1.inOut",
+        duration: 0.5,
+      },
+      {
+        opacity: 0,
+        ease: "power1.inOut",
+        duration: 0.5,
+      }
+    );
+  });
+
+  $listen("scrollToSlug", (slug: string) => {
+    if (slug === "/about") {
+      gsapStore.scrollSmoother?.scrollTo(panel.value!, false, "bottom bottom");
+    }
   });
 });
 

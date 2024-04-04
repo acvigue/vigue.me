@@ -13,11 +13,12 @@
               v-if="post.feature_image"
               format="avif,webp,jpg"
               :src="post.feature_image"
-              sizes="lg:500px sm:300px xs:200px"
+              sizes="lg:30vw md:40vw sm:80vw 200px"
               :width="2000"
               :height="1500"
+              loading="lazy"
+              :placeholder="[50, 25]"
               class="blogpost-image"
-              placeholder="blur"
             />
           </div>
           <div

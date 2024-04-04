@@ -20,6 +20,14 @@ $mf-color-text: #fff !default;
 
   transition: opacity 0.3s, color 0.4s;
 
+  @media (hover: hover) {
+    display: block;
+  }
+
+  @media (hover: none) {
+    display: none;
+  }
+
   &:before {
     content: "";
     position: absolute;

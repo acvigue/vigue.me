@@ -11,7 +11,6 @@
 
     <div class="flex-1 flex justify-end h-10">
       <button
-        to="/contact"
         class="flex text-licorice items-center gap-4 border-licorice border-2 rounded-full px-4 hover:bg-licorice hover:text-champagne duration-500"
         @click="openNavbar"
       >
