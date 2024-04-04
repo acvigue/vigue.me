@@ -65,14 +65,14 @@ export default defineSitemapEventHandler(async (_e) => {
 
   const locs: any = allPosts.posts.map((p: any) => {
     return {
-      loc: `https://vigue.me/projects/${p.slug}`,
+      loc: `/projects/${p.slug}`,
       lastmod: p.updated_at,
     }
   })
 
   for (let i = 1; i <= allPosts.pagination.pages; i++) {
     locs.push({
-      loc: `https://vigue.me/projects/${i}`,
+      loc: `/projects/${i}`,
     })
   }
 
