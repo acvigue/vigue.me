@@ -18,7 +18,7 @@ blockquote::before {
   top: 0;
   bottom: 0;
   width: 0.3rem;
-  @apply bg-pink-600;
+  @apply bg-taupe;
 }
 </style>
 

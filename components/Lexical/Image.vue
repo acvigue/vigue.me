@@ -8,7 +8,7 @@
       :height="1500"
       class="post-image"
       loading="lazy"
-      placeholder="blur"
+      :placeholder="[100, 50]"
       @click="lightboxOpen = true"
     />
   </div>

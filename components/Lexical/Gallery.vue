@@ -13,10 +13,11 @@
       <NuxtPicture
         format="avif,webp,jpg"
         :src="image.src"
+        sizes="lg:500px md:400px sm:300px xs:200px"
         :width="image.width"
         :height="image.height"
         class="gallery-image"
-        placeholder="blur"
+        :placeholder="[100, 50]"
         loading="lazy"
       />
     </div>

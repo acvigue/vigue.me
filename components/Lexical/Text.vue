@@ -39,7 +39,7 @@ const renderText = () => {
   if (formatFlags.value.subscript) node = h("sub", node);
   if (formatFlags.value.superscript) node = h("sup", node);
   if (formatFlags.value.inverted)
-    node = h("div", { class: "bg-pink-600 text-gray-200" }, node);
+    node = h("div", { class: "bg-carribean text-licorice" }, node);
   return node;
 };
 </script>

@@ -7,12 +7,6 @@
 <script setup lang="ts">
 const config = useAppConfig();
 
-useHead({
-  titleTemplate: (titleChunk) => {
-    return titleChunk ? `${titleChunk} - ${config.name}` : config.name;
-  },
-});
-
 useSeoMeta({
   description: config.description,
   ogType: "website",

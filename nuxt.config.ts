@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     "@nuxt/fonts",
     "@formkit/nuxt",
     "@pinia/nuxt",
+    "@nuxtjs/sitemap",
   ],
   css: ["assets/main.scss"],
   vite: {
@@ -39,25 +40,28 @@ export default defineNuxtConfig({
   hooks: {
     "pages:extend"(pages) {
       pages.push({
-        name: "about",
+        name: "About",
         path: "/about",
         file: "~/pages/index.vue",
       });
       pages.push({
-        name: "projects",
+        name: "Projects",
         path: "/projects",
         file: "~/pages/index.vue",
       });
       pages.push({
-        name: "experience",
+        name: "Experience",
         path: "/experience",
         file: "~/pages/index.vue",
       });
       pages.push({
-        name: "contact",
+        name: "Contact",
         path: "/contact",
         file: "~/pages/index.vue",
       });
     },
+  },
+  sitemap: {
+    sources: ["/api/sitemap"],
   },
 });

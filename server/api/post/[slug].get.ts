@@ -60,8 +60,12 @@ export default defineEventHandler(async (event) => {
     const errorString = response.errors
       .map((error) => error.message)
       .join(", ");
+    let status = 500;
+    if (errorString.includes("not found")) {
+      status = 404;
+    }
     throw createError({
-      statusCode: 500,
+      statusCode: status,
       statusMessage: errorString,
     });
   }

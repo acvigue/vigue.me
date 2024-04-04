@@ -34,7 +34,7 @@
         <div class="flex-1 flex justify-center items-start">
           <div ref="cta">
             <NuxtLink
-              to="/projects"
+              to="/projects/1"
               class="flex text-licorice items-center gap-2 border-licorice border-2 rounded-full px-4 hover:bg-licorice hover:text-champagne duration-500"
               data-cursor-stick
             >

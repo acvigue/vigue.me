@@ -1,8 +1,8 @@
 <template>
-  <div class="rounded-lg bg-gray-800 p-4 shadow-inner relative">
+  <div class="rounded-lg bg-licorice p-4 shadow-inner relative">
     <pre v-html="html" class="overflow-x-auto"></pre>
     <div
-      class="absolute top-0 right-0 p-3 bg-gray-950 text-xs text-gray-200 rounded-tr-md"
+      class="absolute top-0 right-0 p-3 bg-gray-500 bg-opacity-80 text-xs text-gray-200 rounded-tr-md"
     >
       {{ props.node.language }}
     </div>

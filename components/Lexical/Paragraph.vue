@@ -1,5 +1,5 @@
 <template>
-  <div class="text-lg mx-2">
+  <div class="md:text-xl text-lg mx-2 text-licorice">
     <LexicalNodeRenderer :node="props.node.children" />
   </div>
 </template>

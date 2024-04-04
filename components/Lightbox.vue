@@ -1,11 +1,13 @@
 <template>
-  <vue-easy-lightbox
-    :visible="model"
-    :imgs="images"
-    :index="currentImage"
-    :scroll-disabled="false"
-    @hide="model = false"
-  ></vue-easy-lightbox>
+  <Teleport to="body">
+    <vue-easy-lightbox
+      :visible="model"
+      :imgs="images"
+      :index="currentImage"
+      :scroll-disabled="false"
+      @hide="model = false"
+    ></vue-easy-lightbox>
+  </Teleport>
 </template>
 
 <script setup lang="ts">
