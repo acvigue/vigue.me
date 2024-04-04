@@ -31,6 +31,12 @@ export default defineNuxtConfig({
   routeRules: {
     // '/**': { swr: 120 },
   },
+  fonts: {
+    experimental: {
+      processCSSVariables: true,
+      addPreloadLinks: true,
+    },
+  },
   experimental: {
     componentIslands: true,
   },
