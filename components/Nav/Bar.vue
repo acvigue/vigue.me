@@ -54,14 +54,14 @@ function closeNavbar() {
         <div class="flex-1" />
       </div>
       <div class="flex flex-col items-center justify-center flex-1">
+        <NavItem to="/" @click="closeNavbar">
+          home
+        </NavItem>
         <NavItem to="/about" @click="closeNavbar">
           about
         </NavItem>
         <NavItem to="/projects/1" @click="closeNavbar">
           projects
-        </NavItem>
-        <NavItem to="/experience" @click="closeNavbar">
-          experience
         </NavItem>
         <NavItem to="/contact" @click="closeNavbar">
           contact

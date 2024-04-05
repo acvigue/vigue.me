@@ -12,10 +12,10 @@ useSeoMeta({
 const { $initScrollSmoother } = useNuxtApp()
 
 let sm: ScrollSmoother
-onMounted(() => {
+onNuxtReady(() => {
   sm = $initScrollSmoother()
 })
-onUnmounted(() => {
+onBeforeUnmount(() => {
   if (sm)
     sm.kill()
 })
