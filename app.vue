@@ -1,6 +1,19 @@
 <script setup lang="ts">
 const config = useAppConfig()
 
+useHead({
+  htmlAttrs: {
+    lang: 'en',
+  },
+  link: [
+    {
+      rel: 'icon',
+      type: 'image/x-icon',
+      href: '/favicons/favicon.ico',
+    },
+  ],
+})
+
 useSeoMeta({
   description: config.description,
   ogType: 'website',

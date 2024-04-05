@@ -29,7 +29,7 @@ export default defineNuxtConfig({
     autoImport: true,
   },
   routeRules: {
-    // '/**': { swr: 120 },
+    '/**': { swr: true },
   },
   fonts: {
     experimental: {
