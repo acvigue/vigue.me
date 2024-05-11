@@ -116,6 +116,13 @@ onMounted(() => {
         duration: 0.5,
       },
     )
+
+    nextTick(() => {
+      nextTick(() => {
+        tl.scrollTrigger!.refresh()
+        hideTL.scrollTrigger!.refresh()
+      })
+    })
   })
 })
 
@@ -148,9 +155,9 @@ onBeforeUnmount(() => {
           class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 w-full"
         >
           <div
-            v-for="project in data.posts"
+            v-for="project of data.posts"
             ref="projectRefs"
-            :key="project.id"
+            :key="project.uuid"
           >
             <BlogPost
               :post="project"

@@ -145,13 +145,16 @@ onBeforeUnmount(() => {
       ref="panel"
       class="flex justify-center items-center w-full flex-col h-full"
     >
-      <div class="flex-1" />
+      <div class="flex-1 flex items-start justify-end w-full">
+        <NowPlayingOnSpotify class="m-20" />
+      </div>
       <div class="flex flex-col items-center w-full text-licorice">
         <span
           ref="firstName"
           class="font-serif italic font-bold text-8xl opacity-0"
           data-cursor="-pointer"
         >Aiden</span>
+
         <span
           ref="lastName"
           class="font-serif italic font-bold text-8xl opacity-0"

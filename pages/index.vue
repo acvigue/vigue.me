@@ -14,7 +14,7 @@ useSeoMeta({
 const { $initScrollSmoother } = useNuxtApp()
 
 let sm: ScrollSmoother
-onNuxtReady(() => {
+onMounted(() => {
   sm = $initScrollSmoother()
 })
 onBeforeUnmount(() => {

@@ -42,6 +42,12 @@ onMounted(() => {
       },
       '+=4',
     )
+
+    nextTick(() => {
+      nextTick(() => {
+        tl.scrollTrigger!.refresh()
+      })
+    })
   })
 })
 
@@ -54,7 +60,7 @@ onBeforeUnmount(() => {
 <template>
   <div
     ref="separator"
-    class="fixed flex w-full bg-licorice justify-start items-end h-24 p-5 py-8 text-champagne"
+    class="absolute flex w-full bg-licorice justify-start items-end h-24 p-5 py-8 text-champagne"
   >
     <div class="flex items-center gap-4">
       <div

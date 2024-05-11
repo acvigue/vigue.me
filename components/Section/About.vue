@@ -99,6 +99,13 @@ onMounted(() => {
         duration: 0.5,
       },
     )
+
+    nextTick(() => {
+      nextTick(() => {
+        tl.scrollTrigger!.refresh()
+        hideTL.scrollTrigger!.refresh()
+      })
+    })
   })
 })
 

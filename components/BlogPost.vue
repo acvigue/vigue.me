@@ -93,6 +93,6 @@ const filteredTags = computed(() => {
 
 <style lang="scss">
 .blogpost-image > img {
-  @apply rounded-lg z-30 h-72;
+  @apply rounded-lg z-30 h-72 lg:w-96 md:w-[22.5rem] w-[75vw];
 }
 </style>
