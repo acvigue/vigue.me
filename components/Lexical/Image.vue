@@ -34,7 +34,7 @@ const classes = computed(() => {
 <template>
   <div class="relative w-full flex items-center justify-center">
     <NuxtPicture
-      format="avif,webp,jpg"
+      format="webp,jpg"
       :src="node.src"
       sizes="lg:500px md:400px sm:300px xs:200px"
       :width="2000"

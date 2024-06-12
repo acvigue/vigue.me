@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@formkit/nuxt',
     '@nuxtjs/sitemap',
+    "nuxt-og-image"
   ],
   css: ['assets/main.scss'],
   vite: {

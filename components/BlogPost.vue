@@ -39,9 +39,9 @@ const filteredTags = computed(() => {
           <div class="relative w-full rounded-lg bg-cover bg-center">
             <NuxtPicture
               v-if="post.feature_image"
-              format="avif,webp,jpg"
+              format="webp,jpg"
               :src="post.feature_image"
-              sizes="lg:30vw md:40vw sm:80vw 200px"
+              sizes="lg:25vw md:40vw sm:80vw 200px"
               :width="2000"
               :height="1500"
               loading="lazy"

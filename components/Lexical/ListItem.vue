@@ -18,5 +18,7 @@ function renderListItem() {
 </script>
 
 <template>
-  <renderListItem />
+  <div class="md:text-xl text-lg mx-2 text-licorice">
+    <renderListItem />
+  </div>
 </template>

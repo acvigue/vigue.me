@@ -122,7 +122,7 @@ const dateString = computed(() => {
         </div>
         <div class="w-full flex justify-center">
           <NuxtPicture
-            format="avif,webp,jpg"
+            format="webp,jpg"
             :src="data?.feature_image!"
             :height="1500"
             :width="2000"

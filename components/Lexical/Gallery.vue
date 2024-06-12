@@ -52,7 +52,7 @@ const imagesByRow = computed(() => {
       @click="imageClicked(image)"
     >
       <NuxtPicture
-        format="avif,webp,jpg"
+        format="webp,jpg"
         :src="image.src"
         sizes="lg:500px md:400px sm:300px xs:200px"
         :width="image.width"
