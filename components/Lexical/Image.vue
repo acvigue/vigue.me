@@ -16,19 +16,6 @@ defineProps<{
 }>()
 
 const lightboxOpen = ref(false)
-
-/*
-const classes = computed(() => {
-  return {
-    'w-full': props.node.cardWidth === 'wide',
-    'max-w-3xl': props.node.cardWidth === 'regular',
-    'w-screen': props.node.cardWidth === 'full',
-    'rounded': props.node.cardWidth !== 'full',
-    'object-cover': true,
-    'max-h-[450px]': true,
-  }
-})
-*/
 </script>
 
 <template>

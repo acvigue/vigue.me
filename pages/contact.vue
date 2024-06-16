@@ -8,17 +8,6 @@ useSeoMeta({
   ogType: 'website',
   ogUrl: `${appConfig.baseUrl}/contact`,
 })
-
-const { $initScrollSmoother } = useNuxtApp()
-
-let sm: ScrollSmoother
-onMounted(() => {
-  sm = $initScrollSmoother()
-})
-onBeforeUnmount(() => {
-  if (sm)
-    sm.kill()
-})
 </script>
 
 <template>

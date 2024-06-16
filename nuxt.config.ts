@@ -1,5 +1,3 @@
-import { splitVendorChunkPlugin } from 'vite'
-
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
@@ -9,12 +7,10 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@formkit/nuxt',
     '@nuxtjs/sitemap',
-    "nuxt-og-image"
+    "nuxt-og-image",
+    "@hypernym/nuxt-gsap"
   ],
   css: ['assets/main.scss'],
-  vite: {
-    plugins: [splitVendorChunkPlugin()],
-  },
   runtimeConfig: {
     ghostContentKey: '',
     ghostAdminKey: '',
@@ -26,7 +22,6 @@ export default defineNuxtConfig({
     domains: ['blogcdn.vigue.me'],
   },
   formkit: {
-    // Experimental support for auto loading (see note):
     autoImport: true,
   },
   routeRules: {
@@ -35,7 +30,6 @@ export default defineNuxtConfig({
   fonts: {
     experimental: {
       processCSSVariables: true,
-      addPreloadLinks: true,
     },
   },
   experimental: {
