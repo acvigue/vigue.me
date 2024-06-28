@@ -1,4 +1,3 @@
-//@ts-expect-error There is no type definition for this package
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [

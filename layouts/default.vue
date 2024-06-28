@@ -1,9 +1,9 @@
 <template>
   <div>
     <MouseFollower />
+    <NavHeader />
     <div id="smooth-wrapper" class="bg-champagne">
       <div id="smooth-content" class="pt-20 pb-12">
-        <NavHeader />
         <slot />
         <NavFooter />
       </div>
@@ -34,7 +34,7 @@ onMounted(() => {
 
     ctx = gsap.context(() => {
       ScrollSmoother.create({
-        smooth: 2,
+        smooth: 0.5,
         wrapper: '#smooth-wrapper',
         content: '#smooth-content',
       });

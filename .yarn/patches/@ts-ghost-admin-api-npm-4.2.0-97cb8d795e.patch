@@ -1,0 +1,28 @@
+diff --git a/dist/index.js b/dist/index.js
+index cef53568cef2e579077225e277b45ecc42882489..0f28ea66030a0d94cfec5bccbc75dea79263279f 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -483,6 +483,9 @@ var adminPagesSchema = import_core_api5.basePagesSchema.merge(
+     authors: import_zod8.z.array(adminAuthorsSchema),
+     primary_author: adminAuthorsSchema,
+     html: import_zod8.z.string().catch("").optional(),
++    lexical: import_zod8.string().catch(
++      '{"root":{"children":[{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
++    ).optional(),
+     plaintext: import_zod8.z.string().catch("").optional()
+   })
+ );
+diff --git a/dist/index.mjs b/dist/index.mjs
+index 1dc6d9bfc4b7944867b3bc2cf86f9ac60a57ce67..b835f3f21c72474262b7cecc31cb6ad20d1245b9 100644
+--- a/dist/index.mjs
++++ b/dist/index.mjs
+@@ -444,6 +444,9 @@ var adminPagesSchema = basePagesSchema.merge(
+     primary_author: adminAuthorsSchema,
+     html: z8.string().catch("").optional(),
+     plaintext: z8.string().catch("").optional()
++    lexical: z3.string().catch(
++      '{"root":{"children":[{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
++    ).optional(),
+   })
+ );
+ var adminPagesCreateSchema = z8.object({

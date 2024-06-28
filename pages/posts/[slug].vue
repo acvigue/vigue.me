@@ -3,7 +3,7 @@ const route = useRoute()
 const rawSlug = route.params.slug
 
 //if no slug
-if(typeof rawSlug !== 'string') {
+if (typeof rawSlug !== 'string') {
   navigateTo('/posts/1')
 }
 

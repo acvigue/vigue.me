@@ -24,7 +24,7 @@
     "highlight.js": "^11.9.0",
     "mouse-follower": "^1.1.2",
     "nuxt": "^3.12.2",
-    "nuxt-og-image": "^3.0.0-rc.54",
+    "nuxt-og-image": "^3.0.0-beta.59",
     "vue": "^3.4.31",
     "vue-easy-lightbox": "^1.19.0",
     "vue-matomo": "^4.2.0",
@@ -40,5 +40,8 @@
     "sass": "^1.77.6",
     "typescript": "^5.5.2"
   },
-  "packageManager": "yarn@3.2.4"
+  "packageManager": "yarn@3.2.4",
+  "resolutions": {
+    "@ts-ghost/admin-api@^4.2.0": "patch:@ts-ghost/admin-api@npm%3A4.2.0#./.yarn/patches/@ts-ghost-admin-api-npm-4.2.0-97cb8d795e.patch"
+  }
 }

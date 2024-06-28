@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import highlight from 'highlight.js'
+import 'highlight.js/styles/nord.css'
 
 export interface CodeNode {
   type: 'codeblock'
@@ -22,9 +23,7 @@ const html = computed(() => {
 <template>
   <div class="rounded-lg bg-licorice p-4 shadow-inner relative">
     <pre class="overflow-x-auto" v-html="html" />
-    <div
-      class="absolute top-0 right-0 p-3 bg-gray-500 bg-opacity-80 text-xs text-gray-200 rounded-tr-md"
-    >
+    <div class="absolute top-0 right-0 p-3 bg-gray-500 bg-opacity-80 text-xs text-gray-200 rounded-tr-md">
       {{ props.node.language }}
     </div>
   </div>
@@ -36,6 +35,7 @@ pre code.hljs {
   overflow-x: auto;
   padding: 1em;
 }
+
 code.hljs {
   padding: 3px 5px;
 }
@@ -44,14 +44,17 @@ code.hljs {
   background: #23241f;
   color: #f8f8f2;
 }
+
 .hljs-tag,
 .hljs-subst {
   color: #f8f8f2;
 }
+
 .hljs-strong,
 .hljs-emphasis {
   color: #a8a8a2;
 }
+
 .hljs-bullet,
 .hljs-quote,
 .hljs-number,
@@ -60,33 +63,40 @@ code.hljs {
 .hljs-link {
   color: #ae81ff;
 }
+
 .hljs-code,
 .hljs-title,
 .hljs-section,
 .hljs-selector-class {
   color: #a6e22e;
 }
+
 .hljs-strong {
   font-weight: bold;
 }
+
 .hljs-emphasis {
   font-style: italic;
 }
+
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-name,
 .hljs-attr {
   @apply text-pink-600;
 }
+
 .hljs-symbol,
 .hljs-attribute {
   color: #66d9ef;
 }
+
 .hljs-params,
 .hljs-title.class_,
 .hljs-class .hljs-title {
   color: #f8f8f2;
 }
+
 .hljs-string,
 .hljs-type,
 .hljs-built_in,
@@ -98,6 +108,7 @@ code.hljs {
 .hljs-template-variable {
   color: #e6db74;
 }
+
 .hljs-comment,
 .hljs-deletion,
 .hljs-meta {

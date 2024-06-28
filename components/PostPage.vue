@@ -13,9 +13,12 @@ const { data, error } = await useFetch(`/api/post/${props.slug}`, {
 })
 
 if (!data.value) {
+  let message = error.value?.message;
+  if (error.value?.statusCode === 404)
+    message = 'Post not found'
   throw createError({
     statusCode: error.value?.statusCode,
-    message: error.value?.message,
+    message: message,
     fatal: true,
   })
 }

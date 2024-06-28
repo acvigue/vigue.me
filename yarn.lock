@@ -3226,7 +3226,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ts-ghost/admin-api@npm:^4.2.0":
+"@ts-ghost/admin-api@npm:4.2.0":
   version: 4.2.0
   resolution: "@ts-ghost/admin-api@npm:4.2.0"
   dependencies:
@@ -3234,6 +3234,17 @@ __metadata:
     validator: ^13.11.0
     zod: 3.23.8
   checksum: 76d349d28c089112a74a22e98e2679c8358128942163df7b569100c6266f509cbc1915130fdba4491d3cc5a72980db9db687825f4d297a5362658a5037933b97
+  languageName: node
+  linkType: hard
+
+"@ts-ghost/admin-api@patch:@ts-ghost/admin-api@npm%3A4.2.0#./.yarn/patches/@ts-ghost-admin-api-npm-4.2.0-97cb8d795e.patch::locator=vigue.me%40workspace%3A.":
+  version: 4.2.0
+  resolution: "@ts-ghost/admin-api@patch:@ts-ghost/admin-api@npm%3A4.2.0#./.yarn/patches/@ts-ghost-admin-api-npm-4.2.0-97cb8d795e.patch::version=4.2.0&hash=c56e0e&locator=vigue.me%40workspace%3A."
+  dependencies:
+    "@ts-ghost/core-api": ^6.1.0
+    validator: ^13.11.0
+    zod: 3.23.8
+  checksum: a08aa2d0f307e55946cde064067e6f06dbec74d9e2916cc8d90a5afbdb9a8ae3761b759c48bef74a7d6e607bd030c3a5d5a7815ec543e08a079766847a5299b0
   languageName: node
   linkType: hard
 
@@ -9269,7 +9280,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nuxt-og-image@npm:^3.0.0-rc.54":
+"nuxt-og-image@npm:^3.0.0-beta.59":
   version: 3.0.0-rc.54
   resolution: "nuxt-og-image@npm:3.0.0-rc.54"
   dependencies:
@@ -12577,7 +12588,7 @@ __metadata:
     highlight.js: ^11.9.0
     mouse-follower: ^1.1.2
     nuxt: ^3.12.2
-    nuxt-og-image: ^3.0.0-rc.54
+    nuxt-og-image: ^3.0.0-beta.59
     nuxt-svgo: ^4.0.1
     sass: ^1.77.6
     typescript: ^5.5.2

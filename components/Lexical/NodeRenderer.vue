@@ -11,6 +11,7 @@ import Gallery from './Gallery.vue'
 import Link from './Link.vue'
 import HorizontalRule from './HorizontalRule.vue'
 import Embed from './Embed.vue'
+import PureEmbed from './PureEmbed.vue'
 import type { LexicalNode } from '@/utilities/LexicalTypes'
 
 defineProps<{
@@ -45,6 +46,8 @@ function renderNode(props: { node: LexicalNode }) {
       return h(HorizontalRule, { node: props.node })
     case 'html':
       return h(Embed, { node: props.node })
+    case 'embed':
+      return h(PureEmbed, { node: props.node })
     default:
       return h(
         'div',
