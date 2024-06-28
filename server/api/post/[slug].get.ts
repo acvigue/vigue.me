@@ -85,6 +85,8 @@ export default defineEventHandler(async (event) => {
     email: _email,
     newsletter: _newsletter,
     email_only: _email_only,
+    id: _id,
+    tiers: _tiers,
     ...sanitized
   } = response.data
 

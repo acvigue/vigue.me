@@ -75,7 +75,7 @@ function goToPage(page: number) {
       </div>
 
       <div v-if="data" class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-1 w-full">
-        <div v-for="post in data.posts" :key="post.id">
+        <div v-for="post in data.posts" :key="post.uuid">
           <BlogPost :post="post" class="flex p-4 w-full justify-between items-center gap-2" />
         </div>
       </div>

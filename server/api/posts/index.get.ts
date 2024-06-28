@@ -16,7 +16,6 @@ export default defineEventHandler(async (event) => {
   if (featured) {
     const response = await api.posts
       .browse({ filter: `featured:true+status:published` })
-      .formats({ lexical: true, mobiledoc: true })
       .fetch()
     if (!response.success)
       throw new Error(response.errors.join(', '))
