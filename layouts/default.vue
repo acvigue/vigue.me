@@ -1,5 +1,6 @@
 <template>
-  <div class="z-0">
+  <div>
+    <MouseFollower />
     <div id="smooth-wrapper" class="bg-champagne">
       <div id="smooth-content" class="pt-20 pb-12">
         <NavHeader />

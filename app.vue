@@ -34,7 +34,5 @@ useSeoMeta({
 <template>
   <NuxtLayout>
     <NuxtPage />
-
-  <MouseFollower />
   </NuxtLayout>
 </template>
