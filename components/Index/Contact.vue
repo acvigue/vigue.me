@@ -83,32 +83,21 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <PanelSeparator :index="3">
-    Contact
-  </PanelSeparator>
   <IndexPanel>
     <div class="flex justify-center items-center w-full py-[4rem]">
-      <div
-        class="flex flex-col h-full lg:max-w-4xl w-[80vw] justify-center gap-4"
-      >
+      <div class="flex flex-col h-full lg:max-w-4xl w-[80vw] justify-center gap-4">
         <div class="flex flex-1 justify-start items-center gap-2">
-          <span
-            class="font-serif italic md:text-7xl text-4xl text-persian font-bold"
-          >Let's</span>
-          <span
-            class="font-serif italic md:text-6xl text-4xl mt-8"
-          >Connect</span>
+          <span class="font-serif italic md:text-7xl text-4xl text-persian font-bold">Let's</span>
+          <span class="font-serif italic md:text-6xl text-4xl mt-8">Connect</span>
         </div>
         <div class="rounded-lg p-4 border border-khaki shadow-lg">
           <FormKit type="form" class="lg:w-2xl" :actions="false">
             <FormKit type="text" label="Name" validation="required" />
             <FormKit type="text" label="Email" validation="required|email" />
             <FormKit type="textarea" label="Message" validation="required" />
-            <button
-              type="submit"
+            <button type="submit"
               class="flex text-licorice items-center gap-2 border-licorice border-2 rounded-full px-4 hover:bg-licorice hover:text-champagne duration-500"
-              data-cursor-stick
-            >
+              data-cursor-stick>
               <span class="font-serif2 text-lg">Send </span>
               <EnvelopeIcon class="h-5" />
             </button>

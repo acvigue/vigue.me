@@ -118,20 +118,16 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <PanelSeparator :index="1">
-    About
-  </PanelSeparator>
   <IndexPanel>
     <div ref="panel" class="flex justify-center items-center w-full">
-      <div
-        class="flex flex-col h-full lg:max-w-4xl w-[80vw] justify-center gap-4"
-      >
+      <div class="flex flex-col h-full lg:max-w-4xl w-[80vw] justify-center gap-4">
         <span ref="panelHeader" class="font-serif text-lg font-bold">About Me</span>
         <span ref="bodyText" class="font-serif md:text-3xl text-xl pl-4 mb-4">
           As a
           <b data-cursor="-pointer" class="text-persian font-serif2">computer science student</b>
           at Purdue University with a passion for
-          <b data-cursor="-pointer" class="text-persian font-serif2">engineering</b>, my skills intersect to design digital products. I possess a wide
+          <b data-cursor="-pointer" class="text-persian font-serif2">engineering</b>, my skills intersect to design
+          digital products. I possess a wide
           range of experience in several programming languages and tools, and my
           involvement in numerous past projects has helped to solidify my
           foundational expertise in the realm of embedded systems and
@@ -142,19 +138,15 @@ onBeforeUnmount(() => {
             <span class="font-serif text-md text-licorice font-bold">Want to learn more?</span>
           </div>
           <div class="flex justify-end items-center gap-4">
-            <NuxtLink
-              to="/contact"
+            <NuxtLink to="/contact"
               class="flex text-licorice items-center gap-2 border-licorice border-2 rounded-full px-4 hover:bg-licorice hover:text-champagne duration-500"
-              data-cursor-stick
-            >
+              data-cursor-stick>
               <span class="font-serif2 text-lg">Contact</span>
               <ArrowUpRightIcon class="h-5" />
             </NuxtLink>
-            <NuxtLink
-              to="/resume"
+            <NuxtLink to="/resume"
               class="flex text-licorice items-center gap-2 border-licorice border-2 rounded-full px-4 hover:bg-licorice hover:text-champagne duration-500"
-              data-cursor-stick
-            >
+              data-cursor-stick>
               <span class="font-serif2 text-lg">My Resume</span>
               <ArrowDownTrayIcon class="h-5" />
             </NuxtLink>

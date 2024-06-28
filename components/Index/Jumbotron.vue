@@ -16,7 +16,7 @@ const scrollIndicator = shallowRef<HTMLDivElement>()
 
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
-  
+
   ctx = gsap.context(() => {
     const tl = gsap.timeline()
 
@@ -51,7 +51,7 @@ onMounted(() => {
         ease: 'power1.inOut',
         duration: 0.7,
       },
-      '<',
+      '>-0.5',
     )
 
     tl.fromTo(
@@ -144,42 +144,23 @@ onBeforeUnmount(() => {
 
 <template>
   <IndexPanel>
-    <div
-      ref="panel"
-      class="flex justify-center items-center w-full flex-col h-full"
-    >
-      <div class="flex-1 flex items-start justify-end w-full"/>
+    <div ref="panel" class="flex justify-end items-center w-full flex-col h-full gap-8 pb-12">
       <div class="flex flex-col items-center w-full text-licorice">
-        <span
-          ref="firstName"
-          class="font-serif italic font-bold text-8xl opacity-0"
-          data-cursor="-pointer"
-        >Aiden</span>
+        <div class="font-serif2 font-bold text-8xl uppercase" data-cursor="-pointer">
+          <span ref="firstName" class="opacity-0">Aiden</span>
+          <span>&nbsp;</span>
+          <span ref="lastName" class="opacity-0">Vigue</span>
+        </div>
 
-        <span
-          ref="lastName"
-          class="font-serif italic font-bold text-8xl opacity-0"
-          data-cursor="-pointer"
-        >Vigue</span>
         <div
-          class="flex max-w-[60vw] lg:max-w-2xl justify-between items-center w-full mt-8"
-        >
-          <span
-            ref="item1"
-            class="font-serif2 md:text-3xl text-xl text-persian opacity-0"
-          >Student</span>
-          <span
-            ref="item2"
-            class="font-serif2 md:text-3xl text-xl text-persian opacity-0"
-          >Developer</span>
-          <span
-            ref="item3"
-            class="font-serif2 md:text-3xl text-xl text-persian opacity-0"
-          >Maker</span>
+          class="flex max-w-[60vw] lg:max-w-2xl justify-between items-center w-full mt-8 font-serif md:text-3xl text-xl text-persian lowercase">
+          <span ref="item1" class="opacity-0">Student</span>
+          <span ref="item2" class="opacity-0">Developer</span>
+          <span ref="item3" class="opacity-0">Maker</span>
         </div>
       </div>
-      <div class="flex-1 flex flex-col justify-end">
-        <div ref="scrollIndicator" class="mb-12 opacity-0">
+      <div class="flex justify-center items-center w-full">
+        <div ref="scrollIndicator" class="opacity-0">
           <ScrollIndicator />
         </div>
       </div>

@@ -136,45 +136,24 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <PanelSeparator :index="2">
-    Projects
-  </PanelSeparator>
   <IndexPanel class="expandable py-[3rem]">
     <div ref="panel" class="flex justify-center items-center w-full">
       <div class="flex flex-col h-full lg:max-w-7xl w-[80vw] gap-4">
         <div class="flex flex-1 justify-start gap-2">
-          <span
-            ref="panelHeader"
-            class="font-serif italic md:text-7xl text-4xl text-persian font-bold"
-          >Featured</span>
-          <span
-            ref="panelHeader2"
-            class="font-serif italic md:text-7xl text-4xl mt-6"
-          >Projects</span>
+          <span ref="panelHeader" class="font-serif italic md:text-7xl text-4xl text-persian font-bold">Featured</span>
+          <span ref="panelHeader2" class="font-serif italic md:text-7xl text-4xl mt-6">Projects</span>
         </div>
 
-        <div
-          v-if="data"
-          class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 w-full"
-        >
-          <div
-            v-for="project of data.posts"
-            ref="projectRefs"
-            :key="project.uuid"
-          >
-            <BlogPost
-              :post="project"
-              class="flex p-4 w-full justify-between items-center gap-4"
-            />
+        <div v-if="data" class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 w-full">
+          <div v-for="project of data.posts" ref="projectRefs" :key="project.uuid">
+            <BlogPost :post="project" class="flex p-4 w-full justify-between items-center gap-4" />
           </div>
         </div>
         <div class="flex-1 flex justify-center items-start">
           <div ref="cta">
-            <NuxtLink
-              to="/posts"
+            <NuxtLink to="/posts"
               class="flex text-licorice items-center gap-2 border-licorice border-2 rounded-full px-4 hover:bg-licorice hover:text-champagne duration-500"
-              data-cursor-stick
-            >
+              data-cursor-stick>
               <span class="font-serif2 text-lg">see more</span>
             </NuxtLink>
           </div>

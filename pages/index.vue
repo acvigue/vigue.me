@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const route = useRoute()
-const panelsContainer = shallowRef<HTMLDivElement>()
 const appConfig = useAppConfig()
 
 useSeoMeta({
@@ -15,10 +14,8 @@ useSeoMeta({
 </script>
 
 <template>
-  <div id="panels-container" ref="panelsContainer">
-    <SectionJumbotron />
-    <SectionAbout />
-    <SectionProjects />
-    <SectionContact />
+  <div>
+    <IndexHero />
+    <IndexFullWidthPanel>full width!</IndexFullWidthPanel>
   </div>
 </template>
