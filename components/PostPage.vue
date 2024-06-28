@@ -27,7 +27,7 @@ useSeoMeta({
   articlePublishedTime: data.value.published_at,
   articleModifiedTime: data.value.updated_at,
   ogType: 'article',
-  ogUrl: `${appConfig.baseUrl}/projects/${props.slug}`,
+  ogUrl: `${appConfig.baseUrl}/posts/${props.slug}`,
 })
 
 const dateString = computed(() => {

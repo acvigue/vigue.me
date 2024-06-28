@@ -149,7 +149,7 @@ onBeforeUnmount(() => {
               <ArrowUpRightIcon class="h-5" />
             </NuxtLink>
             <NuxtLink
-              to="https://blogcdn.vigue.me/Resume.pdf"
+              to="/resume"
               class="flex text-licorice items-center gap-2 border-licorice border-2 rounded-full px-4 hover:bg-licorice hover:text-champagne duration-500"
               data-cursor-stick
             >

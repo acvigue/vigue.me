@@ -8,11 +8,11 @@ const props = defineProps<{
 const appConfig = useAppConfig()
 
 useSeoMeta({
-  title: `Projects - Page ${props.page} - ${appConfig.name}`,
+  title: `Posts - Page ${props.page} - ${appConfig.name}`,
   description: appConfig.description,
   ogImage: appConfig.defaultOGImage,
   ogType: 'website',
-  ogUrl: `${appConfig.baseUrl}/projects/${props.page}`,
+  ogUrl: `${appConfig.baseUrl}/posts/${props.page}`,
 })
 
 const maxVisibleButtons = 5
@@ -60,7 +60,7 @@ const pages = computed(() => {
 function goToPage(page: number) {
   if (page === props.page)
     return
-  navigateTo(`/projects/${page}`)
+  navigateTo(`/posts/${page}`)
 }
 </script>
 
@@ -73,16 +73,16 @@ function goToPage(page: number) {
         >All</span>
         <span
           class="font-serif italic md:text-7xl text-4xl mt-6"
-        >Projects</span>
+        >Posts</span>
       </div>
 
       <div
         v-if="data"
         class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-1 w-full"
       >
-        <div v-for="project in data.posts" :key="project.id">
+        <div v-for="post in data.posts" :key="post.id">
           <BlogPost
-            :post="project"
+            :post="post"
             class="flex p-4 w-full justify-between items-center gap-2"
           />
         </div>

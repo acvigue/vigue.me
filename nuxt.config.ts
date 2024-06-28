@@ -26,6 +26,12 @@ export default defineNuxtConfig({
   },
   routeRules: {
     '/**': { swr: true },
+    "/resume": {
+        redirect: {
+          to: "https://blogcdn.vigue.me/Resume.pdf",
+          statusCode: 301,
+        },
+    },
   },
   fonts: {
     experimental: {

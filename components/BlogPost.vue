@@ -30,7 +30,7 @@ const filteredTags = computed(() => {
   <div
     class="w-full transform-gpu rounded-lg transition duration-300 hover:scale-95"
   >
-    <NuxtLink :to="`/projects/${post.slug}`">
+    <NuxtLink :to="`/posts/${post.slug}`">
       <div class="group relative w-full rounded">
         <div
           class="absolute h-full w-full -rotate-3 transform-gpu rounded-lg bg-persian opacity-20 transition duration-300 group-hover:rotate-0 dark:opacity-25 dark:mix-blend-overlay"

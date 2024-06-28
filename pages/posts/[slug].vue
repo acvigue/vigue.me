@@ -18,6 +18,6 @@ const slug = computed(() => {
 </script>
 
 <template>
-  <ProjectsListPage v-if="page" :page="page" />
-  <ProjectPage v-else-if="slug" :slug="slug" />
+  <PostsListPage v-if="page" :page="page" />
+  <PostPage v-else-if="slug" :slug="slug" />
 </template>
