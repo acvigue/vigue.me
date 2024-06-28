@@ -14,7 +14,6 @@ export default defineNuxtConfig({
   runtimeConfig: {
     ghostContentKey: '',
     ghostAdminKey: '',
-    ghostWebhookKey: '',
     ghostUrl: '',
     formkitKey: '',
   },
@@ -47,5 +46,12 @@ export default defineNuxtConfig({
   },
   eslint: {
     // options here
+  },
+  nitro: {
+    vercel: {
+      config: {
+        bypassToken: process.env.VERCEL_BYPASS_TOKEN
+      }
+    }
   }
 })
