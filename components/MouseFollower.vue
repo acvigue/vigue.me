@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import MouseFollower from 'mouse-follower'
+import { gsap } from 'gsap'
 
-const { $gsap } = useNuxtApp()
-
-MouseFollower.registerGSAP($gsap)
+MouseFollower.registerGSAP(gsap)
 
 const cursorRef = ref()
 

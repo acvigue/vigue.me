@@ -83,10 +83,10 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <Separator :index="3">
+  <PanelSeparator :index="3">
     Contact
-  </Separator>
-  <Panel>
+  </PanelSeparator>
+  <IndexPanel>
     <div class="flex justify-center items-center w-full py-[4rem]">
       <div
         class="flex flex-col h-full lg:max-w-4xl w-[80vw] justify-center gap-4"
@@ -117,7 +117,7 @@ onBeforeUnmount(() => {
         <div class="flex-1" />
       </div>
     </div>
-  </Panel>
+  </IndexPanel>
 </template>
 
 <style lang="scss">

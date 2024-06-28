@@ -1396,14 +1396,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@gsap/shockingly@npm:^3.12.5":
-  version: 3.12.5
-  resolution: "@gsap/shockingly@npm:3.12.5"
-  checksum: 10c0/abb187e68ec26ff276ff0f77268038bffe140bd09d65eed11091228611f89c1515163427daa0c17d139854fd2156b4168bfa20a4e9739309bca0d1ea57dbdec6
-  languageName: node
-  linkType: hard
-
-"@heroicons/vue@npm:^2.1.3":
+"@heroicons/vue@npm:^2.1.4":
   version: 2.1.4
   resolution: "@heroicons/vue@npm:2.1.4"
   peerDependencies:
@@ -1961,7 +1954,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/fonts@npm:^0.7.0":
+"@nuxt/fonts@npm:^0.7.1":
   version: 0.7.1
   resolution: "@nuxt/fonts@npm:0.7.1"
   dependencies:
@@ -2129,7 +2122,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxtjs/sitemap@npm:^5.2.0":
+"@nuxtjs/sitemap@npm:^5.2.2":
   version: 5.2.2
   resolution: "@nuxtjs/sitemap@npm:5.2.2"
   dependencies:
@@ -3263,7 +3256,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/eslint@npm:^8.56.10, @types/eslint@npm:^8.56.5":
+"@types/eslint@npm:^8, @types/eslint@npm:^8.56.10, @types/eslint@npm:^8.56.5":
   version: 8.56.10
   resolution: "@types/eslint@npm:8.56.10"
   dependencies:
@@ -7164,6 +7157,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gsap@npm:@gsap/shockingly@^3.12.5":
+  version: 3.12.5
+  resolution: "@gsap/shockingly@npm:3.12.5"
+  checksum: 10c0/abb187e68ec26ff276ff0f77268038bffe140bd09d65eed11091228611f89c1515163427daa0c17d139854fd2156b4168bfa20a4e9739309bca0d1ea57dbdec6
+  languageName: node
+  linkType: hard
+
 "gzip-size@npm:^6.0.0":
   version: 6.0.0
   resolution: "gzip-size@npm:6.0.0"
@@ -9269,7 +9269,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nuxt-og-image@npm:^3.0.0-rc.53":
+"nuxt-og-image@npm:^3.0.0-rc.54":
   version: 3.0.0-rc.54
   resolution: "nuxt-og-image@npm:3.0.0-rc.54"
   dependencies:
@@ -10949,7 +10949,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.77.4, sass@npm:^1.77.5":
+"sass@npm:^1.77.4, sass@npm:^1.77.6":
   version: 1.77.6
   resolution: "sass@npm:1.77.6"
   dependencies:
@@ -12056,6 +12056,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"typescript@npm:^5.5.2":
+  version: 5.5.2
+  resolution: "typescript@npm:5.5.2"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 10c0/8ca39b27b5f9bd7f32db795045933ab5247897660627251e8254180b792a395bf061ea7231947d5d7ffa5cb4cc771970fd4ef543275f9b559f08c9325cccfce3
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@npm%3A^5.5.2#optional!builtin<compat/typescript>":
+  version: 5.5.2
+  resolution: "typescript@patch:typescript@npm%3A5.5.2#optional!builtin<compat/typescript>::version=5.5.2&hash=379a07"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 10c0/a7b7ede75dc7fc32a76d0d0af6b91f5fbd8620890d84c906f663d8783bf3de6d7bd50f0430b8bb55eac88a38934af847ff709e7156e5138b95ae94cbd5f73e5b
+  languageName: node
+  linkType: hard
+
 "ufo@npm:^1.1.2, ufo@npm:^1.3.2, ufo@npm:^1.4.0, ufo@npm:^1.5.3":
   version: 1.5.3
   resolution: "ufo@npm:1.5.3"
@@ -12542,27 +12562,29 @@ __metadata:
   dependencies:
     "@formkit/icons": "npm:^1.6.5"
     "@formkit/nuxt": "npm:^1.6.5"
-    "@gsap/shockingly": "npm:^3.12.5"
-    "@heroicons/vue": "npm:^2.1.3"
+    "@heroicons/vue": "npm:^2.1.4"
     "@nuxt/eslint": "npm:^0.3.13"
-    "@nuxt/fonts": "npm:^0.7.0"
+    "@nuxt/fonts": "npm:^0.7.1"
     "@nuxt/image": "npm:^1.7.0"
-    "@nuxtjs/sitemap": "npm:^5.2.0"
+    "@nuxtjs/sitemap": "npm:^5.2.2"
     "@nuxtjs/tailwindcss": "npm:^6.12.0"
     "@ts-ghost/admin-api": "npm:^4.2.0"
     "@types/date-fns": "npm:^2.6.0"
+    "@types/eslint": "npm:^8"
     date-fns: "npm:^3.6.0"
     eslint: "npm:^8.57.0"
+    gsap: "npm:@gsap/shockingly@^3.12.5"
     highlight.js: "npm:^11.9.0"
     mouse-follower: "npm:^1.1.2"
     nuxt: "npm:^3.12.2"
-    nuxt-og-image: "npm:^3.0.0-rc.53"
+    nuxt-og-image: "npm:^3.0.0-rc.54"
     nuxt-svgo: "npm:^4.0.1"
-    sass: "npm:^1.77.5"
-    vue: "npm:^3.4.29"
+    sass: "npm:^1.77.6"
+    typescript: "npm:^5.5.2"
+    vue: "npm:^3.4.31"
     vue-easy-lightbox: "npm:^1.19.0"
     vue-matomo: "npm:^4.2.0"
-    vue-router: "npm:^4.3.3"
+    vue-router: "npm:^4.4.0"
   languageName: unknown
   linkType: soft
 
@@ -12855,7 +12877,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-router@npm:^4.3.3":
+"vue-router@npm:^4.3.3, vue-router@npm:^4.4.0":
   version: 4.4.0
   resolution: "vue-router@npm:4.4.0"
   dependencies:
@@ -12866,7 +12888,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:^3.4.29":
+"vue@npm:^3.4.29, vue@npm:^3.4.31":
   version: 3.4.31
   resolution: "vue@npm:3.4.31"
   dependencies:

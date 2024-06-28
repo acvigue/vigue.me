@@ -38,7 +38,7 @@ const closeNavbar = () => {
   <Transition name="fade-x">
     <div
       v-if="isOpen"
-      class="fixed top-0 left-0 w-full h-full bg-licorice flex flex-col p-5 text-champagne z-50"
+      class="fixed top-0 left-0 w-full h-[100vh] bg-licorice flex flex-col p-5 text-champagne z-50"
     >
       <div class="flex">
         <div class="flex flex-1 justify-start">
@@ -60,7 +60,7 @@ const closeNavbar = () => {
         <NavItem to="/about" @click="closeNavbar">
           about
         </NavItem>
-        <NavItem to="/posts/1" @click="closeNavbar">
+        <NavItem to="/posts" @click="closeNavbar">
           blog
         </NavItem>
         <NavItem to="/contact" @click="closeNavbar">

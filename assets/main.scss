@@ -55,11 +55,11 @@
 }
 
 .fade-x-enter-from {
-  transform: translateX(-2000px);
+  transform: translateX(-100vw);
 }
 
 .fade-x-leave-to {
-  transform: translateX(-2000px);
+  transform: translateX(-100vw);
 }
 
 .fade-x-enter-active,
@@ -76,3 +76,4 @@
   writing-mode: unset;
   text-orientation: unset;
 }
+

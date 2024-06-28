@@ -21,18 +21,10 @@ const lightboxOpen = ref(false)
 <template>
   <div class="relative w-full flex items-center justify-center">
     <NuxtPicture
-      format="webp,jpg"
-      :src="node.src"
-      sizes="lg:500px md:400px sm:300px xs:200px"
-      :width="2000"
-      :height="1500"
-      class="post-image"
-      loading="lazy"
-      :placeholder="[100, 50]"
-      @click="lightboxOpen = true"
-    />
+format="webp,jpg" :src="node.src" sizes="lg:500px md:400px sm:300px xs:200px" :width="2000"
+      :height="1500" class="post-image" loading="lazy" :placeholder="[100, 50]" @click="lightboxOpen = true" />
   </div>
-  <Lightbox v-model="lightboxOpen" :images="[node]" :start-index="0" />
+  <ImageLightbox v-model="lightboxOpen" :images="[node]" :start-index="0" />
 </template>
 
 <style lang="scss">
@@ -40,7 +32,7 @@ const lightboxOpen = ref(false)
   @apply md:max-w-[50%] cursor-pointer;
 }
 
-.post-image > img {
+.post-image>img {
   @apply rounded-lg z-30;
 }
 </style>

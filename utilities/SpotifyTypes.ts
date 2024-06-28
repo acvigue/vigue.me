@@ -16,8 +16,6 @@ export interface SPDealer {
   options: Options
   restrictions: Restrictions
   suppressions: Suppressions
-  prev_tracks: any[]
-  next_tracks: any[]
   context_metadata: ContextMetadata
   page_metadata: PageMetadata
   session_id: string

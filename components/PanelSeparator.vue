@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
 const props = defineProps<{
   index: number
 }>()
-
-const { $gsap } = useNuxtApp()
 
 const separator = shallowRef<HTMLDivElement>()
 
@@ -17,8 +18,10 @@ const indexFormatted = computed(() => {
 })
 
 onMounted(() => {
-  ctx = $gsap.context(() => {
-    const tl = $gsap.timeline({
+  gsap.registerPlugin(ScrollTrigger)
+
+  ctx = gsap.context(() => {
+    const tl = gsap.timeline({
       scrollTrigger: {
         trigger: separator.value,
         start: 'bottom bottom',

@@ -2,20 +2,18 @@
   <div class="min-w-screen min-h-screen z-0 bg-champagne">
     <div id="smooth-wrapper">
       <div id="smooth-content" class="bg-champagne pt-20 pb-8 min-h-[200vh]">
-        <NavBar />
+        <NavHeader />
         <slot />
-        <Footer />
+        <NavFooter />
       </div>
     </div>
   </div>
-
-  <MouseFollower />
 </template>
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
-import { ScrollSmoother } from 'gsap-trial/ScrollSmoother';
-import { gsap } from 'gsap-trial';
+import { ScrollSmoother } from 'gsap/ScrollSmoother';
+import { gsap } from 'gsap';
 
 const route = useRoute();
 
@@ -25,7 +23,7 @@ onNuxtReady(() => {
   gsap.registerPlugin(ScrollSmoother);
 
   watch(() => route.path, () => {
-    console.log('route changed');
+    console.debug('route changed to:', route.path);
 
     if (ctx) {
       ctx.revert();

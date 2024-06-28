@@ -1,3 +1,4 @@
+//@ts-expect-error There is no type definition for this package
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
@@ -7,8 +8,8 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@formkit/nuxt',
     '@nuxtjs/sitemap',
-    '@nuxt/eslint',
     "nuxt-og-image",
+    "@nuxt/eslint"
   ],
   css: ['assets/main.scss'],
   runtimeConfig: {
@@ -24,11 +25,17 @@ export default defineNuxtConfig({
     autoImport: true,
   },
   routeRules: {
-    '/**': { swr: true },
+    '/**': { swr: (process.env.NODE_ENV === 'production') },
     "/resume": {
         redirect: {
           to: "https://blogcdn.vigue.me/Resume.pdf",
           statusCode: 301,
+        },
+    },
+    "/posts": {
+        redirect: {
+          to: "/posts/1",
+          statusCode: 302,
         },
     },
   },

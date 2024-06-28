@@ -63,16 +63,17 @@ export async function getAllPosts() {
 export default defineSitemapEventHandler(async (_e) => {
   const allPosts = await getAllPosts()
 
-  const locs: any = allPosts.posts.map((p: any) => {
+  const locs = allPosts.posts.map((p) => {
     return {
       loc: `/posts/${p.slug}`,
-      lastmod: p.updated_at,
+      lastmod: p.updated_at ?? undefined,
     }
   })
 
   for (let i = 1; i <= allPosts.pagination.pages; i++) {
     locs.push({
       loc: `/posts/${i}`,
+      lastmod: undefined
     })
   }
 

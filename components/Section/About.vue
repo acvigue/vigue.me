@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ArrowDownTrayIcon, ArrowUpRightIcon } from '@heroicons/vue/24/solid'
-
-const { $gsap, $SplitText } = useNuxtApp()
+import { gsap } from 'gsap';
+import { SplitText } from 'gsap/SplitText';
 
 let ctx: gsap.Context
 
@@ -12,8 +12,10 @@ const bodyText = shallowRef<HTMLSpanElement>()
 const cta = shallowRef<HTMLDivElement>()
 
 onMounted(() => {
-  ctx = $gsap.context(() => {
-    const tl = $gsap.timeline({
+  gsap.registerPlugin(SplitText)
+
+  ctx = gsap.context(() => {
+    const tl = gsap.timeline({
       scrollTrigger: {
         trigger: panel.value,
         start: 'top 60%',
@@ -22,7 +24,7 @@ onMounted(() => {
       },
     })
 
-    const lines = new $SplitText(bodyText.value!, { type: 'lines' }).lines
+    const lines = new SplitText(bodyText.value!, { type: 'lines' }).lines
 
     tl.addLabel('start')
 
@@ -77,7 +79,7 @@ onMounted(() => {
       '<+=0.03',
     )
 
-    const hideTL = $gsap.timeline({
+    const hideTL = gsap.timeline({
       scrollTrigger: {
         trigger: panel.value,
         start: 'bottom 40%',
@@ -116,10 +118,10 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <Separator :index="1">
+  <PanelSeparator :index="1">
     About
-  </Separator>
-  <Panel>
+  </PanelSeparator>
+  <IndexPanel>
     <div ref="panel" class="flex justify-center items-center w-full">
       <div
         class="flex flex-col h-full lg:max-w-4xl w-[80vw] justify-center gap-4"
@@ -160,5 +162,5 @@ onBeforeUnmount(() => {
         </div>
       </div>
     </div>
-  </Panel>
+  </IndexPanel>
 </template>

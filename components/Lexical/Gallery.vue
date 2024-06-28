@@ -40,38 +40,21 @@ const imagesByRow = computed(() => {
 
 <template>
   <div
-    v-for="row in imagesByRow"
-    :key="row.rowNum"
-    class="md:grid hidden gap-4"
-    :style="`grid-template-columns: repeat(${row.images.length}, minmax(0, 1fr));`"
-  >
+v-for="row in imagesByRow" :key="row.rowNum" class="md:grid hidden gap-4"
+    :style="`grid-template-columns: repeat(${row.images.length}, minmax(0, 1fr));`">
     <div
-      v-for="image in row.images"
-      :key="image.src"
-      class="relative w-full flex items-center justify-center"
-      @click="imageClicked(image)"
-    >
+v-for="image in row.images" :key="image.src" class="relative w-full flex items-center justify-center"
+      @click="imageClicked(image)">
       <NuxtPicture
-        format="webp,jpg"
-        :src="image.src"
-        sizes="lg:500px md:400px sm:300px xs:200px"
-        :width="image.width"
-        :height="image.height"
-        class="gallery-image"
-        :placeholder="[100, 50]"
-        loading="lazy"
-      />
+format="webp,jpg" :src="image.src" sizes="lg:500px md:400px sm:300px xs:200px" :width="image.width"
+        :height="image.height" class="gallery-image" :placeholder="[100, 50]" loading="lazy" />
     </div>
   </div>
-  <Lightbox
-    v-model="lightboxOpen"
-    :images="node.images"
-    :start-index="lightboxStartIndex"
-  />
+  <ImageLightbox v-model="lightboxOpen" :images="node.images" :start-index="lightboxStartIndex" />
 </template>
 
 <style lang="scss">
-.gallery-image > img {
+.gallery-image>img {
   @apply rounded-lg z-30 cursor-pointer;
 }
 </style>

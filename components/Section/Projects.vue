@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const { $gsap } = useNuxtApp()
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 let ctx: gsap.Context
 
@@ -15,8 +16,10 @@ const { data } = await useFetch('/api/posts', {
 })
 
 onMounted(() => {
-  ctx = $gsap.context(() => {
-    const tl = $gsap.timeline({
+  gsap.registerPlugin(ScrollTrigger)
+
+  ctx = gsap.context(() => {
+    const tl = gsap.timeline({
       scrollTrigger: {
         trigger: panel.value,
         start: 'top 80%',
@@ -94,7 +97,7 @@ onMounted(() => {
       '<+=0.03',
     )
 
-    const hideTL = $gsap.timeline({
+    const hideTL = gsap.timeline({
       scrollTrigger: {
         trigger: panel.value,
         start: 'bottom 40%',
@@ -133,10 +136,10 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <Separator :index="2">
+  <PanelSeparator :index="2">
     Projects
-  </Separator>
-  <Panel class="expandable py-[3rem]">
+  </PanelSeparator>
+  <IndexPanel class="expandable py-[3rem]">
     <div ref="panel" class="flex justify-center items-center w-full">
       <div class="flex flex-col h-full lg:max-w-7xl w-[80vw] gap-4">
         <div class="flex flex-1 justify-start gap-2">
@@ -168,7 +171,7 @@ onBeforeUnmount(() => {
         <div class="flex-1 flex justify-center items-start">
           <div ref="cta">
             <NuxtLink
-              to="/projects/1"
+              to="/posts"
               class="flex text-licorice items-center gap-2 border-licorice border-2 rounded-full px-4 hover:bg-licorice hover:text-champagne duration-500"
               data-cursor-stick
             >
@@ -178,7 +181,7 @@ onBeforeUnmount(() => {
         </div>
       </div>
     </div>
-  </Panel>
+  </IndexPanel>
 </template>
 
 <style lang="scss" scoped>
