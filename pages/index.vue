@@ -12,8 +12,6 @@ useSeoMeta({
   ogType: 'website',
   ogUrl: `${appConfig.baseUrl}${route.path}`,
 })
-
-defineOgImageComponent('NuxtSeo')
 </script>
 
 <template>

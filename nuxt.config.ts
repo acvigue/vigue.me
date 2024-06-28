@@ -7,7 +7,6 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@formkit/nuxt',
     '@nuxtjs/sitemap',
-    "nuxt-og-image",
     "@nuxt/eslint"
   ],
   css: ['assets/main.scss'],
