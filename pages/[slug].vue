@@ -14,7 +14,7 @@ const { data, error } = await useFetch(`/api/page/${rawSlug}`, {
   query: { preview: isPreview },
 })
 
-if (error.value) {
+if (error.value || !data.value) {
   const { error: error_post } = await useFetch(`/api/post/${rawSlug}`, {
     query: { preview: isPreview },
   })
@@ -28,22 +28,22 @@ if (error.value) {
   } else {
     navigateTo(`/posts/${rawSlug}`)
   }
+} else {
+  useSeoMeta({
+    title: `${data.value.title} - ${appConfig.name}`,
+    description: data.value.excerpt ?? '',
+    ogDescription: data.value.excerpt ?? '',
+    ogTitle: `${data.value.title} - ${appConfig.name}`,
+    articlePublishedTime: data.value.published_at,
+    articleModifiedTime: data.value.updated_at,
+    ogType: 'website',
+    ogUrl: `${appConfig.baseUrl}/${data.value.slug}`,
+  })
 }
-
-useSeoMeta({
-  title: `${data.value.title} - ${appConfig.name}`,
-  description: data.value.excerpt ?? '',
-  ogDescription: data.value.excerpt ?? '',
-  ogTitle: `${data.value.title} - ${appConfig.name}`,
-  articlePublishedTime: data.value.published_at,
-  articleModifiedTime: data.value.updated_at,
-  ogType: 'page',
-  ogUrl: `${appConfig.baseUrl}/${data.value.slug}`,
-})
 </script>
 
 <template>
-  <div class="flex justify-center items-center w-full py-10">
+  <div v-if="!error" class="flex justify-center items-center w-full py-10">
     <div class="flex flex-col h-full lg:max-w-7xl w-[95vw] gap-4">
       <div class="flex flex-col items-center text-white mb-4 gap-4">
         <h1 class="text-center text-4xl font-serif font-extrabold text-persian md:w-2/3 lg:w-full lg:text-5xl">
@@ -52,6 +52,7 @@ useSeoMeta({
       </div>
 
       <div class="flex w-full flex-col gap-5 px-4 antialiased md:px-0">
+        <!-- @vue-expect-error -->
         <LexicalRenderer :state="data?.lexical ?? '{}'" />
       </div>
     </div>

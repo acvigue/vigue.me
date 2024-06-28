@@ -22,6 +22,8 @@ export default defineEventHandler(async (event) => {
   if (isPreview) {
     const response = await api.pages
       .read({ id: slug })
+      //@ts-expect-error - lexical support not yet implemented
+      .formats({ lexical: true, mobiledoc: true })
       .fetch()
     if (!response.success) {
       const errorString = response.errors
@@ -47,6 +49,8 @@ export default defineEventHandler(async (event) => {
 
   const response = await api.pages
     .read({ slug })
+    //@ts-expect-error - lexical support not yet implemented
+    .formats({ lexical: true, mobiledoc: true })
     .fetch()
   if (!response.success) {
     const errorString = response.errors
