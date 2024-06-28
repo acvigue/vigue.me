@@ -5,7 +5,9 @@ const appConfig = useAppConfig()
 
 useSeoMeta({
   title: `Home - ${appConfig.name}`,
+  ogTitle: `Home - ${appConfig.name}`,
   description: appConfig.description,
+  ogDescription: appConfig.description,
   ogImage: appConfig.defaultOGImage,
   ogType: 'website',
   ogUrl: `${appConfig.baseUrl}${route.path}`,
