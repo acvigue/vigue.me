@@ -23,18 +23,18 @@ export default defineNuxtConfig({
     autoImport: true,
   },
   routeRules: {
-    '/**': { swr: (process.env.NODE_ENV === 'production') },
+    '/**': { isr: (process.env.NODE_ENV === 'production' ? 3600 : 1) },
     "/resume": {
-        redirect: {
-          to: "https://blogcdn.vigue.me/Resume.pdf",
-          statusCode: 301,
-        },
+      redirect: {
+        to: "https://blogcdn.vigue.me/Resume.pdf",
+        statusCode: 301,
+      },
     },
     "/posts": {
-        redirect: {
-          to: "/posts/1",
-          statusCode: 302,
-        },
+      redirect: {
+        to: "/posts/1",
+        statusCode: 302,
+      },
     },
   },
   fonts: {

@@ -2767,7 +2767,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ts-ghost/admin-api@patch:@ts-ghost/admin-api@npm%3A4.2.0#./.yarn/patches/@ts-ghost-admin-api-npm-4.2.0-97cb8d795e.patch::locator=vigue.me%40workspace%3A.":
+"@ts-ghost/admin-api@patch:@ts-ghost/admin-api@npm%3A4.2.0#./.yarn/patches/@ts-ghost-admin-api-npm-4.2.0-97cb8d795e.patch::version=4.2.0&hash=c56e0e&locator=vigue.me%40workspace%3A.":
   version: 4.2.0
   resolution: "@ts-ghost/admin-api@patch:@ts-ghost/admin-api@npm%3A4.2.0#./.yarn/patches/@ts-ghost-admin-api-npm-4.2.0-97cb8d795e.patch::version=4.2.0&hash=c56e0e&locator=vigue.me%40workspace%3A."
   dependencies:
@@ -2775,6 +2775,17 @@ __metadata:
     validator: ^13.11.0
     zod: 3.23.8
   checksum: a08aa2d0f307e55946cde064067e6f06dbec74d9e2916cc8d90a5afbdb9a8ae3761b759c48bef74a7d6e607bd030c3a5d5a7815ec543e08a079766847a5299b0
+  languageName: node
+  linkType: hard
+
+"@ts-ghost/admin-api@patch:@ts-ghost/admin-api@patch%3A@ts-ghost/admin-api@npm%253A4.2.0%23./.yarn/patches/@ts-ghost-admin-api-npm-4.2.0-97cb8d795e.patch%3A%3Aversion=4.2.0&hash=c56e0e&locator=vigue.me%2540workspace%253A.#./.yarn/patches/@ts-ghost-admin-api-patch-7fb3ddca19.patch::locator=vigue.me%40workspace%3A.":
+  version: 4.2.0
+  resolution: "@ts-ghost/admin-api@patch:@ts-ghost/admin-api@patch%3A@ts-ghost/admin-api@npm%253A4.2.0%23./.yarn/patches/@ts-ghost-admin-api-npm-4.2.0-97cb8d795e.patch%3A%3Aversion=4.2.0&hash=c56e0e&locator=vigue.me%2540workspace%253A.#./.yarn/patches/@ts-ghost-admin-api-patch-7fb3ddca19.patch::version=4.2.0&hash=d73145&locator=vigue.me%40workspace%3A."
+  dependencies:
+    "@ts-ghost/core-api": ^6.1.0
+    validator: ^13.11.0
+    zod: 3.23.8
+  checksum: 01b8a2c17b801566a8075dd85394a7c65102a19543d6174c84dca9a5dc204a4eed35cdd3fb3bb7894cbeeb4460edb62305bb327f77ba676304637d941a0bb6bb
   languageName: node
   linkType: hard
 
