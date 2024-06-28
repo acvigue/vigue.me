@@ -1,7 +1,7 @@
 <template>
-  <div class="min-w-screen min-h-screen z-0 bg-champagne">
-    <div id="smooth-wrapper">
-      <div id="smooth-content" class="bg-champagne pt-20 pb-8 min-h-[200vh]">
+  <div class="z-0">
+    <div id="smooth-wrapper" class="bg-champagne">
+      <div id="smooth-content" class="pt-20 pb-12">
         <NavHeader />
         <slot />
         <NavFooter />
@@ -13,21 +13,23 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { gsap } from 'gsap';
 
 const route = useRoute();
 
 let ctx: gsap.Context | undefined;
 
-onNuxtReady(() => {
-  gsap.registerPlugin(ScrollSmoother);
-
+onMounted(() => {
   watch(() => route.path, () => {
     console.debug('route changed to:', route.path);
 
     if (ctx) {
       ctx.revert();
     }
+
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollSmoother);
 
     ctx = gsap.context(() => {
       ScrollSmoother.create({
