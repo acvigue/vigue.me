@@ -3,11 +3,11 @@ import { Bars3BottomLeftIcon, XMarkIcon } from '@heroicons/vue/24/outline'
 
 const isOpen = ref(false)
 
-function openNavbar() {
+const openNavbar = () => {
   isOpen.value = true
 }
 
-function closeNavbar() {
+const closeNavbar = () => {
   isOpen.value = false
 }
 </script>
@@ -15,7 +15,7 @@ function closeNavbar() {
 <template>
   <!-- Horizontal top navbar -->
   <div
-    class="fixed top-0 left-0 flex w-full border-khaki border-b items-center h-20 p-5 bg-champagne z-50 text-licorice"
+    class="fixed top-0 left-0 flex w-full bg-transparent border-khaki items-center h-20 p-5 z-50 text-licorice"
   >
     <div class="flex-1 hidden lg:flex">
       <NavLogoBlock />
@@ -28,7 +28,7 @@ function closeNavbar() {
         class="flex text-licorice items-center gap-4 border-licorice border-2 rounded-full px-4 hover:bg-licorice hover:text-champagne duration-500"
         @click="openNavbar"
       >
-        <span class="font-serif2 text-lg">Menu </span>
+        <span class="font-serif2 text-lg">Menu</span>
         <Bars3BottomLeftIcon class="h-5" />
       </button>
     </div>

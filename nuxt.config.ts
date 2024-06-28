@@ -7,8 +7,8 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@formkit/nuxt',
     '@nuxtjs/sitemap',
+    '@nuxt/eslint',
     "nuxt-og-image",
-    "@hypernym/nuxt-gsap"
   ],
   css: ['assets/main.scss'],
   runtimeConfig: {
@@ -39,4 +39,7 @@ export default defineNuxtConfig({
     sources: ['/api/sitemap'],
     cacheMaxAgeSeconds: 3600,
   },
+  eslint: {
+    // options here
+  }
 })

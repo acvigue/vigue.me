@@ -15,17 +15,6 @@ const slug = computed(() => {
     return
   return rawSlug
 })
-
-const { $initScrollSmoother } = useNuxtApp()
-
-let sm: ScrollSmoother
-onMounted(() => {
-  sm = $initScrollSmoother()
-})
-onBeforeUnmount(() => {
-  if (sm)
-    sm.kill()
-})
 </script>
 
 <template>
