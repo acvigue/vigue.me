@@ -28,6 +28,7 @@ export default defineNuxtConfig({
   },
   routeRules: {
     '/**': { swr: (process.env.NODE_ENV === 'production') },
+    '/api/**': { swr: false },
     "/resume": {
       redirect: {
         to: "https://blogcdn.vigue.me/Resume.pdf",
