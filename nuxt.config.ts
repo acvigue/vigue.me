@@ -66,7 +66,7 @@ export default defineNuxtConfig({
     '/api': { isr: false },
     "/posts": {
       redirect: {
-        to: "/posts/1",
+        to: "/posts/page/1",
         statusCode: 302,
       },
       isr: 3600

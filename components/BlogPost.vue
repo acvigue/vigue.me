@@ -2,45 +2,42 @@
 import { format } from 'date-fns'
 
 const props = defineProps<{
-  slug: string;
+  post: {
+    title: string
+    slug: string
+    excerpt: string
+    feature_image: string
+    feature_image_alt: string
+    feature_image_caption: string
+    published_at: string
+    status: string
+    tags: { id: string, name: string, slug: string, visibility: string }[]
+    featured: boolean
+  }
 }>()
-
-const { data, error } = await useFetch("/api/cms/post", {
-  query: { slug: props.slug },
-})
-
-if (!data.value) {
-  throw createError({
-    statusCode: error.value?.statusCode,
-    message: "Post not found",
-    fatal: false,
-  })
-}
-
-const post = data.value
 
 const postDataString = computed(() => {
   const strParts = []
-  if (post.published_at)
-    strParts.push(format(Date.parse(post.published_at), 'MMMM d, yyyy'))
+  if (props.post.published_at)
+    strParts.push(format(Date.parse(props.post.published_at), 'MMMM d, yyyy'))
 
-  if (post.featured)
+  if (props.post.featured)
     strParts.push('Featured')
 
   return strParts.join(' • ')
 })
 
 const filteredTags = computed(() => {
-  if (!post.tags)
+  if (!props.post.tags)
     return []
 
-  return post.tags.filter(tag => tag.slug !== 'projects' && tag.visibility === 'public')
+  return props.post.tags.filter(tag => tag.slug !== 'projects' && tag.visibility === 'public')
 })
 </script>
 
 <template>
   <div class="transform-gpu rounded-lg transition duration-300 hover:scale-95">
-    <NuxtLink :to="`/posts/${slug}`">
+    <NuxtLink :to="`/posts/${post.slug}`">
       <div class="group relative w-full rounded">
         <div
           class="absolute h-full w-full -rotate-3 transform-gpu rounded-lg bg-persian opacity-20 transition duration-300 group-hover:rotate-0 dark:opacity-25 dark:mix-blend-overlay" />

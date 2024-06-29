@@ -2,11 +2,7 @@
   <WidthContainer>
     <div class="flex justify-center items-center w-full py-[4rem]">
       <div class="flex flex-col h-full justify-center gap-12 w-full">
-        <div class="flex flex-1 justify-start items-center gap-2 lg:flex-row flex-col">
-          <span class="font-serif italic lg:text-6xl text-4xl text-persian font-bold lg:ml-0 -ml-32">Got an
-            idea?</span>
-          <span class="font-serif italic lg:text-5xl text-3xl lg:mt-8 mt-0 lg:pl-0 pl-20">Let's bring it to life!</span>
-        </div>
+        <DuotoneHeading title="Got an idea?" subtitle="Let's bring it to life!" />
         <div class="w-full flex justify-center">
           <div class="rounded-lg p-4 border border-khaki shadow-lg w-full max-w-4xl">
             <h4 class="mb-4 text-2xl font-serif text-persian font-bold">Contact Me</h4>
@@ -31,6 +27,7 @@
 
 <script setup lang="ts">
 import { EnvelopeIcon } from '@heroicons/vue/24/outline';
+import DuotoneHeading from '~/components/DuotoneHeading.vue';
 
 const appConfig = useAppConfig();
 

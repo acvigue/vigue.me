@@ -53,9 +53,6 @@ const closeNavbar = () => {
             about
           </NavItem>
           <NavItem to="/posts" @click="closeNavbar">
-            projects
-          </NavItem>
-          <NavItem to="/posts" @click="closeNavbar">
             blog
           </NavItem>
           <NavItem to="/contact" @click="closeNavbar">

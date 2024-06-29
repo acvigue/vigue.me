@@ -43,7 +43,7 @@ export default defineEventHandler(async (_) => {
 
     const postPagePages = Array.from({ length: pages }, (_, i) => i + 1).map((page) => {
         return {
-            loc: `/posts/${page}`
+            loc: `/posts/page/${page}`
         }
     });
 

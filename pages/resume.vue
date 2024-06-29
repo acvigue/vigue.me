@@ -1,10 +1,11 @@
 <template>
   <div class="flex justify-center items-center w-full py-10">
     <div class="flex flex-col h-full lg:max-w-7xl w-[95vw] gap-4">
-      <div class="flex flex-col items-center text-white mb-4 gap-4">
-        <h1 class="text-center text-4xl font-serif font-extrabold text-persian md:w-2/3 lg:w-full lg:text-5xl">
-          Résumé
-        </h1>
+      <div class="flex flex-col items-center text-licorice mb-4 gap-4">
+        <div class="flex w-full items-start">
+          <DuotoneHeading title="My" subtitle="Résumé" />
+        </div>
+
         <button
           class="flex text-licorice items-center gap-2 border-licorice border-2 rounded-full px-4 hover:bg-licorice hover:text-champagne duration-500"
           data-cursor-stick @click="download">

@@ -146,7 +146,8 @@ onBeforeUnmount(() => {
 
         <div v-if="data" class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 w-full">
           <div v-for="post of data.posts" ref="projectRefs" :key="post.uuid">
-            <BlogPost :slug="post.slug" class="flex p-4 w-full justify-between items-center gap-4" />
+            <!-- @vue-expect-error -->
+            <BlogPost :post="post" class="flex p-4 w-full justify-between items-center gap-4" />
           </div>
         </div>
         <div class="flex-1 flex justify-center items-start">
