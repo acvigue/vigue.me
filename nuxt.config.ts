@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
     "@nuxt/eslint"
   ],
-  css: ['assets/main.scss', 'video.js/dist/video-js.css'],
+  css: ['assets/main.scss'],
   runtimeConfig: {
     ghostContentKey: '',
     ghostAdminKey: '',
@@ -17,7 +17,7 @@ export default defineNuxtConfig({
     formkitKey: '',
   },
   image: {
-    domains: ['blogcdn.vigue.me'],
+    domains: ['cdn.vigue.me'],
   },
   formkit: {
     autoImport: true,

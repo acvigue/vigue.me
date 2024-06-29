@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import videojs from 'video.js';
+import 'video.js/dist/video-js.css';
 
 export interface EmbedNode {
   type: 'html'

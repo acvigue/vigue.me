@@ -34,7 +34,7 @@ import 'vue-pdf-embed/dist/style/index.css'
 import 'vue-pdf-embed/dist/style/annotationLayer.css'
 import 'vue-pdf-embed/dist/style/textLayer.css'
 
-const url = "https://blogcdn.vigue.me/Resume.pdf";
+const url = "https://cdn.vigue.me/Resume.pdf";
 const saveAsName = "Aiden-Vigue_Resume.pdf";
 const appConfig = useAppConfig();
 
