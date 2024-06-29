@@ -75,8 +75,9 @@ export default defineNuxtConfig({
     componentIslands: true,
   },
   sitemap: {
-    sources: ['/api/sitemap'],
-    cacheMaxAgeSeconds: 3600,
+    sources: ['/api/__sitemap__/pages', '/api/__sitemap__/posts'],
+    cacheMaxAgeSeconds: 1800,
+    exclude: ['/api/**'],
   },
   eslint: {
     // options here

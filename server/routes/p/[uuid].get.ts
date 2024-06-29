@@ -1,37 +1,30 @@
-import { TSGhostAdminAPI } from '@ts-ghost/admin-api'
-
 const uuidV4Regex
   = /^[A-F\d]{8}-[A-F\d]{4}-4[A-F\d]{3}-[89AB][A-F\d]{3}-[A-F\d]{12}$/i
 const isValidV4UUID = (uuid: string) => uuidV4Regex.test(uuid)
+
+/*
+  * This file is a placeholder for the following route:
+  *
+  * /p/:uuid
+  *
+  * Used when previewing a post or page from the dashboard.
+  * The UUID is validated and then used to redirect to the canonical URL for the post.
+  */
 
 export default defineEventHandler(async (event) => {
   const uuid = getRouterParam(event, 'uuid')
 
   if (!uuid)
-    throw new Error('No uuid provided!')
+    throw createError({
+      statusCode: 400,
+      statusMessage: 'No UUID provided!',
+    })
 
   if (!isValidV4UUID(uuid))
-    throw new Error('Invalid UUID!')
+    throw createError({
+      statusCode: 400,
+      statusMessage: 'Invalid UUID provided!',
+    })
 
-  const config = useRuntimeConfig()
-
-  const api = new TSGhostAdminAPI(
-    config.ghostUrl,
-    config.ghostAdminKey,
-    'v5.47.0',
-  )
-
-  const response = await api.posts
-    .browse({ filter: 'status:draft' })
-    .fields({ uuid: true, id: true })
-    .fetch()
-
-  if (!response.success)
-    throw new Error(response.errors.join(', '))
-
-  const draftPost = response.data.find(post => post.uuid === uuid)
-  if (!draftPost)
-    throw new Error('UUID not a draft post!')
-
-  return sendRedirect(event, `/posts/${draftPost.id}?preview=true`)
+  return sendRedirect(event, `/posts/${uuid}`)
 })

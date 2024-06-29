@@ -6,11 +6,14 @@ const props = defineProps<{
   slug: string
 }>()
 
-const isPreview = useRoute().query.preview === 'true'
 const appConfig = useAppConfig()
 
-const { data, error } = await useFetch(`/api/post/${props.slug}`, {
-  query: { preview: isPreview },
+//if slug is uuid (use regex)
+const isUuid = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/.test(props.slug)
+const queryData = isUuid ? { uuid: props.slug } : { slug: props.slug }
+
+const { data, error } = await useFetch("/api/cms/post", {
+  query: queryData,
 })
 
 if (!data.value) {
@@ -52,6 +55,9 @@ defineOgImageComponent('Page', {
 const dateString = computed(() => {
   if (!data.value)
     return ''
+
+  if (data.value.status !== 'published')
+    return 'UNPUBLISHED'
 
   return data.value.published_at !== null
     ? format(Date.parse(data.value.published_at), 'MMMM d, yyyy')

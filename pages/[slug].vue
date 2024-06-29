@@ -6,17 +6,27 @@
 //If neither, we redirect to 404
 
 const route = useRoute()
-const rawSlug = route.params.slug
-const isPreview = route.query.preview === 'true'
+const slug = route.params.slug
 const appConfig = useAppConfig()
 
-const { data, error } = await useFetch(`/api/page/${rawSlug}`, {
-  query: { preview: isPreview },
+if (typeof slug !== 'string') {
+  throw createError({
+    statusCode: 400,
+    message: "Invalid slug",
+    fatal: true,
+  })
+}
+
+const isUuid = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/.test(slug)
+const queryData = isUuid ? { uuid: slug } : { slug: slug }
+
+const { data, error } = await useFetch(`/api/cms/page`, {
+  query: queryData,
 })
 
 if (error.value || !data.value) {
-  const { error: error_post } = await useFetch(`/api/post/${rawSlug}`, {
-    query: { preview: isPreview },
+  const { error: error_post } = await useFetch(`/api/cms/post`, {
+    query: queryData,
   })
 
   if (error_post.value) {
@@ -26,7 +36,7 @@ if (error.value || !data.value) {
       fatal: true,
     })
   } else {
-    navigateTo(`/posts/${rawSlug}`)
+    navigateTo(`/posts/${slug}`)
   }
 } else {
   useSeoMeta({

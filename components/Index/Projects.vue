@@ -11,7 +11,7 @@ const projectRefs = ref([])
 
 const cta = shallowRef<HTMLDivElement>()
 
-const { data } = await useFetch('/api/posts', {
+const { data } = await useFetch('/api/cms/allPosts', {
   query: { limit: 6, featured: true },
 })
 

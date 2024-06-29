@@ -24,7 +24,7 @@ defineOgImageComponent('Page', {
 
 const maxVisibleButtons = 5
 
-const { data } = await useFetch('/api/posts', {
+const { data } = await useFetch('/api/cms/allPosts', {
   query: { page: props.page },
 })
 
