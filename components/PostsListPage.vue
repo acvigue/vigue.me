@@ -80,8 +80,7 @@ function goToPage(page: number) {
       </div>
 
       <div v-if="data" class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-1 w-full">
-        <!-- @vue-expect-error -->
-        <BlogPost v-for="post in data.posts" :key="post.uuid" :post="post"
+        <BlogPost v-for="post in data.posts" :key="post.uuid" :slug="post.slug"
           class="flex p-4 w-full justify-between items-center gap-2" />
       </div>
       <div class="flex-1 flex justify-center items-start">

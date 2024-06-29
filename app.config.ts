@@ -6,7 +6,7 @@ export default defineAppConfig({
   username: 'acvigue',
   baseUrl: 'https://vigue.me',
   defaultOGImage: 'https://vigue.me/og.jpg',
-  matomoURL: 'https://dataingestion.vigue.me',
+  matomoURL: 'https://analytics.vigue.me',
   matomoSiteID: '1',
   newsletterSignupHeading: 'Don\'t miss out!',
   newsletterSignupBody:

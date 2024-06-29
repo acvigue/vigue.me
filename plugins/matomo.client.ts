@@ -2,23 +2,20 @@
 import VueMatomo from 'vue-matomo'
 
 export default defineNuxtPlugin((nuxtApp) => {
-  const appConfig = useAppConfig()
-  
-  //ignore if in dev
+  //ignore if not prod
   if (process.env.NODE_ENV !== 'production') {
     return
   }
 
   nuxtApp.vueApp.use(VueMatomo, {
-    host: appConfig.matomoURL,
-    trackerFileName: 'main',
+    trackerUrl: '/api/gather',
+    trackerScriptUrl: '/api/gather',
     siteId: 1,
     preInitActions: [
       ['setRequestMethod', 'POST'],
       ['disableAlwaysUseSendBeacon'],
     ],
-    debug: false,
-    // Enables automatically registering pageviews on the router
+    debug: true,
     router: nuxtApp.$router,
   })
 })
