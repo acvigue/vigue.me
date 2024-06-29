@@ -15,6 +15,10 @@ export default defineNuxtConfig({
     ghostAdminKey: '',
     ghostUrl: '',
     formkitKey: '',
+    muxTokenId: '',
+    muxTokenSecret: '',
+    muxSigningKeyId: '',
+    muxSigningKey: '',
   },
   image: {
     domains: ['cdn.vigue.me'],
@@ -24,6 +28,7 @@ export default defineNuxtConfig({
   },
   routeRules: {
     '/**': { isr: 3600 },
+    '/api/**': { isr: false },
     "/posts": {
       redirect: {
         to: "/posts/1",
