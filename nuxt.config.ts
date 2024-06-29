@@ -15,6 +15,10 @@ export default defineNuxtConfig({
     ghostAdminKey: '',
     ghostUrl: '',
     formkitKey: '',
+    muxTokenId: '',
+    muxTokenSecret: '',
+    muxSigningKeyId: '',
+    muxSigningKey: '',
   },
   image: {
     domains: ['blogcdn.vigue.me'],
@@ -25,16 +29,16 @@ export default defineNuxtConfig({
   routeRules: {
     '/**': { swr: (process.env.NODE_ENV === 'production') },
     "/resume": {
-        redirect: {
-          to: "https://blogcdn.vigue.me/Resume.pdf",
-          statusCode: 301,
-        },
+      redirect: {
+        to: "https://blogcdn.vigue.me/Resume.pdf",
+        statusCode: 301,
+      },
     },
     "/posts": {
-        redirect: {
-          to: "/posts/1",
-          statusCode: 302,
-        },
+      redirect: {
+        to: "/posts/1",
+        statusCode: 302,
+      },
     },
   },
   fonts: {

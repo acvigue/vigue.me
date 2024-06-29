@@ -15,6 +15,7 @@
     "@formkit/icons": "^1.6.5",
     "@formkit/nuxt": "^1.6.5",
     "@heroicons/vue": "^2.1.4",
+    "@mux/mux-node": "^8.8.0",
     "@nuxt/fonts": "^0.7.1",
     "@nuxt/image": "^1.7.0",
     "@nuxtjs/sitemap": "^5.2.2",
