@@ -28,7 +28,7 @@ export default defineNuxtConfig({
   },
   routeRules: {
     '/**': { isr: 3600 },
-    '/api/**': { isr: false },
+    '/api': { isr: false },
     "/posts": {
       redirect: {
         to: "/posts/1",
