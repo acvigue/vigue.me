@@ -19,15 +19,19 @@
     "@nuxt/image": "^1.7.0",
     "@nuxtjs/sitemap": "^5.2.2",
     "@ts-ghost/admin-api": "^4.2.0",
+    "@yeger/vue-masonry-wall": "^5.0.12",
     "date-fns": "^3.6.0",
     "gsap": "npm:@gsap/shockingly@^3.12.5",
     "highlight.js": "^11.9.0",
     "mouse-follower": "^1.1.2",
     "nuxt": "^3.12.2",
+    "video.js": "^8.12.0",
     "vue": "^3.4.31",
-    "vue-easy-lightbox": "^1.19.0",
+    "vue-easy-lightbox": "next",
     "vue-matomo": "^4.2.0",
-    "vue-router": "^4.4.0"
+    "vue-pdf-embed": "^2.0.4",
+    "vue-router": "^4.4.0",
+    "yaml": "^2.4.5"
   },
   "devDependencies": {
     "@nuxt/eslint": "^0.3.13",

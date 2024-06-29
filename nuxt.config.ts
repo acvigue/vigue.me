@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
     "@nuxt/eslint"
   ],
-  css: ['assets/main.scss'],
+  css: ['assets/main.scss', 'video.js/dist/video-js.css'],
   runtimeConfig: {
     ghostContentKey: '',
     ghostAdminKey: '',
@@ -23,13 +23,7 @@ export default defineNuxtConfig({
     autoImport: true,
   },
   routeRules: {
-    '/**': { isr: (process.env.NODE_ENV === 'production' ? 3600 : 1) },
-    "/resume": {
-      redirect: {
-        to: "https://blogcdn.vigue.me/Resume.pdf",
-        statusCode: 301,
-      },
-    },
+    '/**': { isr: 3600 },
     "/posts": {
       redirect: {
         to: "/posts/1",

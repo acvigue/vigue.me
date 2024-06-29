@@ -19,6 +19,8 @@ const closeNavbar = () => {
         <NavLogoBlock />
       </div>
 
+      <NavNameBlock class="!items-center hidden md:flex" />
+
       <div class="flex-1 flex justify-end h-10">
         <button
           class="flex text-licorice items-center gap-4 border-licorice border-2 rounded-full px-4 hover:bg-licorice hover:text-champagne duration-500"
@@ -43,12 +45,15 @@ const closeNavbar = () => {
           <NavNameBlock class="!items-center" />
           <div class="flex-1" />
         </div>
-        <div class="flex flex-col items-center justify-center flex-1">
+        <div class="flex flex-col items-center justify-center flex-1 gap-6">
           <NavItem to="/" @click="closeNavbar">
             home
           </NavItem>
           <NavItem to="/about" @click="closeNavbar">
             about
+          </NavItem>
+          <NavItem to="/posts" @click="closeNavbar">
+            projects
           </NavItem>
           <NavItem to="/posts" @click="closeNavbar">
             blog

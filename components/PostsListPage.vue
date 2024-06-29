@@ -71,13 +71,13 @@ function goToPage(page: number) {
     <div class="flex flex-col h-full lg:max-w-7xl w-[90vw] gap-4">
       <div class="flex flex-1 justify-start gap-2">
         <span class="font-serif italic md:text-7xl text-4xl text-persian font-bold">All</span>
-        <span class="font-serif italic md:text-7xl text-4xl mt-6">Posts</span>
+        <span class="font-serif italic md:text-7xl text-4xl mt-6 mr-2">Posts</span>
       </div>
 
       <div v-if="data" class="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-1 w-full">
-        <div v-for="post in data.posts" :key="post.uuid">
-          <BlogPost :post="post" class="flex p-4 w-full justify-between items-center gap-2" />
-        </div>
+        <!-- @vue-expect-error -->
+        <BlogPost v-for="post in data.posts" :key="post.uuid" :post="post"
+          class="flex p-4 w-full justify-between items-center gap-2" />
       </div>
       <div class="flex-1 flex justify-center items-start">
         <button :disabled="page === 1"

@@ -17,44 +17,46 @@ const props = defineProps<{
 }>()
 
 const lightboxOpen = ref(false)
-const lightboxStartIndex = ref(0)
+const lightboxIndex = ref(0)
 
-function imageClicked(image: Image) {
-  lightboxStartIndex.value = props.node.images.indexOf(image)
+const openLightbox = (index: number) => {
+  lightboxIndex.value = index
   lightboxOpen.value = true
 }
 
-const imagesByRow = computed(() => {
-  const imagesByRow: { images: Image[], rowNum: number }[] = []
-  let currentRow: Image[] = []
-  for (const image of props.node.images) {
-    if (imagesByRow.length <= image.row) {
-      currentRow = []
-      imagesByRow.push({ images: currentRow, rowNum: image.row })
-    }
-    currentRow.push(image)
+const closeLightbox = () => {
+  lightboxOpen.value = false
+}
+
+const lightboxImages = computed(() => props.node.images.map((img) => {
+  return {
+    src: img.src,
+    title: img.alt ?? undefined,
   }
-  return imagesByRow
-})
+}))
 </script>
 
 <template>
-  <div
-v-for="row in imagesByRow" :key="row.rowNum" class="md:grid hidden gap-4"
-    :style="`grid-template-columns: repeat(${row.images.length}, minmax(0, 1fr));`">
-    <div
-v-for="image in row.images" :key="image.src" class="relative w-full flex items-center justify-center"
-      @click="imageClicked(image)">
-      <NuxtPicture
-format="webp,jpg" :src="image.src" sizes="lg:500px md:400px sm:300px xs:200px" :width="image.width"
-        :height="image.height" class="gallery-image" :placeholder="[100, 50]" loading="lazy" />
-    </div>
-  </div>
-  <ImageLightbox v-model="lightboxOpen" :images="node.images" :start-index="lightboxStartIndex" />
+  <masonry-wall :items="node.images" :gap="16" :min-columns="1" :max-columns="3" class="breakout px-[2vw]">
+    <template #default="{ item, index }">
+      <div class="relative" @click="openLightbox(index)">
+        <div class="absolute h-full w-full -rotate-1 transform rounded-md bg-licorice bg-opacity-50 -z-10" />
+
+        <!-- @vue-expect-error -->
+        <NuxtPicture format="avif,webp,jpg" :src="item.src" sizes="lg:700px 250px" class="gallery-image z-10"
+          :width="item.width" :height="item.height" placeholder placeholder-class="custom" data-cursor="-pointer" />
+      </div>
+    </template>
+  </masonry-wall>
+
+  <Teleport to="body">
+    <vue-easy-lightbox :visible="lightboxOpen" :imgs="lightboxImages" :index="lightboxIndex" :loop="false"
+      :zoom-scale="0.25" @hide="closeLightbox" />
+  </Teleport>
 </template>
 
 <style lang="scss">
 .gallery-image>img {
-  @apply rounded-lg z-30 cursor-pointer;
+  @apply rounded-md z-30 cursor-pointer;
 }
 </style>

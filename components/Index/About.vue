@@ -120,7 +120,7 @@ onBeforeUnmount(() => {
 <template>
   <IndexPanel>
     <div ref="panel" class="flex justify-center items-center w-full">
-      <div class="flex flex-col h-full lg:max-w-4xl w-[80vw] justify-center gap-4">
+      <div class="flex flex-col h-full lg:max-w-4xl w-[6xl] justify-center gap-4">
         <span ref="panelHeader" class="font-serif text-lg font-bold">About Me</span>
         <span ref="bodyText" class="font-serif md:text-3xl text-xl pl-4 mb-4">
           As a
@@ -147,7 +147,7 @@ onBeforeUnmount(() => {
             <NuxtLink to="/resume"
               class="flex text-licorice items-center gap-2 border-licorice border-2 rounded-full px-4 hover:bg-licorice hover:text-champagne duration-500"
               data-cursor-stick>
-              <span class="font-serif2 text-lg">My Resume</span>
+              <span class="font-serif2 text-lg">View Résumé</span>
               <ArrowDownTrayIcon class="h-5" />
             </NuxtLink>
           </div>

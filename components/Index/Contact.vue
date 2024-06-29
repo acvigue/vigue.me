@@ -85,7 +85,7 @@ onBeforeUnmount(() => {
 <template>
   <IndexPanel>
     <div class="flex justify-center items-center w-full py-[4rem]">
-      <div class="flex flex-col h-full lg:max-w-4xl w-[80vw] justify-center gap-4">
+      <div class="flex flex-col h-full lg:max-w-4xl w-[6xl] justify-center gap-4">
         <div class="flex flex-1 justify-start items-center gap-2">
           <span class="font-serif italic md:text-7xl text-4xl text-persian font-bold">Let's</span>
           <span class="font-serif italic md:text-6xl text-4xl mt-8">Connect</span>

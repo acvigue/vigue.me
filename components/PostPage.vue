@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { format } from 'date-fns'
+import { parseHeadData } from '~/utilities/CodeInjectionParser';
 
 const props = defineProps<{
   slug: string
@@ -23,6 +24,13 @@ if (!data.value) {
   })
 }
 
+const parsedHeadData = computed(() => {
+  if (!data.value)
+    return undefined
+
+  return parseHeadData(data.value.codeinjection_head ?? '')
+})
+
 useSeoMeta({
   title: `${data.value.title} - ${appConfig.name}`,
   description: data.value.excerpt ?? '',
@@ -33,6 +41,7 @@ useSeoMeta({
   articleModifiedTime: data.value.updated_at,
   ogType: 'article',
   ogUrl: `${appConfig.baseUrl}/posts/${props.slug}`,
+  keywords: parsedHeadData.value?.keywords,
 })
 
 const dateString = computed(() => {
@@ -43,19 +52,24 @@ const dateString = computed(() => {
     ? format(Date.parse(data.value.published_at), 'MMMM d, yyyy')
     : 'UNPUBLISHED'
 })
+
+const featureImageAlt = computed(() => {
+  return data.value?.feature_image_alt ?? data.value?.feature_image_caption ?? 'Post Feature Image'
+})
 </script>
 
 <template>
-  <div class="flex justify-center items-center w-full py-10">
-    <div class="flex flex-col h-full lg:max-w-7xl w-[95vw] gap-4">
-      <div class="flex flex-col items-center text-white mb-4 gap-4">
-        <h1 class="text-center text-4xl font-serif font-extrabold text-persian md:w-2/3 lg:w-full lg:text-5xl">
+
+  <div class="w-full py-10">
+    <div class="flex flex-col items-center gap-4">
+      <WidthContainer class="flex flex-col items-center gap-4 text-persian">
+        <h1 class="text-center font-extrabold font-serif2 text-4xl lg:text-5xl">
           {{ data?.title }}
         </h1>
-        <h4 class="text-md inline text-center font-semibold leading-none text-persian">
+        <h4 class="text-center text-md font-serif">
           <i>{{ data?.excerpt }}</i>
         </h4>
-        <div class="flex items-center text-xs uppercase tracking-wide text-persian">
+        <div class="flex items-center text-xs uppercase tracking-wide font-serif2 font-bold">
           <svg width="24" height="24" fill="none" viewBox="0 0 24 24"
             class="-ml-1 h-4 -translate-y-px transform opacity-75">
             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5"
@@ -76,25 +90,28 @@ const dateString = computed(() => {
           </svg>
           <span>{{ data?.reading_time }} min read</span>
         </div>
-        <div class="w-full flex justify-center">
-          <NuxtPicture format="webp,jpg" :src="data?.feature_image!" :height="1500" :width="2000"
-            sizes="lg:550px md:500px sm:300px xs:150px" class="feature-image" placeholder="blur" />
+        <div class="relative">
+          <div class="absolute h-full w-full -rotate-1 transform rounded-md bg-licorice bg-opacity-40 -z-10" />
+          <NuxtPicture format="avif,webp,jpg" :src="data?.feature_image!" sizes="lg:90vw md:750px sm:300px 100px"
+            class="feature-image z-10" :alt="featureImageAlt" :width="2000" :height="1500" placeholder
+            placeholder-class="custom" />
         </div>
-      </div>
+        <i v-if="data?.feature_image_caption" class="text-sm" v-html="data?.feature_image_caption" />
+      </WidthContainer>
 
-      <div class="flex w-full flex-col gap-5 px-4 antialiased md:px-0">
+      <div class="flex flex-col gap-10 pt-8 max-w-6xl w-[80vw]">
         <LexicalRenderer :state="data?.lexical ?? '{}'" />
       </div>
     </div>
   </div>
+
+
 </template>
 
 <style lang="scss">
-.feature-image {
-  @apply max-w-[80%];
-}
-
 .feature-image>img {
-  @apply rounded-lg z-30;
+  @apply rounded-lg z-40;
+  max-height: 550px;
+  object-fit: cover;
 }
 </style>

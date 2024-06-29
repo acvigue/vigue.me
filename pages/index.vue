@@ -15,6 +15,7 @@ useSeoMeta({
 
 <template>
   <div>
+    <IndexLoading />
     <IndexHero />
     <IndexFullWidthPanel>full width!</IndexFullWidthPanel>
   </div>

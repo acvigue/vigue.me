@@ -138,7 +138,7 @@ onBeforeUnmount(() => {
 <template>
   <IndexPanel class="expandable py-[3rem]">
     <div ref="panel" class="flex justify-center items-center w-full">
-      <div class="flex flex-col h-full lg:max-w-7xl w-[80vw] gap-4">
+      <div class="flex flex-col h-full lg:max-w-7xl w-[6xl] gap-4">
         <div class="flex flex-1 justify-start gap-2">
           <span ref="panelHeader" class="font-serif italic md:text-7xl text-4xl text-persian font-bold">Featured</span>
           <span ref="panelHeader2" class="font-serif italic md:text-7xl text-4xl mt-6">Projects</span>

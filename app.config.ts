@@ -13,4 +13,7 @@ export default defineAppConfig({
   newsletterSignupBody:
     'Stay in the loop by signing up for my (infrequent) newsletter. No spam, unsubscribe anytime.',
   newsletterSignupComplete: 'Thanks, you\'re subscribed!',
+  contactMetaDescription: "Reach out to a computer science student at Purdue University, eager to collaborate on innovative project ideas. With a strong foundation in various programming languages, embedded systems, and software development, let\'s create something outstanding together. Open to new opportunities and discussions. Let\'s connect!",
+  resumeMetaDescription: "Check out the resume of a Purdue Computer Science student. It's all here, from programming languages learned to projects in embedded systems and software development. Want to collaborate on an innovative idea? Feel free to reach out for discussion.",
+  keywords: "Aiden Vigue, Purdue, Computer Science, Embedded Engineering, Blog",
 })
