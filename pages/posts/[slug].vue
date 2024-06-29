@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import ms from 'ms'
+
 const route = useRoute()
 const rawSlug = route.params.slug
 
@@ -20,9 +22,17 @@ const slug = computed(() => {
     return
   return rawSlug
 })
+
+const generatedAt = useState(() => new Date().toISOString())
+const date = new Date(generatedAt.value)
+const timeAgo = ref()
+onMounted(() => {
+  timeAgo.value = ms(Date.now() - date.valueOf(), { long: true })
+})
 </script>
 
 <template>
   <PostsListPage v-if="page" :page="page" />
   <PostPage v-else-if="slug" :slug="slug" />
+  <p>{{ timeAgo }}</p>
 </template>

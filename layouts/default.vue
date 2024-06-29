@@ -23,8 +23,6 @@ let ctx: gsap.Context | undefined;
 
 onMounted(() => {
   watch(() => route.path, () => {
-    console.debug('route changed to:', route.path);
-
     if (ctx) {
       ctx.revert();
     }

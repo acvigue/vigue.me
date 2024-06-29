@@ -69,6 +69,7 @@ export default defineNuxtConfig({
         to: "/posts/1",
         statusCode: 302,
       },
+      isr: 3600
     },
   },
   fonts: {
@@ -95,6 +96,11 @@ export default defineNuxtConfig({
     }
   },
   ogImage: {
-    fonts: ogImageFonts
+    fonts: ogImageFonts,
+    compatibility: {
+      prerender: {
+        satori: 'node'
+      },
+    }
   }
 })
