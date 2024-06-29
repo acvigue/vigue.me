@@ -38,7 +38,17 @@ export default defineEventHandler(async (event) => {
   const playbackID = playbackIDs[0]
 
   if (playbackID.policy === 'public') {
-    return sendRedirect(event, `https://image.mux.com/${playbackID.id}/animated.webp?width=640`)
+    //fetch and return content from url
+    const url = `https://image.mux.com/${playbackID.id}/animated.webp?width=640`
+    const response = await fetch(url)
+    const buffer = await response.arrayBuffer()
+
+    return new Response(buffer, {
+      headers: {
+        'Content-Type': 'image/webp',
+        'Access-Control-Allow-Origin': '*',
+      },
+    })
   }
 
   throw createError({

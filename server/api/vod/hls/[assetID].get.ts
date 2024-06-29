@@ -38,7 +38,15 @@ export default defineEventHandler(async (event) => {
   const playbackID = playbackIDs[0]
 
   if (playbackID.policy === 'public') {
-    return sendRedirect(event, `https://stream.mux.com/${playbackID.id}.m3u8`)
+    const url = `https://stream.mux.com/${playbackID.id}.m3u8`
+    const response = await fetch(url)
+    const buffer = await response.arrayBuffer()
+
+    return new Response(buffer, {
+      headers: {
+        'Content-Type': 'application/x-mpegURL',
+      },
+    })
   }
 
   throw createError({
