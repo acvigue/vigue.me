@@ -1,7 +1,7 @@
 export default defineEventHandler(async (event) => {
-    const app = useAppConfig(event);
+    const runtimeConfig = useRuntimeConfig(event);
 
-    const response = await fetch(`${app.matomoURL}/matomo.js`);
+    const response = await fetch(`${runtimeConfig.matomoUrl}/matomo.js`);
 
     if (!response.ok) {
         throw createError({

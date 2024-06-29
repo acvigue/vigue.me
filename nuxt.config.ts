@@ -40,15 +40,19 @@ export default defineNuxtConfig({
   ],
   css: ['assets/main.scss'],
   runtimeConfig: {
+    ghostUrl: '',
+    matomoUrl: '',
+    public: {
+      matomoSiteId: '',
+    },
     ghostContentKey: '',
     ghostAdminKey: '',
-    ghostUrl: '',
     formkitKey: '',
+    bypassToken: '',
     muxTokenId: '',
     muxTokenSecret: '',
     muxSigningKeyId: '',
-    muxSigningKey: '',
-    bypassToken: ''
+    muxSigningKey: ''
   },
   image: {
     domains: ['cdn.vigue.me'],

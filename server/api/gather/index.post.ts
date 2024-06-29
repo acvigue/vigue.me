@@ -1,21 +1,21 @@
 export default defineEventHandler(async (event) => {
-    const app = useAppConfig(event);
+    const runtimeConfig = useRuntimeConfig(event);
 
-    const body = await readBody(event);
+    const body = await readRawBody(event);
 
     //forward request to matomo
-    const response = await fetch(app.matomoURL, {
+    const response = await fetch(`${runtimeConfig.matomoUrl}/matomo.php`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify(body),
+        body,
     });
 
     if (!response.ok) {
         throw createError({
             status: 500,
-            message: 'Failed to forward request to Matomo',
+            message: `Failed to forward request to Matomo: ${response.statusText}`,
             fatal: true,
         });
     }

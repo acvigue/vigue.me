@@ -7,7 +7,6 @@ useSeoMeta({
   ogTitle: `Home - ${appConfig.name}`,
   description: appConfig.homeMetaDescription,
   ogDescription: appConfig.homeMetaDescription,
-  ogImage: appConfig.defaultOGImage,
   ogType: 'website',
   ogUrl: `${appConfig.baseUrl}${route.path}`,
 })

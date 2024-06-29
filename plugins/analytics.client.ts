@@ -2,6 +2,8 @@
 import VueMatomo from 'vue-matomo'
 
 export default defineNuxtPlugin((nuxtApp) => {
+  const runtimeConfig = useRuntimeConfig();
+
   //ignore if not prod
   if (process.env.NODE_ENV !== 'production') {
     return
@@ -10,12 +12,12 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(VueMatomo, {
     trackerUrl: '/api/gather',
     trackerScriptUrl: '/api/gather',
-    siteId: 1,
+    siteId: runtimeConfig.public.matomoSiteId,
     preInitActions: [
       ['setRequestMethod', 'POST'],
       ['disableAlwaysUseSendBeacon'],
     ],
-    debug: true,
+    debug: false,
     router: nuxtApp.$router,
   })
 })
