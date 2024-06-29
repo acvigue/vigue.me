@@ -44,6 +44,12 @@ useSeoMeta({
   keywords: appConfig.keywords,
 })
 
+defineOgImageComponent('Page', {
+  title: `Contact`,
+  image: appConfig.headshotImage,
+  description: appConfig.contactMetaDescription,
+})
+
 const servicesOptions = [
   { label: 'Web Design / Development', value: 'webdev' },
   { label: 'Embedded Projects', value: 'embedded' },

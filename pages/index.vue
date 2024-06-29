@@ -5,11 +5,17 @@ const appConfig = useAppConfig()
 useSeoMeta({
   title: `Home - ${appConfig.name}`,
   ogTitle: `Home - ${appConfig.name}`,
-  description: appConfig.description,
-  ogDescription: appConfig.description,
+  description: appConfig.homeMetaDescription,
+  ogDescription: appConfig.homeMetaDescription,
   ogImage: appConfig.defaultOGImage,
   ogType: 'website',
   ogUrl: `${appConfig.baseUrl}${route.path}`,
+})
+
+defineOgImageComponent('Page', {
+  title: 'Home',
+  image: appConfig.headshotImage,
+  description: appConfig.homeMetaDescription,
 })
 </script>
 

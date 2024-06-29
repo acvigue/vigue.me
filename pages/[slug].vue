@@ -31,13 +31,19 @@ if (error.value || !data.value) {
 } else {
   useSeoMeta({
     title: `${data.value.title} - ${appConfig.name}`,
-    description: data.value.excerpt ?? '',
-    ogDescription: data.value.excerpt ?? '',
+    description: data.value.meta_description ?? data.value.excerpt,
+    ogDescription: data.value.og_description ?? data.value.meta_description ?? data.value.excerpt,
     ogTitle: `${data.value.title} - ${appConfig.name}`,
     articlePublishedTime: data.value.published_at,
     articleModifiedTime: data.value.updated_at,
     ogType: 'website',
     ogUrl: `${appConfig.baseUrl}/${data.value.slug}`,
+  })
+
+  defineOgImageComponent('Page', {
+    title: data.value.title,
+    image: appConfig.headshotImage,
+    description: data.value.og_description ?? data.value.meta_description ?? data.value.excerpt,
   })
 }
 </script>

@@ -67,4 +67,10 @@ useSeoMeta({
   ogUrl: `${appConfig.baseUrl}/resume`,
   keywords: appConfig.keywords,
 })
+
+defineOgImageComponent('Page', {
+  title: `Résumé`,
+  image: appConfig.headshotImage,
+  description: appConfig.resumeMetaDescription,
+})
 </script>

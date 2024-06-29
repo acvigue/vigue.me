@@ -33,15 +33,20 @@ const parsedHeadData = computed(() => {
 
 useSeoMeta({
   title: `${data.value.title} - ${appConfig.name}`,
-  description: data.value.excerpt ?? '',
-  ogImage: data.value.feature_image ?? '',
-  ogDescription: data.value.excerpt ?? '',
+  description: data.value.meta_description ?? data.value.excerpt,
+  ogDescription: data.value.og_description ?? data.value.meta_description ?? data.value.excerpt,
   ogTitle: `${data.value.title} - ${appConfig.name}`,
   articlePublishedTime: data.value.published_at,
   articleModifiedTime: data.value.updated_at,
   ogType: 'article',
   ogUrl: `${appConfig.baseUrl}/posts/${props.slug}`,
   keywords: parsedHeadData.value?.keywords,
+})
+
+defineOgImageComponent('Page', {
+  title: data.value.title,
+  image: data.value.feature_image,
+  description: data.value.og_description ?? data.value.meta_description ?? data.value.excerpt,
 })
 
 const dateString = computed(() => {

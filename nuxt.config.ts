@@ -1,3 +1,31 @@
+const ogImageFonts = [
+  {
+    name: 'larken',
+    weight: 500,
+    path: '/fonts/Larken.otf'
+  },
+  {
+    name: 'larken',
+    weight: 700,
+    path: '/fonts/LarkenBold.otf'
+  },
+  {
+    name: 'amandine',
+    weight: 500,
+    path: '/fonts/Amandine.otf'
+  },
+  {
+    name: 'condor',
+    weight: 500,
+    path: '/fonts/Condor.ttf'
+  },
+  {
+    name: 'condor',
+    weight: 700,
+    path: '/fonts/CondorBold.ttf'
+  },
+]
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
@@ -7,7 +35,8 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@formkit/nuxt',
     '@nuxtjs/sitemap',
-    "@nuxt/eslint"
+    "@nuxt/eslint",
+    "nuxt-og-image"
   ],
   css: ['assets/main.scss'],
   runtimeConfig: {
@@ -27,7 +56,8 @@ export default defineNuxtConfig({
     autoImport: true,
   },
   routeRules: {
-    '/**': { isr: 3600 },
+    '/posts/**': { isr: 3600 },
+    '/tag/**': { isr: 3600 },
     '/api': { isr: false },
     "/posts": {
       redirect: {
@@ -57,5 +87,8 @@ export default defineNuxtConfig({
         bypassToken: process.env.NUXT_BYPASS_TOKEN,
       }
     }
+  },
+  ogImage: {
+    fonts: ogImageFonts
   }
 })

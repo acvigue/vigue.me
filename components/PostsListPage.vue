@@ -8,13 +8,18 @@ const props = defineProps<{
 const appConfig = useAppConfig()
 
 useSeoMeta({
-  title: `Posts - Page ${props.page} - ${appConfig.name}`,
-  description: appConfig.description,
-  ogDescription: appConfig.description,
-  ogTitle: `Posts - Page ${props.page} - ${appConfig.name}`,
-  ogImage: appConfig.defaultOGImage,
+  title: `Posts: Page ${props.page} - ${appConfig.name}`,
+  description: appConfig.postListMetaDescription,
+  ogDescription: appConfig.postListMetaDescription,
+  ogTitle: `Posts: Page ${props.page} - ${appConfig.name}`,
   ogType: 'website',
   ogUrl: `${appConfig.baseUrl}/posts/${props.page}`,
+})
+
+defineOgImageComponent('Page', {
+  title: `Posts: Page ${props.page}`,
+  image: appConfig.headshotImage,
+  description: appConfig.postListMetaDescription,
 })
 
 const maxVisibleButtons = 5
