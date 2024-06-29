@@ -30,7 +30,7 @@ export default defineEventHandler(async (event) => {
         });
     }
 
-    const [ghostHmac, timestampPart] = signature.split(',');
+    const [ghostHmac, timestampPart] = signature.split(', t=');
 
     if (!ghostHmac || !timestampPart) {
         throw createError({
