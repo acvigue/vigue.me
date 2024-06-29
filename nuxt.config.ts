@@ -48,6 +48,7 @@ export default defineNuxtConfig({
     muxTokenSecret: '',
     muxSigningKeyId: '',
     muxSigningKey: '',
+    bypassToken: ''
   },
   image: {
     domains: ['cdn.vigue.me'],
