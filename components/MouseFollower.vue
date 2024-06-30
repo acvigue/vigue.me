@@ -24,7 +24,7 @@ $mf-color-base: #000 !default;
 $mf-color-text: #fff !default;
 
 .mf-cursor {
-  $root: &;
+
 
   position: fixed;
   top: 0;
@@ -129,8 +129,8 @@ $mf-color-text: #fff !default;
 
     transition: opacity 0.4s, transform 0.3s;
 
-    #{$root}.-text &,
-    #{$root}.-icon & {
+    &.-text &,
+    &.-icon & {
       opacity: 1;
       transform: scale(1);
     }
@@ -172,7 +172,7 @@ $mf-color-text: #fff !default;
 
       transition: transform 0.35s, opacity 0.2s 0.2s;
 
-      #{$root}.-media & {
+      &.-media & {
         opacity: 1;
         transform: scale(0.696);
         transition-duration: 0.4s, 0.4s;

@@ -12,7 +12,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <blockquote class="text-xl py-4">
+  <blockquote class="md:text-lg text-md py-4 font-serif">
     <LexicalNodeRenderer :node="props.node.children" />
   </blockquote>
 </template>
@@ -21,16 +21,20 @@ const props = defineProps<{
 blockquote {
   position: relative;
   font-style: italic;
-  padding-left: 1.2em;
+  padding-left: 0.3rem;
 }
 
 blockquote::before {
   content: "";
   position: absolute;
-  left: 0em;
+  left: -1em;
   top: 0;
   bottom: 0;
   width: 0.3rem;
   @apply bg-persian;
+}
+
+blockquote * {
+  margin: 0 !important;
 }
 </style>

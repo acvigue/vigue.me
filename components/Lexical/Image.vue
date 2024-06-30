@@ -19,20 +19,22 @@ const lightboxOpen = ref(false)
 </script>
 
 <template>
-  <div class="relative w-full flex items-center justify-center">
-    <NuxtPicture
-format="webp,jpg" :src="node.src" sizes="lg:500px md:400px sm:300px xs:200px" :width="2000"
-      :height="1500" class="post-image" loading="lazy" :placeholder="[100, 50]" @click="lightboxOpen = true" />
+  <div class="relative" @click="lightboxOpen = true">
+    <div class="absolute h-full w-full -rotate-1 transform rounded-md bg-licorice bg-opacity-50 -z-10" />
+    <NuxtPicture format="avif,webp,jpg" :src="node.src" sizes="lg:85vw 500px" class="post-image z-10"
+      :width="node.width" :height="node.height" placeholder placeholder-class="custom" data-cursor="-pointer" />
   </div>
-  <ImageLightbox v-model="lightboxOpen" :images="[node]" :start-index="0" />
+
+  <Teleport to="body">
+    <vue-easy-lightbox :visible="lightboxOpen" :imgs="[node]" :index="0" :loop="false" :zoom-scale="0.25"
+      @hide="lightboxOpen = false" />
+  </Teleport>
 </template>
 
 <style lang="scss">
-.post-image {
-  @apply md:max-w-[50%] cursor-pointer;
-}
-
 .post-image>img {
-  @apply rounded-lg z-30;
+  @apply rounded-md z-30 cursor-pointer w-full;
+  max-height: 550px;
+  object-fit: cover;
 }
 </style>

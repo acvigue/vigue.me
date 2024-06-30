@@ -6,17 +6,27 @@
 //If neither, we redirect to 404
 
 const route = useRoute()
-const rawSlug = route.params.slug
-const isPreview = route.query.preview === 'true'
+const slug = route.params.slug
 const appConfig = useAppConfig()
 
-const { data, error } = await useFetch(`/api/page/${rawSlug}`, {
-  query: { preview: isPreview },
+if (typeof slug !== 'string') {
+  throw createError({
+    statusCode: 400,
+    message: "Invalid slug",
+    fatal: true,
+  })
+}
+
+const isUuid = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/.test(slug)
+const queryData = isUuid ? { uuid: slug } : { slug: slug }
+
+const { data, error } = await useFetch(`/api/cms/page`, {
+  query: queryData,
 })
 
-if (error.value) {
-  const { error: error_post } = await useFetch(`/api/post/${rawSlug}`, {
-    query: { preview: isPreview },
+if (error.value || !data.value) {
+  const { error: error_post } = await useFetch(`/api/cms/post`, {
+    query: queryData,
   })
 
   if (error_post.value) {
@@ -26,24 +36,30 @@ if (error.value) {
       fatal: true,
     })
   } else {
-    navigateTo(`/posts/${rawSlug}`)
+    navigateTo(`/posts/${slug}`)
   }
-}
+} else {
+  useSeoMeta({
+    title: `${data.value.title} - ${appConfig.name}`,
+    description: data.value.meta_description ?? data.value.excerpt,
+    ogDescription: data.value.og_description ?? data.value.meta_description ?? data.value.excerpt,
+    ogTitle: `${data.value.title} - ${appConfig.name}`,
+    articlePublishedTime: data.value.published_at,
+    articleModifiedTime: data.value.updated_at,
+    ogType: 'website',
+    ogUrl: `${appConfig.baseUrl}/${data.value.slug}`,
+  })
 
-useSeoMeta({
-  title: `${data.value.title} - ${appConfig.name}`,
-  description: data.value.excerpt ?? '',
-  ogDescription: data.value.excerpt ?? '',
-  ogTitle: `${data.value.title} - ${appConfig.name}`,
-  articlePublishedTime: data.value.published_at,
-  articleModifiedTime: data.value.updated_at,
-  ogType: 'page',
-  ogUrl: `${appConfig.baseUrl}/${data.value.slug}`,
-})
+  defineOgImageComponent('Page', {
+    title: data.value.title,
+    image: appConfig.headshotImage,
+    description: data.value.og_description ?? data.value.meta_description ?? data.value.excerpt,
+  })
+}
 </script>
 
 <template>
-  <div class="flex justify-center items-center w-full py-10">
+  <div v-if="!error" class="flex justify-center items-center w-full py-10">
     <div class="flex flex-col h-full lg:max-w-7xl w-[95vw] gap-4">
       <div class="flex flex-col items-center text-white mb-4 gap-4">
         <h1 class="text-center text-4xl font-serif font-extrabold text-persian md:w-2/3 lg:w-full lg:text-5xl">
@@ -52,6 +68,7 @@ useSeoMeta({
       </div>
 
       <div class="flex w-full flex-col gap-5 px-4 antialiased md:px-0">
+        <!-- @vue-expect-error -->
         <LexicalRenderer :state="data?.lexical ?? '{}'" />
       </div>
     </div>

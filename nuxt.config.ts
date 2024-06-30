@@ -1,3 +1,31 @@
+const ogImageFonts = [
+  {
+    name: 'larken',
+    weight: 500,
+    path: '/fonts/Larken.otf'
+  },
+  {
+    name: 'larken',
+    weight: 700,
+    path: '/fonts/LarkenBold.otf'
+  },
+  {
+    name: 'amandine',
+    weight: 500,
+    path: '/fonts/Amandine.otf'
+  },
+  {
+    name: 'condor',
+    weight: 500,
+    path: '/fonts/Condor.ttf'
+  },
+  {
+    name: 'condor',
+    weight: 700,
+    path: '/fonts/CondorBold.ttf'
+  },
+]
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
@@ -7,39 +35,41 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@formkit/nuxt',
     '@nuxtjs/sitemap',
-    "@nuxt/eslint"
+    "@nuxt/eslint",
+    "nuxt-og-image"
   ],
   css: ['assets/main.scss'],
   runtimeConfig: {
+    ghostUrl: '',
+    matomoUrl: '',
+    public: {
+      matomoSiteId: '',
+    },
     ghostContentKey: '',
     ghostAdminKey: '',
-    ghostUrl: '',
     formkitKey: '',
+    bypassToken: '',
     muxTokenId: '',
     muxTokenSecret: '',
     muxSigningKeyId: '',
-    muxSigningKey: '',
+    muxSigningKey: ''
   },
   image: {
-    domains: ['blogcdn.vigue.me'],
+    domains: ['cdn.vigue.me'],
   },
   formkit: {
     autoImport: true,
   },
   routeRules: {
-    '/**': { swr: (process.env.NODE_ENV === 'production') },
-    '/api/**': { swr: false },
-    "/resume": {
-      redirect: {
-        to: "https://blogcdn.vigue.me/Resume.pdf",
-        statusCode: 301,
-      },
-    },
+    '/posts/**': { isr: 3600 },
+    '/tag/**': { isr: 3600 },
+    '/api': { isr: false },
     "/posts": {
       redirect: {
-        to: "/posts/1",
+        to: "/posts/page/1",
         statusCode: 302,
       },
+      isr: 3600
     },
   },
   fonts: {
@@ -51,8 +81,9 @@ export default defineNuxtConfig({
     componentIslands: true,
   },
   sitemap: {
-    sources: ['/api/sitemap'],
-    cacheMaxAgeSeconds: 3600,
+    sources: ['/api/__sitemap__/pages', '/api/__sitemap__/posts'],
+    cacheMaxAgeSeconds: 1800,
+    exclude: ['/api/**'],
   },
   eslint: {
     // options here
@@ -62,6 +93,14 @@ export default defineNuxtConfig({
       config: {
         bypassToken: process.env.NUXT_BYPASS_TOKEN,
       }
+    }
+  },
+  ogImage: {
+    fonts: ogImageFonts,
+    compatibility: {
+      prerender: {
+        satori: 'node'
+      },
     }
   }
 })

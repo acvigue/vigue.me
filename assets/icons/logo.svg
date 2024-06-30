@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56.2 52.5">
-  <g>
+  <g fill="#ffffff" fill-opacity="0" stroke="#000000" stroke-width="0.3em" stroke-linecap="round" stroke-linejoin="round">
     <path
       d="m1.5,51c5.7-14.7,8.7-31.4,20.1-42.3-.2,7.8.4,15.7,1.8,23.4.9,4.6,2.5,9.7,6.8,11.7.9.4,2,.7,3,.4,1.6-.5,2.4-2.3,3-3.9,4.9-13.6,8.5-28.3,18.5-38.7" />
 
   </g>
-  <g>
+  <g fill="#ffffff" fill-opacity="0" stroke="#000000" stroke-width="0.3em" stroke-linecap="round" stroke-linejoin="round">
     <path d="m4.8,35.2c6.7-4,13.7-7.5,20.9-10.3" />
   </g>
 </svg>

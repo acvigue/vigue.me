@@ -22,7 +22,7 @@ function classes() {
     '!text-md': props.node.tag === 'h5',
     '!text-sm': props.node.tag === 'h6',
     'text-persian': true,
-    'font-serif': true,
+    'font-serif2': true,
     'font-bold': true,
   }
 }

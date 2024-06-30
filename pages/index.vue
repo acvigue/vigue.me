@@ -1,24 +1,27 @@
 <script setup lang="ts">
 const route = useRoute()
-const panelsContainer = shallowRef<HTMLDivElement>()
 const appConfig = useAppConfig()
 
 useSeoMeta({
   title: `Home - ${appConfig.name}`,
   ogTitle: `Home - ${appConfig.name}`,
-  description: appConfig.description,
-  ogDescription: appConfig.description,
-  ogImage: appConfig.defaultOGImage,
+  description: appConfig.homeMetaDescription,
+  ogDescription: appConfig.homeMetaDescription,
   ogType: 'website',
   ogUrl: `${appConfig.baseUrl}${route.path}`,
+})
+
+defineOgImageComponent('Page', {
+  title: 'Home',
+  image: appConfig.headshotImage,
+  description: appConfig.homeMetaDescription,
 })
 </script>
 
 <template>
-  <div id="panels-container" ref="panelsContainer">
-    <SectionJumbotron />
-    <SectionAbout />
-    <SectionProjects />
-    <SectionContact />
+  <div class="z-0">
+    <IndexLoading />
+    <IndexHero class="z-10" />
+    <IndexBigPanel class="z-40" />
   </div>
 </template>

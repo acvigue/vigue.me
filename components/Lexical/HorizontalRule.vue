@@ -10,6 +10,6 @@ defineProps<{
 
 <template>
   <div class="flex justify-center">
-    <div class="max-w-3xl w-[80vw] rounded-full h-1 bg-gray-700" />
+    <div class="max-w-3xl w-[6xl] rounded-full h-1 bg-gray-700" />
   </div>
 </template>

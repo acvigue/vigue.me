@@ -20,15 +20,21 @@
     "@nuxt/image": "^1.7.0",
     "@nuxtjs/sitemap": "^5.2.2",
     "@ts-ghost/admin-api": "^4.2.0",
+    "@yeger/vue-masonry-wall": "^5.0.12",
     "date-fns": "^3.6.0",
     "gsap": "npm:@gsap/shockingly@^3.12.5",
     "highlight.js": "^11.9.0",
     "mouse-follower": "^1.1.2",
+    "ms": "^2.1.3",
     "nuxt": "^3.12.2",
+    "nuxt-og-image": "v3.0.0-beta.59",
+    "video.js": "^8.12.0",
     "vue": "^3.4.31",
-    "vue-easy-lightbox": "^1.19.0",
+    "vue-easy-lightbox": "next",
     "vue-matomo": "^4.2.0",
-    "vue-router": "^4.4.0"
+    "vue-pdf-embed": "^2.0.4",
+    "vue-router": "^4.4.0",
+    "yaml": "^2.4.5"
   },
   "devDependencies": {
     "@nuxt/eslint": "^0.3.13",
@@ -42,6 +48,6 @@
   },
   "packageManager": "yarn@3.2.4",
   "resolutions": {
-    "@ts-ghost/admin-api@^4.2.0": "patch:@ts-ghost/admin-api@npm%3A4.2.0#./.yarn/patches/@ts-ghost-admin-api-npm-4.2.0-97cb8d795e.patch"
+    "@ts-ghost/admin-api@^4.2.0": "patch:@ts-ghost/admin-api@patch%3A@ts-ghost/admin-api@npm%253A4.2.0%23./.yarn/patches/@ts-ghost-admin-api-npm-4.2.0-97cb8d795e.patch%3A%3Aversion=4.2.0&hash=c56e0e&locator=vigue.me%2540workspace%253A.#./.yarn/patches/@ts-ghost-admin-api-patch-7fb3ddca19.patch"
   }
 }

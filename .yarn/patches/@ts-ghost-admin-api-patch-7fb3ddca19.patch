@@ -1,0 +1,13 @@
+diff --git a/dist/index.mjs b/dist/index.mjs
+index b835f3f21c72474262b7cecc31cb6ad20d1245b9..ca8a3103fbd9678d1e82ab68e54136ea6c467f8d 100644
+--- a/dist/index.mjs
++++ b/dist/index.mjs
+@@ -443,7 +443,7 @@ var adminPagesSchema = basePagesSchema.merge(
+     authors: z8.array(adminAuthorsSchema),
+     primary_author: adminAuthorsSchema,
+     html: z8.string().catch("").optional(),
+-    plaintext: z8.string().catch("").optional()
++    plaintext: z8.string().catch("").optional(),
+     lexical: z3.string().catch(
+       '{"root":{"children":[{"children":[],"direction":null,"format":"","indent":0,"type":"paragraph","version":1}],"direction":null,"format":"","indent":0,"type":"root","version":1}}'
+     ).optional(),
