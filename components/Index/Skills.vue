@@ -47,14 +47,14 @@ onMounted(() => {
     new ScrollTrigger({
       trigger: skillBlock1.value!,
       start: 'top 20%',
-      end: '+=859',
+      end: '+=850',
       scrub: 1,
       pin: true,
     })
 
     new ScrollTrigger({
       trigger: skillBlock2.value!,
-      start: 'top 27.5%',
+      start: 'top 28.7%',
       end: '+=428.5',
       scrub: 1,
       pin: true,
@@ -76,8 +76,8 @@ onBeforeUnmount(() => {
     </h2>
 
     <div ref="skillBlock1" class="skills-block border-t border-champagne w-full p-4 h-[500px]">
-      <div class="flex w-full justify-between items-center">
-        <h3 class="text-champagne font-serif2 font-bold text-4xl mb-4">Web Development</h3>
+      <div class="flex w-full justify-between items-center h-16">
+        <h3 class="text-champagne font-serif2 font-bold text-2xl md:text-4xl mb-4">Web Development</h3>
         <ComputerDesktopIcon class="text-champagne h-[36px] w-[36px] mb-4" />
       </div>
 
@@ -97,8 +97,8 @@ onBeforeUnmount(() => {
       </div>
     </div>
     <div ref="skillBlock2" class="skills-block border-t border-champagne bg-licorice w-full p-4 h-[500px]">
-      <div class="flex w-full justify-between items-center">
-        <h3 class="text-champagne font-serif2 font-bold text-4xl mb-4">Hardware Design</h3>
+      <div class="flex w-full justify-between items-center h-16">
+        <h3 class="text-champagne font-serif2 font-bold text-2xl md:text-4xl mb-4">Hardware Design</h3>
         <CpuChipIcon class="text-champagne h-[36px] w-[36px] mb-4" />
       </div>
       <div class=" grid md:grid-cols-2 grid-cols-1 mx-5 gap-4">
@@ -119,8 +119,8 @@ onBeforeUnmount(() => {
       </div>
     </div>
     <div ref="skillBlock3" class="skills-block border-t border-champagne bg-licorice w-full p-4 mb-20 z-10">
-      <div class="flex w-full justify-between items-center">
-        <h3 class="text-champagne font-serif2 font-bold text-4xl mb-4">Cloud Solutions</h3>
+      <div class="flex w-full justify-between items-center h-16">
+        <h3 class="text-champagne font-serif2 font-bold text-2xl md:text-4xl mb-4">Cloud Solutions</h3>
         <Square3Stack3DIcon class="text-champagne h-[36px] w-[36px] mb-4" />
       </div>
       <div class=" grid md:grid-cols-2 grid-cols-1 mx-5 gap-4">

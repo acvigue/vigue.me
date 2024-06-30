@@ -33,6 +33,7 @@ onMounted(() => {
     ctx = gsap.context(() => {
       ScrollSmoother.create({
         smooth: 0.5,
+        smoothTouch: 0.2,
         wrapper: '#smooth-wrapper',
         content: '#smooth-content',
       });
