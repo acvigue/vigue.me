@@ -47,15 +47,15 @@ onMounted(() => {
     new ScrollTrigger({
       trigger: skillBlock1.value!,
       start: 'top 20%',
-      end: '+=850',
+      end: '+=920',
       scrub: 1,
       pin: true,
     })
 
     new ScrollTrigger({
       trigger: skillBlock2.value!,
-      start: 'top 28.7%',
-      end: '+=428.5',
+      start: 'top 20%',
+      end: '+=420',
       scrub: 1,
       pin: true,
     })
@@ -77,65 +77,86 @@ onBeforeUnmount(() => {
 
     <div ref="skillBlock1" class="skills-block border-t border-champagne w-full p-4 h-[500px]">
       <div class="flex w-full justify-between items-center h-16">
-        <h3 class="text-champagne font-serif2 font-bold text-2xl md:text-4xl mb-4">Web Development</h3>
+        <h3 class="text-champagne font-serif2 font-bold text-3xl md:text-4xl mb-4">Web Development</h3>
         <ComputerDesktopIcon class="text-champagne h-[36px] w-[36px] mb-4" />
       </div>
 
       <div class=" grid md:grid-cols-2 grid-cols-1 mx-5 gap-4">
         <div class="col-span-1">
-          <p class="text-khaki font-serif font-bold text-lg">I design unique, custom-engineered digital solutions that
+          <p class="text-khaki font-serif font-bold md:text-lg text-md">I design unique, custom-engineered digital
+            solutions that
             ensure
             scalability, performance, and accessibility. My projects make your brand memorable.</p>
         </div>
         <div class="col-span-1 md:mt-0 mt-4">
-          <h4 class="text-khaki font-serif2 font-bold text-2xl py-2 border-b border-khaki">• Headless CMS Integration
+          <h4 class="text-khaki font-serif2 font-bold md:text-2xl text-xl py-2 border-b border-khaki">• Headless CMS
+            Integration
           </h4>
-          <h4 class="text-khaki font-serif2 font-bold text-2xl py-2 border-b border-khaki">• Motion & Interactivity
+          <h4 class="text-khaki font-serif2 font-bold md:text-2xl text-xl py-2 border-b border-khaki">• Motion &
+            Interactivity
           </h4>
-          <h4 class="text-khaki font-serif2 font-bold text-2xl py-2 border-b border-khaki">• Caching & CDN</h4>
-        </div>
-      </div>
-    </div>
-    <div ref="skillBlock2" class="skills-block border-t border-champagne bg-licorice w-full p-4 h-[500px]">
-      <div class="flex w-full justify-between items-center h-16">
-        <h3 class="text-champagne font-serif2 font-bold text-2xl md:text-4xl mb-4">Hardware Design</h3>
-        <CpuChipIcon class="text-champagne h-[36px] w-[36px] mb-4" />
-      </div>
-      <div class=" grid md:grid-cols-2 grid-cols-1 mx-5 gap-4">
-        <div class="col-span-1">
-          <p class="text-khaki font-serif font-bold text-lg">I specialize in creating custom hardware products tailored
-            to your
-            needs. With an excellent eye for PCB aesthetics, I help your vision stand out, blending technical
-            proficiency
-            with the art of design.
-          </p>
-        </div>
-        <div class="col-span-1 md:mt-0 mt-4">
-          <h4 class="text-khaki font-serif2 font-bold text-2xl py-2 border-b border-khaki">• Multi Layer PCB Design</h4>
-          <h4 class="text-khaki font-serif2 font-bold text-2xl py-2 border-b border-khaki">• Firmware Development</h4>
-          <h4 class="text-khaki font-serif2 font-bold text-2xl py-2 border-b border-khaki">• Power & Signals Simulation
+          <h4 class="text-khaki font-serif2 font-bold md:text-2xl text-xl py-2 border-b border-khaki">• Caching & CDN
           </h4>
         </div>
       </div>
     </div>
-    <div ref="skillBlock3" class="skills-block border-t border-champagne bg-licorice w-full p-4 mb-20 z-10">
-      <div class="flex w-full justify-between items-center h-16">
-        <h3 class="text-champagne font-serif2 font-bold text-2xl md:text-4xl mb-4">Cloud Solutions</h3>
-        <Square3Stack3DIcon class="text-champagne h-[36px] w-[36px] mb-4" />
-      </div>
-      <div class=" grid md:grid-cols-2 grid-cols-1 mx-5 gap-4">
-        <div class="col-span-1">
-          <p class="text-khaki font-serif font-bold text-lg">I pursue cost-optimized cloud solutions that utilize
-            microservices. With experience on both Oracle Cloud and AWS, I help businesses improve their digital
-            architecture and
-            positively transform operations.</p>
+    <div ref="skillBlock2" class="skills-block w-full h-[500px]">
+      <div class="flex w-full justify-between items-center h-20" />
+      <div class="flex flex-col border-t border-champagne bg-licorice p-4">
+        <div class="flex w-full justify-between items-center h-16">
+          <h3 class="text-champagne font-serif2 font-bold text-3xl md:text-4xl mb-4">Hardware Design</h3>
+          <CpuChipIcon class="text-champagne h-[36px] w-[36px] mb-4" />
         </div>
-        <div class="col-span-1 md:mt-0 mt-4">
-          <h4 class="text-khaki font-serif2 font-bold text-2xl py-2 border-b border-khaki">• Docker</h4>
-          <h4 class="text-khaki font-serif2 font-bold text-2xl py-2 border-b border-khaki">• Nginx</h4>
-          <h4 class="text-khaki font-serif2 font-bold text-2xl py-2 border-b border-khaki">• Distributed SQL</h4>
+        <div class=" grid md:grid-cols-2 grid-cols-1 mx-5 gap-4">
+          <div class="col-span-1">
+            <p class="text-khaki font-serif font-bold md:text-lg text-md">I specialize in creating custom hardware
+              products
+              tailored
+              to your
+              needs. With an excellent eye for PCB aesthetics, I help your vision stand out, blending technical
+              proficiency
+              with the art of design.
+            </p>
+          </div>
+          <div class="col-span-1 md:mt-0 mt-4">
+            <h4 class="text-khaki font-serif2 font-bold md:text-2xl text-xl py-2 border-b border-khaki">• Multi Layer
+              PCB Design
+            </h4>
+            <h4 class="text-khaki font-serif2 font-bold md:text-2xl text-xl py-2 border-b border-khaki">• Firmware
+              Development</h4>
+            <h4 class="text-khaki font-serif2 font-bold md:text-2xl text-xl py-2 border-b border-khaki">• Power &
+              Signals
+              Simulation
+            </h4>
+          </div>
         </div>
       </div>
+
+    </div>
+    <div ref="skillBlock3" class="skills-block  w-full mb-20 z-10">
+      <div class="flex w-full justify-between items-center h-20" />
+      <div class="flex flex-col border-t border-champagne bg-licorice p-4">
+        <div class="flex w-full justify-between items-center h-16">
+          <h3 class="text-champagne font-serif2 font-bold text-3xl md:text-4xl mb-4">Cloud Solutions</h3>
+          <Square3Stack3DIcon class="text-champagne h-[36px] w-[36px] mb-4" />
+        </div>
+        <div class=" grid md:grid-cols-2 grid-cols-1 mx-5 gap-4">
+          <div class="col-span-1">
+            <p class="text-khaki font-serif font-bold md:text-lg text-md">I pursue cost-optimized cloud solutions that
+              utilize
+              microservices. With experience on both Oracle Cloud and AWS, I help businesses improve their digital
+              architecture and
+              positively transform operations.</p>
+          </div>
+          <div class="col-span-1 md:mt-0 mt-4">
+            <h4 class="text-khaki font-serif2 font-bold md:text-2xl text-xl py-2 border-b border-khaki">• Docker</h4>
+            <h4 class="text-khaki font-serif2 font-bold md:text-2xl text-xl py-2 border-b border-khaki">• Nginx</h4>
+            <h4 class="text-khaki font-serif2 font-bold md:text-2xl text-xl py-2 border-b border-khaki">• Distributed
+              SQL</h4>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </template>
