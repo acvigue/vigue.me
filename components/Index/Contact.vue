@@ -1,80 +1,119 @@
 <script setup lang="ts">
-import { EnvelopeIcon } from '@heroicons/vue/24/outline'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ArrowUpRightIcon } from '@heroicons/vue/24/solid'
 
 let ctx: gsap.Context
 
-/*
-onNuxtReady(() => {
+const panel = shallowRef<HTMLDivElement>()
+
+const item1 = shallowRef<HTMLDivElement>()
+const item2 = shallowRef<HTMLDivElement>()
+const item3 = shallowRef<HTMLDivElement>()
+
+const scrollIndicator = shallowRef<HTMLDivElement>()
+
+onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
 
   ctx = gsap.context(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: panel.value,
-        start: 'top 60%',
-        end: 'top 20%',
-        scrub: 1,
-      },
-    })
-
-    const lines = new SplitText(bodyText.value!, { type: "lines" }).lines;
-
-    tl.addLabel("start");
+    const tl = gsap.timeline()
 
     tl.fromTo(
-      panelHeader.value!,
+      item1.value!,
       {
         opacity: 0,
-        x: -100,
-        ease: "power1.inOut",
-        duration: 0.05,
-      },
-      {
-        opacity: 1,
-        x: 0,
-        ease: "power1.inOut",
-        duration: 0.05,
-      }
-    );
-
-    tl.fromTo(
-      lines,
-      {
-        opacity: 0,
-        x: 100,
-        ease: "power1.inOut",
-        duration: 0.05,
-        stagger: 0.01,
-      },
-      {
-        opacity: 1,
-        x: 0,
-        ease: "power1.inOut",
-        duration: 0.05,
-        stagger: 0.01,
-      }
-    );
-
-    tl.fromTo(
-      cta.value!,
-      {
-        opacity: 0,
-        y: 100,
-        ease: "power1.inOut",
-        duration: 0.05,
+        y: 10,
+        ease: 'power1.inOut',
+        duration: 0.5,
       },
       {
         opacity: 1,
         y: 0,
-        ease: "power1.inOut",
-        duration: 0.05,
+        ease: 'power1.inOut',
+        duration: 0.5,
       },
-      "<+=0.03"
-    );
+      1.5,
+    )
 
+    tl.fromTo(
+      item2.value!,
+      {
+        opacity: 0,
+        y: 10,
+        ease: 'power1.inOut',
+        duration: 0.5,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        ease: 'power1.inOut',
+        duration: 0.5,
+      },
+      '<+0.2',
+    )
+
+    tl.fromTo(
+      item3.value!,
+      {
+        opacity: 0,
+        y: 10,
+        ease: 'power1.inOut',
+        duration: 0.5,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        ease: 'power1.inOut',
+        duration: 0.5,
+      },
+      '<+0.2',
+    )
+
+    tl.fromTo(
+      scrollIndicator.value!,
+      {
+        opacity: 0,
+        y: -20,
+        ease: 'power1.inOut',
+        duration: 0.5,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        ease: 'power1.inOut',
+        duration: 0.5,
+      },
+      '<+0.5',
+    )
+
+    gsap.to('#scroll-indicator', {
+      scrollTrigger: {
+        trigger: panel.value!,
+        start: 'bottom bottom',
+        end: 'bottom 80%',
+        scrub: 1,
+      },
+      opacity: 0,
+      ease: 'power1.inOut',
+      duration: 0.5,
+    })
+
+    gsap.to(panel.value!, {
+      scrollTrigger: {
+        trigger: panel.value!,
+        start: 'top top',
+        end: '+=100%',
+        scrub: 1,
+      },
+      scale: 0.9,
+      opacity: 0,
+      y: "+30%",
+      ease: 'inOut',
+      duration: 0.5,
+    })
   })
 })
-*/
 
 onBeforeUnmount(() => {
   if (ctx)
@@ -83,34 +122,20 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <IndexPanel>
-    <div class="flex justify-center items-center w-full py-[4rem]">
-      <div class="flex flex-col h-full lg:max-w-4xl w-[6xl] justify-center gap-4">
-        <div class="flex flex-1 justify-start items-center gap-2">
-          <span class="font-serif italic md:text-7xl text-4xl text-persian font-bold">Let's</span>
-          <span class="font-serif italic md:text-6xl text-4xl mt-8">Connect</span>
-        </div>
-        <div class="rounded-lg p-4 border border-khaki shadow-lg">
-          <FormKit type="form" class="lg:w-2xl" :actions="false">
-            <FormKit type="text" label="Name" validation="required" />
-            <FormKit type="text" label="Email" validation="required|email" />
-            <FormKit type="textarea" label="Message" validation="required" />
-            <button type="submit"
-              class="flex text-licorice items-center gap-2 border-licorice border-2 rounded-full px-4 hover:bg-licorice hover:text-champagne duration-500"
-              data-cursor-stick>
-              <span class="font-serif2 text-lg">Send </span>
-              <EnvelopeIcon class="h-5" />
-            </button>
-          </FormKit>
-        </div>
-        <div class="flex-1" />
-      </div>
-    </div>
-  </IndexPanel>
-</template>
+  <div ref="panel" class="flex flex-col justify-between items-center w-full h-full gap-8 py-12">
+    <div class="flex-1" />
 
-<style lang="scss">
-.icon * {
-  @apply fill-transparent;
-}
-</style>
+    <div class="flex flex-col items-center w-full text-licorice gap-4">
+      <div class="font-serif2 font-bold lg:text-8xl sm:text-7xl text-5xl uppercase" data-cursor="-pointer">
+        <span>Got an Idea?</span>
+      </div>
+
+      <NuxtLink to="/contact"
+        class="flex text-licorice items-center gap-2 border-licorice border-2 rounded-full px-8 py-3 hover:bg-licorice hover:text-champagne duration-500"
+        data-cursor-stick>
+        <span class="font-serif2 text-2xl">Contact</span>
+        <ArrowUpRightIcon class="h-5" />
+      </NuxtLink>
+    </div>
+  </div>
+</template>

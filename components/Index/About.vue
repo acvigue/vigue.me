@@ -127,10 +127,10 @@ onBeforeUnmount(() => {
             <span class="font-serif text-md text-champagne font-bold">Want to learn more?</span>
           </div>
           <div class="flex justify-end items-center gap-4">
-            <NuxtLink to="/contact"
+            <NuxtLink to="/about"
               class="flex text-champagne items-center gap-2 border-champagne border-2 rounded-full px-4 hover:bg-champagne hover:text-licorice duration-500"
               data-cursor-stick>
-              <span class="font-serif2 text-lg">Contact</span>
+              <span class="font-serif2 text-lg">About</span>
               <ArrowUpRightIcon class="h-5" />
             </NuxtLink>
             <NuxtLink to="/resume"

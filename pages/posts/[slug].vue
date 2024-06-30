@@ -128,7 +128,7 @@ defineOgImageComponent('Page', {
 
 <style lang="scss">
 .feature-image>img {
-  @apply rounded-lg z-40;
+  @apply rounded-lg;
   max-height: 550px;
   object-fit: cover;
 }

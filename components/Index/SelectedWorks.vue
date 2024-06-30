@@ -2,19 +2,27 @@
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { SplitText } from 'gsap/SplitText'
+import SelectedWork from './SelectedWork.vue';
 
 let ctx: gsap.Context
 
+const { data } = await useFetch('/api/cms/allPosts', {
+  query: { limit: 6, featured: true },
+})
+
+
 const panel = shallowRef<HTMLDivElement>()
 const panelHeader = shallowRef<HTMLHeadingElement>()
-const headshotImage = shallowRef<HTMLDivElement>()
-const bodyText = shallowRef<HTMLSpanElement>()
-
-//const cta = shallowRef<HTMLDivElement>()
+const panelSubheader = shallowRef<HTMLHeadingElement>()
+const featuredProjects = shallowRef<HTMLDivElement>()
+const featuredProjectID = shallowRef<HTMLDivElement>()
+const featuredProjectIDDigit = shallowRef<HTMLDivElement>()
 
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
   gsap.registerPlugin(SplitText)
+
+  const words = new SplitText(panelSubheader.value!, { type: 'words' }).words
 
   ctx = gsap.context(() => {
     const tl = gsap.timeline({
@@ -25,8 +33,6 @@ onMounted(() => {
         scrub: 1,
       },
     })
-
-    const lines = new SplitText(bodyText.value!, { type: 'lines' }).lines
 
     tl.addLabel('start')
 
@@ -47,40 +53,45 @@ onMounted(() => {
     )
 
     tl.fromTo(
-      headshotImage.value!,
+      words,
       {
         opacity: 0,
-        x: -100,
+        y: 10,
         ease: 'power1.inOut',
         duration: 0.05,
+        stagger: 0.01,
       },
       {
         opacity: 1,
-        x: 0,
+        y: 0,
         ease: 'power1.inOut',
         duration: 0.05,
+        stagger: 0.01,
       },
-      "<+0.02"
     )
 
-    tl.fromTo(
-      lines,
-      {
-        opacity: 0,
-        x: 100,
-        ease: 'power1.inOut',
-        duration: 0.05,
-        stagger: 0.01,
-      },
-      {
-        opacity: 1,
-        x: 0,
-        ease: 'power1.inOut',
-        duration: 0.05,
-        stagger: 0.01,
-      },
-    )
+    new ScrollTrigger({
+      trigger: featuredProjects.value!,
+      start: 'top top',
+      end: 'bottom 50%',
+      scrub: 1,
+      pin: featuredProjectID.value!,
+      pinSpacing: false,
+    });
   })
+})
+
+const setDigit = (digit: number) => {
+  gsap.set(featuredProjectIDDigit.value!, {
+    y: `${-(digit) * 100}%`,
+  })
+}
+
+const digits = computed(() => {
+  if (!data.value)
+    return []
+
+  return Array.from({ length: data.value.posts.length }, (_, i) => i + 1)
 })
 
 onBeforeUnmount(() => {
@@ -90,32 +101,31 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div ref="panel" class="w-full">
-    <h2 ref="panelHeader" class="lg:text-8xl sm:text-7xl text-5xl font-serif2 text-champagne font-bold mb-12">SELECTED
-      WORKS</h2>
-    <div class="md:grid-cols-2 grid-cols-1 grid">
-      <div class="col-span-1 md:mb-0 mb-12">
-        <div class="flex justify-center w-full">
-          <div ref="headshotImage" class="relative h-full z-0">
-            <div class="absolute h-full w-full -rotate-2 transform rounded-md bg-khaki bg-opacity-20 -z-10" />
-            <NuxtPicture format="avif,webp,jpg" src="/images/headshot.webp" sizes="lg:40vw 500px"
-              class="about-headshot z-10" placeholder placeholder-class="custom" data-cursor="-pointer" />
+  <div v-if="data" ref="panel" class="w-full flex flex-col">
+    <h2 ref="panelHeader" class="lg:text-8xl sm:text-7xl text-5xl font-serif2 text-champagne font-bold mb-8 pb-0">
+      FEATURED WORKS
+    </h2>
+    <h3 ref="panelSubheader"
+      class="lg:text-3xl sm:text-3xl text-2xl font-serif2 text-champagne font-bold mb-12 w-full text-right pb-0">
+      Here are some of my favorite projects I've worked on.
+    </h3>
+    <div ref="featuredProjects" class="grid md:grid-cols-12 grid-cols-1">
+      <div ref="featuredProjectID" class="col-span-4 md:flex hidden text-champagne font-serif">
+        <div class="sticky top-0 hidden h-fit w-full overflow-hidden text-[15vw] font-normal text-secondary-50 md:flex">
+          <span class="relative">0</span>
+          <div class="relative">
+            <div ref="featuredProjectIDDigit"
+              class="absolute flex h-full w-fit flex-col transition-all duration-700 ease-in-out-cubic">
+              <span v-for="digit of digits" :key="digit" class="inline-block">{{ digit }}.</span>
+            </div>
           </div>
         </div>
-
       </div>
-      <div class="col-span-1">
-        <span ref="bodyText" class="font-serif md:text-3xl text-xl text-champagne">
-          As a
-          <b data-cursor="-pointer" class="text-persian font-serif2">computer science student</b>
-          at Purdue University with a passion for
-          <b data-cursor="-pointer" class="text-persian font-serif2">engineering</b>, my skills intersect to design
-          digital products. I possess a wide
-          range of experience in several programming languages and tools, and my
-          involvement in numerous past projects has helped to solidify my
-          foundational expertise in the realm of embedded systems and
-          <b data-cursor="-pointer" class="text-persian font-serif2">software development.</b>
-        </span>
+      <div class="md:col-span-8 col-span-1">
+        <div class=" flex flex-col gap-12 w-full justify-end">
+          <SelectedWork v-for="post, index of data.posts" :key="post.uuid" :post="post" @focused="setDigit(index)" />
+        </div>
+
       </div>
     </div>
   </div>

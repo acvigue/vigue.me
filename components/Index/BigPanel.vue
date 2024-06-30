@@ -12,7 +12,22 @@ onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
 
   ctx = gsap.context(() => {
-    const _tl = gsap.timeline()
+    const exitTimeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: panel.value!,
+        start: 'bottom bottom',
+        end: 'bottom top',
+        scrub: 1
+      },
+    })
+
+    exitTimeline.to(
+      panel.value!,
+      {
+        scaleX: 0.95,
+        duration: 1,
+      }
+    )
   })
 })
 
@@ -23,11 +38,11 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div ref="panel" class="bg-licorice breakout rounded-t-2xl z-50">
+  <div ref="panel" class="bg-licorice breakout rounded-2xl">
     <WidthContainer>
       <IndexAbout />
       <IndexSkills />
-      <div class="h-[1000px] w-full" />
+      <IndexSelectedWorks />
     </WidthContainer>
   </div>
 </template>

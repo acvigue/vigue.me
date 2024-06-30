@@ -101,14 +101,14 @@ onMounted(() => {
     gsap.to(panel.value!, {
       scrollTrigger: {
         trigger: panel.value!,
-        start: 'bottom bottom',
-        end: 'bottom 50%',
+        start: 'top top',
+        end: '+=100%',
         scrub: 1,
       },
-      scale: 0.8,
+      scale: 0.9,
       opacity: 0,
-      y: "70%",
-      ease: 'power1.inOut',
+      y: "+30%",
+      ease: 'inOut',
       duration: 0.5,
     })
   })
@@ -122,7 +122,7 @@ onBeforeUnmount(() => {
 
 <template>
   <WidthContainer>
-    <div ref="panel" class="flex flex-col justify-between items-center w-full h-full gap-8 hero-panel py-12 z-10">
+    <div ref="panel" class="flex flex-col justify-between items-center w-full h-full gap-8 hero-panel py-12">
       <div class="flex-1" />
 
       <div class="flex flex-col items-center w-full text-licorice">

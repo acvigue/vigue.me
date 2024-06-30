@@ -45,7 +45,6 @@ export default defineEventHandler(async (event) => {
       meta_description: _meta_description,
       meta_title: _meta_title,
       codeinjection_foot: _codeinjection_foot,
-      codeinjection_head: _codeinjection_head,
       og_description: _og_description,
       og_image: _og_image,
       og_title: _og_title,

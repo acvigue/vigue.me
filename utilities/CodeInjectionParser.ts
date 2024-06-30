@@ -1,25 +1,22 @@
 import { parse } from 'yaml'
 
 export interface ParsedHeadData {
-    has_feature_video: boolean
-    feature_video_manifest: string
-    keywords: string
+    featured_video_manifest?: string
+    keywords?: string
+    featured_title?: string
+    featured_subtitle?: string
 }
 
 //yaml
 export const parseHeadData = (headData: string): ParsedHeadData => {
+    if (!headData) return {}
+
     const parsed = parse(headData)
-    if (!parsed) {
-        return {
-            has_feature_video: false,
-            feature_video_manifest: '',
-            keywords: ''
-        }
-    }
 
     return {
-        has_feature_video: parsed.has_feature_video || false,
-        feature_video_manifest: parsed.feature_video_manifest || '',
-        keywords: parsed.keywords
+        featured_video_manifest: parsed.featured_video_manifest,
+        keywords: parsed.keywords,
+        featured_title: parsed.featured_title,
+        featured_subtitle: parsed.featured_subtitle
     }
 }

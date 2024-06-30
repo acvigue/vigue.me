@@ -72,7 +72,7 @@ onBeforeUnmount(() => {
   <div ref="panel" class="pt-20 w-full flex flex-col">
     <h2 ref="panelHeader"
       class="lg:text-8xl sm:text-7xl text-5xl font-serif2 text-champagne font-bold mb-12 w-full text-right pb-8">
-      EXPERTISE
+      MY EXPERTISE
     </h2>
 
     <div ref="skillBlock1" class="skills-block border-t border-champagne w-full p-4 h-[500px]">
@@ -118,7 +118,7 @@ onBeforeUnmount(() => {
         </div>
       </div>
     </div>
-    <div ref="skillBlock3" class="skills-block border-t border-champagne bg-licorice w-full p-4 mb-20 z-40">
+    <div ref="skillBlock3" class="skills-block border-t border-champagne bg-licorice w-full p-4 mb-20 z-10">
       <div class="flex w-full justify-between items-center">
         <h3 class="text-champagne font-serif2 font-bold text-4xl mb-4">Cloud Solutions</h3>
         <Square3Stack3DIcon class="text-champagne h-[36px] w-[36px] mb-4" />

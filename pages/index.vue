@@ -19,9 +19,8 @@ defineOgImageComponent('Page', {
 </script>
 
 <template>
-  <div class="z-0">
-    <IndexLoading />
-    <IndexHero class="z-10" />
-    <IndexBigPanel class="z-40" />
-  </div>
+  <IndexLoading />
+  <IndexHero />
+  <IndexBigPanel />
+  <IndexContact />
 </template>
