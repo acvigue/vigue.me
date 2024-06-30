@@ -2,6 +2,7 @@
 import { Bars3BottomLeftIcon, XMarkIcon } from '@heroicons/vue/24/outline'
 
 const isOpen = ref(false)
+const route = useRoute()
 
 const openNavbar = () => {
   isOpen.value = true
@@ -10,6 +11,10 @@ const openNavbar = () => {
 const closeNavbar = () => {
   isOpen.value = false
 }
+
+const nameOpacity = computed(() => {
+  return route.fullPath === '/' ? 0 : 1
+});
 </script>
 
 <template>
@@ -19,7 +24,9 @@ const closeNavbar = () => {
         <NavLogoBlock />
       </div>
 
-      <NavNameBlock class="!items-center hidden md:flex" />
+      <NavNameBlock class="!items-center hidden md:flex" :style="{
+        opacity: nameOpacity
+      }" />
 
       <div class="flex-1 flex justify-end h-10">
         <button

@@ -1,15 +1,156 @@
-<template>
-    <WidthContainer>
-        <div class="hero-panel">
-            test
-        </div>
-    </WidthContainer>
+<script setup lang="ts">
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+let ctx: gsap.Context
+
+const panel = shallowRef<HTMLDivElement>()
+
+const item1 = shallowRef<HTMLDivElement>()
+const item2 = shallowRef<HTMLDivElement>()
+const item3 = shallowRef<HTMLDivElement>()
+
+const scrollIndicator = shallowRef<HTMLDivElement>()
+
+onMounted(() => {
+  gsap.registerPlugin(ScrollTrigger)
+
+  ctx = gsap.context(() => {
+    const tl = gsap.timeline()
+
+    tl.fromTo(
+      item1.value!,
+      {
+        opacity: 0,
+        y: 10,
+        ease: 'power1.inOut',
+        duration: 0.5,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        ease: 'power1.inOut',
+        duration: 0.5,
+      },
+      1.5,
+    )
+
+    tl.fromTo(
+      item2.value!,
+      {
+        opacity: 0,
+        y: 10,
+        ease: 'power1.inOut',
+        duration: 0.5,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        ease: 'power1.inOut',
+        duration: 0.5,
+      },
+      '<+0.2',
+    )
+
+    tl.fromTo(
+      item3.value!,
+      {
+        opacity: 0,
+        y: 10,
+        ease: 'power1.inOut',
+        duration: 0.5,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        ease: 'power1.inOut',
+        duration: 0.5,
+      },
+      '<+0.2',
+    )
+
+    tl.fromTo(
+      scrollIndicator.value!,
+      {
+        opacity: 0,
+        y: -20,
+        ease: 'power1.inOut',
+        duration: 0.5,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        ease: 'power1.inOut',
+        duration: 0.5,
+      },
+      '<+0.5',
+    )
+
+    gsap.to('#scroll-indicator', {
+      scrollTrigger: {
+        trigger: panel.value!,
+        start: 'bottom bottom',
+        end: 'bottom 80%',
+        scrub: 1,
+      },
+      opacity: 0,
+      ease: 'power1.inOut',
+      duration: 0.5,
+    })
+
+    gsap.to(panel.value!, {
+      scrollTrigger: {
+        trigger: panel.value!,
+        start: 'bottom bottom',
+        end: 'bottom 50%',
+        scrub: 1,
+      },
+      scale: 0.8,
+      opacity: 0,
+      y: "70%",
+      ease: 'power1.inOut',
+      duration: 0.5,
+    })
+  })
+})
+
+onBeforeUnmount(() => {
+  if (ctx)
+    ctx.revert()
+})
+</script>
+
+<template>
+  <WidthContainer>
+    <div ref="panel" class="flex flex-col justify-between items-center w-full h-full gap-8 hero-panel py-12 z-10">
+      <div class="flex-1" />
+
+      <div class="flex flex-col items-center w-full text-licorice">
+        <div class="font-serif2 font-bold lg:text-8xl sm:text-7xl text-5xl uppercase" data-cursor="-pointer">
+          <span>Aiden Vigue</span>
+        </div>
+
+        <div
+          class="flex max-w-[60vw] lg:max-w-2xl justify-between items-center w-full mt-8 font-serif md:text-4xl sm:text-3xl text-2xl text-persian lowercase">
+          <span ref="item1" class="opacity-0">Student</span>
+          <span ref="item2" class="opacity-0">Developer</span>
+          <span ref="item3" class="opacity-0">Maker</span>
+        </div>
+      </div>
+
+      <div class="flex-1" />
+
+      <div class="flex justify-center items-center w-full">
+        <div ref="scrollIndicator" class="opacity-0">
+          <ScrollIndicator />
+        </div>
+      </div>
+    </div>
+  </WidthContainer>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .hero-panel {
-    height: calc(100vh - 5rem);
-    border: 1px solid red;
+  height: calc(100vh - 5rem);
 }
 </style>
