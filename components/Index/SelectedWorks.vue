@@ -120,11 +120,3 @@ onBeforeUnmount(() => {
     </div>
   </div>
 </template>
-
-<style lang="scss">
-.about-headshot>img {
-  max-height: 40vh;
-  object-fit: cover;
-  @apply rounded-md;
-}
-</style>
