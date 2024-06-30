@@ -73,7 +73,7 @@ onMounted(() => {
     new ScrollTrigger({
       trigger: featuredProjects.value!,
       start: 'top top',
-      end: 'bottom 50%',
+      end: 'bottom bottom',
       scrub: 1,
       pin: featuredProjectID.value!,
       pinSpacing: false,
@@ -101,7 +101,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div v-if="data" ref="panel" class="w-full flex flex-col">
+  <div v-if="data" ref="panel" class="w-full flex flex-col pb-20">
     <h2 ref="panelHeader" class="lg:text-8xl sm:text-7xl text-5xl font-serif2 text-champagne font-bold mb-8 pb-0">
       FEATURED WORKS
     </h2>
@@ -110,7 +110,7 @@ onBeforeUnmount(() => {
       Here are some of my favorite projects I've worked on.
     </h3>
     <div ref="featuredProjects" class="grid md:grid-cols-12 grid-cols-1">
-      <div ref="featuredProjectID" class="col-span-4 md:flex hidden text-champagne font-serif">
+      <div ref="featuredProjectID" class="col-span-5 md:flex hidden text-champagne font-serif">
         <div class="sticky top-0 hidden h-fit w-full overflow-hidden text-[15vw] font-normal text-secondary-50 md:flex">
           <span class="relative">0</span>
           <div class="relative">
@@ -121,11 +121,10 @@ onBeforeUnmount(() => {
           </div>
         </div>
       </div>
-      <div class="md:col-span-8 col-span-1">
+      <div class="md:col-span-7 col-span-1">
         <div class=" flex flex-col gap-12 w-full justify-end">
           <SelectedWork v-for="post, index of data.posts" :key="post.uuid" :post="post" @focused="setDigit(index)" />
         </div>
-
       </div>
     </div>
   </div>
