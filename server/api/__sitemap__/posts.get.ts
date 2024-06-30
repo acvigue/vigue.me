@@ -41,13 +41,7 @@ export default defineEventHandler(async (_) => {
         }
     }).filter(Boolean);
 
-    const postPagePages = Array.from({ length: pages }, (_, i) => i + 1).map((page) => {
-        return {
-            loc: `/posts/page/${page}`
-        }
-    });
-
-    return [...postSlugPages, ...postPagePages, {
+    return [...postSlugPages, {
         loc: `/posts`,
     }];
 })
