@@ -1,10 +1,10 @@
 import { TSGhostAdminAPI } from '@ts-ghost/admin-api'
 
 export default defineEventHandler(async (event) => {
-    const slug = getQuery(event).slug
+    const rawSlug = getQuery(event).slug
     const uuid = getQuery(event).uuid
 
-    if (!slug && !uuid) {
+    if (!rawSlug && !uuid) {
         throw createError({
             statusCode: 400,
             statusMessage: 'No slug or UUID provided!',
@@ -20,6 +20,8 @@ export default defineEventHandler(async (event) => {
     )
 
     //if we have a UUID, look up the page ID
+    let id;
+
     if (uuid) {
         const resp = await api.pages.browse({ filter: `uuid:${uuid}` }).fetch()
 
@@ -46,29 +48,18 @@ export default defineEventHandler(async (event) => {
             })
         }
 
-        const {
-            authors: _authors,
-            primary_author: _primary_author,
-            comment_id: _comment_id,
-            count: _count,
-            frontmatter: _frontmatter,
-            tiers: _tiers,
-            ...sanitized
-        } = page
-
-        return sanitized
+        id = page.id
     }
 
-    if (typeof slug !== 'string') {
-        throw createError({
-            statusCode: 400,
-            statusMessage: 'Invalid slug provided!',
-        })
-    }
+    //parse slug
+    const slug = typeof rawSlug === 'string' ? rawSlug : '';
+
+    const params = id ? { id } : { slug }
 
 
     const response = await api.pages
-        .read({ slug })
+        .read(params)
+
         //@ts-expect-error - lexical support not yet implemented
         .formats({ lexical: true })
         .fetch()
@@ -78,15 +69,8 @@ export default defineEventHandler(async (event) => {
             .map(error => error.message)
             .join(', ')
         throw createError({
-            statusCode: 500,
+            statusCode: response.errors[0].type === 'NotFoundError' ? 404 : 500,
             statusMessage: errorString,
-        })
-    }
-
-    if (response.data.status !== 'published') {
-        throw createError({
-            statusCode: 404,
-            statusMessage: 'Page not found!',
         })
     }
 

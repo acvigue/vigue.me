@@ -27,6 +27,8 @@ function renderNode(props: { node: LexicalNode }) {
       return h(Link, { node: props.node })
     case 'heading':
       return h(Heading, { node: props.node })
+    case 'extended-heading':
+      return h(Heading, { node: props.node })
     case 'paragraph':
       return h(Paragraph, { node: props.node })
     case 'list':
@@ -38,6 +40,8 @@ function renderNode(props: { node: LexicalNode }) {
     case 'gallery':
       return h(Gallery, { node: props.node })
     case 'quote':
+      return h(Blockquote, { node: props.node })
+    case 'extended-quote':
       return h(Blockquote, { node: props.node })
     case 'bookmark':
       return h(Bookmark, { node: props.node })

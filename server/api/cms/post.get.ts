@@ -1,10 +1,11 @@
 import { TSGhostAdminAPI } from '@ts-ghost/admin-api'
+import { limitTagsResponse } from '~/utilities/GhostAPI'
 
 export default defineEventHandler(async (event) => {
-    const slug = getQuery(event).slug
+    const rawSlug = getQuery(event).slug
     const uuid = getQuery(event).uuid
 
-    if (!slug && !uuid) {
+    if (!rawSlug && !uuid) {
         throw createError({
             statusCode: 400,
             statusMessage: 'No slug or UUID provided!',
@@ -20,6 +21,8 @@ export default defineEventHandler(async (event) => {
     )
 
     //if we have a UUID, look up the post ID
+    let id;
+
     if (uuid) {
         const resp = await api.posts.browse({ filter: `uuid:${uuid}` }).fetch()
 
@@ -46,33 +49,16 @@ export default defineEventHandler(async (event) => {
             })
         }
 
-        const {
-            authors: _authors,
-            primary_author: _primary_author,
-            comment_id: _comment_id,
-            count: _count,
-            frontmatter: _frontmatter,
-            email_segment: _email_segment,
-            email: _email,
-            newsletter: _newsletter,
-            email_only: _email_only,
-            tiers: _tiers,
-            ...sanitized
-        } = post
-
-        return sanitized
+        id = post.id
     }
 
-    if (typeof slug !== 'string') {
-        throw createError({
-            statusCode: 400,
-            statusMessage: 'Invalid slug provided!',
-        })
-    }
+    //parse slug
+    const slug = typeof rawSlug === 'string' ? rawSlug : '';
 
+    const params = id ? { id } : { slug }
 
     const response = await api.posts
-        .read({ slug })
+        .read(params)
         .formats({ lexical: true })
         .fetch()
 
@@ -81,15 +67,8 @@ export default defineEventHandler(async (event) => {
             .map(error => error.message)
             .join(', ')
         throw createError({
-            statusCode: 500,
+            statusCode: response.errors[0].type === 'NotFoundError' ? 404 : 500,
             statusMessage: errorString,
-        })
-    }
-
-    if (response.data.status !== 'published') {
-        throw createError({
-            statusCode: 404,
-            statusMessage: 'Post not found!',
         })
     }
 
@@ -104,8 +83,18 @@ export default defineEventHandler(async (event) => {
         newsletter: _newsletter,
         email_only: _email_only,
         tiers: _tiers,
+        primary_tag: _primary_tag,
+        is_page: _is_page,
+        email_subject: _email_subject,
+        custom_template: _custom_template,
+        id: _id,
         ...sanitized
     } = response.data
 
-    return sanitized
+    const postResponse = {
+        ...sanitized,
+        tags: limitTagsResponse(sanitized.tags),
+    }
+
+    return postResponse
 })

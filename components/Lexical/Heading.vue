@@ -4,7 +4,7 @@ import NodeRenderer from './NodeRenderer.vue'
 import type { LexicalNode } from '~/utilities/LexicalTypes'
 
 export interface HeadingNode {
-  type: 'heading'
+  type: 'heading' | 'extended-heading'
   children: LexicalNode[]
   tag: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 }

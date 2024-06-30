@@ -2,7 +2,7 @@
 import type { LexicalNode } from '~/utilities/LexicalTypes'
 
 export interface BlockquoteNode {
-  type: 'quote'
+  type: 'quote' | 'extended-quote'
   children: LexicalNode[]
 }
 
