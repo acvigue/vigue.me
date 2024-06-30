@@ -7,7 +7,14 @@ useHead({
     {
       rel: 'icon',
       type: 'image/x-icon',
-      href: '/favicons/favicon.ico',
+      href: '/favicons/favicon-dark.ico',
+      media: '(prefers-color-scheme: dark)',
+    },
+    {
+      rel: 'icon',
+      type: 'image/x-icon',
+      href: '/favicons/favicon-light.ico',
+      media: '(prefers-color-scheme: light)',
     },
   ],
 })

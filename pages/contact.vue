@@ -46,12 +46,4 @@ defineOgImageComponent('Page', {
   image: appConfig.headshotImage,
   description: appConfig.contactMetaDescription,
 })
-
-const servicesOptions = [
-  { label: 'Web Design / Development', value: 'webdev' },
-  { label: 'Embedded Projects', value: 'embedded' },
-  { label: 'Backend', value: 'backend' },
-  { label: 'SEO', value: 'seo' },
-  { label: 'Other', value: 'other' },
-];
 </script>
