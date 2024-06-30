@@ -53,8 +53,8 @@ const appConfig = useAppConfig();
 
 useSeoMeta({
   title: `About - ${appConfig.name}`,
-  description: appConfig.contactMetaDescription,
-  ogDescription: appConfig.contactMetaDescription,
+  description: appConfig.aboutMetaDescription,
+  ogDescription: appConfig.aboutMetaDescription,
   ogTitle: `About - ${appConfig.name}`,
   ogType: 'website',
   ogUrl: `${appConfig.baseUrl}/about`,
@@ -64,7 +64,7 @@ useSeoMeta({
 defineOgImageComponent('Page', {
   title: `About`,
   image: appConfig.headshotImage,
-  description: appConfig.contactMetaDescription,
+  description: appConfig.aboutMetaDescription,
 })
 </script>
 
