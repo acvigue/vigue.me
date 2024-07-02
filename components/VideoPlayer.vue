@@ -16,10 +16,10 @@ onMounted(() => {
     autoplay: false,
     preload: 'auto',
     fluid: true,
-
     aspectRatio: '16:9',
   }, () => {
     vp.src({ type: 'application/x-mpegURL', src: props.src })
+    vp.addClass('vjs-theme')
   })
 })
 </script>
@@ -29,7 +29,17 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
-.vjs-big-play-button {
-  display: none;
+.vjs-theme .vjs-big-play-button {}
+
+.video-js {
+  @apply rounded-md;
+}
+
+.vjs-theme .vjs-tech {
+  @apply rounded-md;
+}
+
+.vjs-theme .vjs-big-play-button {
+  @apply bg-persian text-champagne border-champagne;
 }
 </style>

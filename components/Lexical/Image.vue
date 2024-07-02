@@ -22,7 +22,8 @@ const lightboxOpen = ref(false)
   <div class="relative" @click="lightboxOpen = true">
     <div class="absolute h-full w-full -rotate-1 transform rounded-md bg-licorice bg-opacity-50 -z-10" />
     <NuxtPicture format="avif,webp,jpg" :src="node.src" sizes="lg:85vw 500px" class="post-image z-10"
-      :width="node.width" :height="node.height" placeholder placeholder-class="custom" data-cursor="-pointer" />
+      :width="node.width" :height="node.height" placeholder placeholder-class="custom" data-cursor="-pointer"
+      loading="lazy" />
   </div>
 
   <Teleport to="body">

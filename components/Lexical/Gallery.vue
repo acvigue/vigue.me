@@ -74,7 +74,7 @@ const imagesPerRow = getRows(props.node.images);
         @click="openLightbox(img)">
         <div class="absolute h-full w-full -rotate-1 transform rounded-md bg-licorice bg-opacity-50 -z-10" />
         <NuxtPicture format="avif,webp,jpg" :src="img.src" :width="img.width" :height="img.height" class="gallery-image"
-          sizes="lg:40vw 300px" />
+          sizes="lg:40vw 300px" loading="lazy" />
       </button>
     </div>
   </div>
