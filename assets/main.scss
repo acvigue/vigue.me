@@ -19,7 +19,8 @@
   transition: opacity 0.3s, transform 0.5s;
 }
 
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
@@ -37,4 +38,36 @@ html.lenis, html.lenis body {
 
 .lenis.lenis-smooth iframe {
   pointer-events: none;
+}
+
+@font-face {
+  font-family: condor;
+  src: url(/fonts/Condor.woff2) format(woff2), url(/fonts/Condor.woff) format(woff), url(/fonts/Condor.ttf) format(truetype);
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal
+}
+
+@font-face {
+  font-family: condor;
+  src: url(/fonts/CondorItalic.woff2) format(woff2), url(/fonts/CondorItalic.woff) format(woff), url(/fonts/CondorItalic.ttf) format(truetype);
+  font-display: swap;
+  font-weight: 400;
+  font-style: italic
+}
+
+@font-face {
+  font-family: larken;
+  src: url(/fonts/Larken.woff2) format(woff2), url(/fonts/Larken.woff) format(woff), url(/fonts/Larken.otf) format(opentype);
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal
+}
+
+@font-face {
+  font-family: larken;
+  src: url(/fonts/LarkenItalic.woff2) format(woff2), url(/fonts/LarkenItalic.woff) format(woff), url(/fonts/LarkenItalic.otf) format(opentype);
+  font-display: swap;
+  font-weight: 400;
+  font-style: italic
 }

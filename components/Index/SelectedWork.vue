@@ -3,7 +3,7 @@
         <NuxtLink :to="`/posts/${post.slug}`"
             class="flex flex-col justify-center items-center gap-4 aspect-square w-full bg-persian rounded-md hover:scale-95 duration-300">
             <NuxtPicture format="avif,webp,jpg" :src="post.feature_image" :alt="post.feature_image_alt"
-                :caption="post.feature_image_caption" class="h-full w-full rounded-md work-image" />
+                :caption="post.feature_image_caption" class="h-full w-full rounded-md work-image" loading="lazy" />
         </NuxtLink>
         <div class="flex justify-between items-center w-full">
             <div class="flex flex-col justify-between items-start">

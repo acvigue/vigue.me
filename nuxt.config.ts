@@ -32,7 +32,6 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxt/image',
     'nuxt-svgo',
-    '@nuxt/fonts',
     '@formkit/nuxt',
     '@nuxtjs/sitemap',
     "@nuxt/eslint",
@@ -72,9 +71,28 @@ export default defineNuxtConfig({
       isr: 3600
     },
   },
-  fonts: {
-    experimental: {
-      processCSSVariables: true,
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks(id: string) {
+            // creating a chunk to @open-ish deps. Reducing the vendor chunk size
+            if (id.includes('gsap')) {
+              return 'gsap';
+            }
+            // creating a chunk to @open-ish deps. Reducing the vendor chunk size
+            if (id.includes('vue-router')) {
+              return 'vue-router';
+            }
+            // creating a chunk to react routes deps. Reducing the vendor chunk size
+            if (
+              id.includes('mouse-follower')
+            ) {
+              return 'mouse-follower';
+            }
+          },
+        },
+      },
     },
   },
   experimental: {
