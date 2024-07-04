@@ -1,14 +1,21 @@
 import { TSGhostAdminAPI } from '@ts-ghost/admin-api'
 import { limitTagsResponse } from '~/utilities/GhostAPI'
 
-export default defineEventHandler(async (event) => {
-    const rawSlug = getQuery(event).slug
-    const uuid = getQuery(event).uuid
+const isValidV4UUID = (test: string) => {
+    const uuidV4Regex = new RegExp(
+        '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$',
+        'i',
+    )
+    return uuidV4Regex.test(test)
+}
 
-    if (!rawSlug && !uuid) {
+export default defineEventHandler(async (event) => {
+    const rawSlug = getRouterParam(event, 'slug')
+
+    if (!rawSlug) {
         throw createError({
             statusCode: 400,
-            statusMessage: 'No slug or UUID provided!',
+            statusMessage: 'No slug provided!',
         })
     }
 
@@ -20,36 +27,36 @@ export default defineEventHandler(async (event) => {
         'v5.47.0',
     )
 
-    //if we have a UUID, look up the post ID
+    //if we have a UUID, look up the page ID
     let id;
 
-    if (uuid) {
-        const resp = await api.posts.browse({ filter: `uuid:${uuid}` }).fetch()
+    if (isValidV4UUID(rawSlug)) {
+        const resp = await api.pages.browse({ filter: `uuid:${rawSlug}` }).fetch()
 
         if (!resp.success) {
             throw createError({
                 statusCode: 500,
-                statusMessage: 'Error fetching post by UUID',
+                statusMessage: 'Error fetching page by UUID',
             })
         }
 
         if (resp.data.length === 0) {
             throw createError({
                 statusCode: 404,
-                statusMessage: 'Post not found',
+                statusMessage: 'Page not found',
             })
         }
 
-        const post = resp.data[0]
+        const page = resp.data[0]
 
-        if (post.status !== 'draft') {
+        if (page.status !== 'draft') {
             throw createError({
                 statusCode: 403,
-                statusMessage: 'Post is already published!',
+                statusMessage: 'Page is already published!',
             })
         }
 
-        id = post.id
+        id = page.id
     }
 
     //parse slug
@@ -57,7 +64,7 @@ export default defineEventHandler(async (event) => {
 
     const params = id ? { id } : { slug }
 
-    const response = await api.posts
+    const response = await api.pages
         .read(params)
         .formats({ lexical: true })
         .fetch()
@@ -78,10 +85,6 @@ export default defineEventHandler(async (event) => {
         comment_id: _comment_id,
         count: _count,
         frontmatter: _frontmatter,
-        email_segment: _email_segment,
-        email: _email,
-        newsletter: _newsletter,
-        email_only: _email_only,
         tiers: _tiers,
         primary_tag: _primary_tag,
         is_page: _is_page,
@@ -91,10 +94,10 @@ export default defineEventHandler(async (event) => {
         ...sanitized
     } = response.data
 
-    const postResponse = {
+    const pageResponse = {
         ...sanitized,
         tags: limitTagsResponse(sanitized.tags),
     }
 
-    return postResponse
+    return pageResponse
 })

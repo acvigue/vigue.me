@@ -9,29 +9,14 @@ const route = useRoute()
 const slug = route.params.slug
 const appConfig = useAppConfig()
 
-if (typeof slug !== 'string') {
-  throw createError({
-    statusCode: 400,
-    message: "Invalid slug",
-    fatal: true,
-  })
-}
-
-const isUuid = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/.test(slug)
-const queryData = isUuid ? { uuid: slug } : { slug: slug }
-
-const { data, error } = await useFetch(`/api/cms/page`, {
-  query: queryData,
-})
+const { data, error } = await useFetch(`/api/cms/page/${slug}`)
 
 if (error.value || !data.value) {
-  const { error: error_post } = await useFetch(`/api/cms/post`, {
-    query: queryData,
-  })
+  const { error: error_post } = await useFetch(`/api/cms/post/${slug}`)
 
   if (error_post.value) {
     throw createError({
-      statusCode: error_post.value?.statusCode,
+      status: error_post.value?.statusCode,
       message: "Page not found",
       fatal: true,
     })
@@ -68,7 +53,6 @@ if (error.value || !data.value) {
       </div>
 
       <div class="flex w-full flex-col gap-5 px-4 antialiased md:px-0">
-        <!-- @vue-expect-error -->
         <LexicalRenderer :state="data?.lexical ?? '{}'" />
       </div>
     </div>

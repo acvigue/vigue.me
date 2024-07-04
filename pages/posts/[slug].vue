@@ -7,30 +7,16 @@ const route = useRoute()
 
 const slug = route.params.slug
 
-if (typeof slug !== 'string') {
-  throw createError({
-    statusCode: 400,
-    message: 'Bad slug format',
-    fatal: true,
-  })
-}
-
-//if slug is uuid (use regex)
-const isUuid = /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/.test(slug)
-const queryData = isUuid ? { uuid: slug } : { slug: slug }
-
-const { data, error } = await useFetch("/api/cms/post", {
-  query: queryData,
-})
+const { data, error } = await useFetch(`/api/cms/post/${slug}`)
 
 if (!data.value) {
   let message = error.value?.message;
   if (error.value?.statusCode === 404)
     message = 'Post not found'
   throw createError({
-    statusCode: error.value?.statusCode,
+    status: error.value?.statusCode,
     message: message,
-    fatal: true,
+    fatal: true
   })
 }
 

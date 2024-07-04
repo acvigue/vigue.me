@@ -6,9 +6,7 @@ import SplitType from 'split-type';
 
 let ctx: gsap.Context
 
-const { data } = await useFetch('/api/cms/allPosts', {
-  query: { limit: 6, featured: true },
-})
+const { data } = await useFetch('/api/cms/posts/featured')
 
 const panel = shallowRef<HTMLDivElement>()
 const panelHeader = shallowRef<HTMLHeadingElement>()
@@ -59,7 +57,7 @@ const digits = computed(() => {
   if (!data.value)
     return []
 
-  return Array.from({ length: data.value.posts.length }, (_, i) => i + 1)
+  return Array.from({ length: data.value.length }, (_, i) => i + 1)
 })
 
 onBeforeUnmount(() => {
@@ -90,8 +88,7 @@ onBeforeUnmount(() => {
       </div>
       <div class="md:col-span-7 col-span-1">
         <div class=" flex flex-col gap-12 w-full justify-end">
-          <!-- @vue-expect-error -->
-          <SelectedWork v-for="post, index of data.posts" :key="post.uuid" :post="post" @focused="setDigit(index)" />
+          <SelectedWork v-for="post, index of data" :key="post.uuid" :post="post" @focused="setDigit(index)" />
         </div>
       </div>
     </div>

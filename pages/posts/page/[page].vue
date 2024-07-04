@@ -33,9 +33,7 @@ defineOgImageComponent('Page', {
 
 const maxVisibleButtons = 5
 
-const { data } = await useFetch('/api/cms/allPosts', {
-    query: { page: page },
-})
+const { data } = await useFetch(`/api/cms/posts/by-page/${page}`)
 
 const totalPages = computed(() => {
     if (!data.value)

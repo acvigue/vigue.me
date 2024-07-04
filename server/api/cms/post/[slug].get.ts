@@ -1,13 +1,21 @@
 import { TSGhostAdminAPI } from '@ts-ghost/admin-api'
+import { limitTagsResponse } from '~/utilities/GhostAPI'
+
+const isValidV4UUID = (test: string) => {
+    const uuidV4Regex = new RegExp(
+        '^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$',
+        'i',
+    )
+    return uuidV4Regex.test(test)
+}
 
 export default defineEventHandler(async (event) => {
-    const rawSlug = getQuery(event).slug
-    const uuid = getQuery(event).uuid
+    const rawSlug = getRouterParam(event, 'slug')
 
-    if (!rawSlug && !uuid) {
+    if (!rawSlug) {
         throw createError({
             statusCode: 400,
-            statusMessage: 'No slug or UUID provided!',
+            statusMessage: 'No slug provided!',
         })
     }
 
@@ -19,36 +27,36 @@ export default defineEventHandler(async (event) => {
         'v5.47.0',
     )
 
-    //if we have a UUID, look up the page ID
+    //if we have a UUID, look up the post ID
     let id;
 
-    if (uuid) {
-        const resp = await api.pages.browse({ filter: `uuid:${uuid}` }).fetch()
+    if (isValidV4UUID(rawSlug)) {
+        const resp = await api.posts.browse({ filter: `uuid:${rawSlug}` }).fetch()
 
         if (!resp.success) {
             throw createError({
                 statusCode: 500,
-                statusMessage: 'Error fetching page by UUID',
+                statusMessage: 'Error fetching post by UUID',
             })
         }
 
         if (resp.data.length === 0) {
             throw createError({
                 statusCode: 404,
-                statusMessage: 'Page not found',
+                statusMessage: 'Post not found',
             })
         }
 
-        const page = resp.data[0]
+        const post = resp.data[0]
 
-        if (page.status !== 'draft') {
+        if (post.status !== 'draft') {
             throw createError({
                 statusCode: 403,
-                statusMessage: 'Page is already published!',
+                statusMessage: 'Post is already published!',
             })
         }
 
-        id = page.id
+        id = post.id
     }
 
     //parse slug
@@ -56,11 +64,8 @@ export default defineEventHandler(async (event) => {
 
     const params = id ? { id } : { slug }
 
-
-    const response = await api.pages
+    const response = await api.posts
         .read(params)
-
-        //@ts-expect-error - lexical support not yet implemented
         .formats({ lexical: true })
         .fetch()
 
@@ -80,9 +85,23 @@ export default defineEventHandler(async (event) => {
         comment_id: _comment_id,
         count: _count,
         frontmatter: _frontmatter,
+        email_segment: _email_segment,
+        email: _email,
+        newsletter: _newsletter,
+        email_only: _email_only,
         tiers: _tiers,
+        primary_tag: _primary_tag,
+        is_page: _is_page,
+        email_subject: _email_subject,
+        custom_template: _custom_template,
+        id: _id,
         ...sanitized
     } = response.data
 
-    return sanitized
+    const postResponse = {
+        ...sanitized,
+        tags: limitTagsResponse(sanitized.tags),
+    }
+
+    return postResponse
 })
