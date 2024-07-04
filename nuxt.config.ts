@@ -66,6 +66,12 @@ export default defineNuxtConfig({
     '/api/cms/**': { isr: 3600 },
     '/api/gather/script': { isr: 86400 },
     '/__og-image__/**': { isr: 3600 },
+    "/posts": {
+      redirect: {
+        to: "/posts/page/1",
+        statusCode: 302,
+      },
+    },
   },
   vite: {
     build: {
