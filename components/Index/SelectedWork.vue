@@ -51,10 +51,6 @@ const props = defineProps<{
 
 const parsedHeadData = parseHeadData(props.post.codeinjection_head ?? undefined)
 
-const filteredTags = computed(() => {
-    return props.post.tags.filter(tag => tag.visibility === 'public' && tag.name !== 'Projects')
-})
-
 const dateTag = computed(() => {
     return props.post.published_at ? format(Date.parse(props.post.published_at), 'yyyy') : '0000'
 })
@@ -88,7 +84,7 @@ onMounted(() => {
 
 .work-image>img {
     @apply rounded-md;
-    object-fit: fill;
+    object-fit: cover;
     width: 100%;
     height: 100%;
 }
