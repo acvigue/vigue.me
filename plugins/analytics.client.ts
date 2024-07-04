@@ -10,8 +10,8 @@ export default defineNuxtPlugin((nuxtApp) => {
   }
 
   nuxtApp.vueApp.use(VueMatomo, {
-    trackerUrl: '/api/gather',
-    trackerScriptUrl: '/api/gather',
+    trackerUrl: '/api/gather/track',
+    trackerScriptUrl: '/api/gather/script',
     siteId: runtimeConfig.public.matomoSiteId,
     preInitActions: [
       ['setRequestMethod', 'POST'],

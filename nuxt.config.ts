@@ -65,6 +65,7 @@ export default defineNuxtConfig({
     '/api/**': { isr: false },
     '/api/cms/post': { isr: 3600 },
     '/api/cms/page': { isr: 3600 },
+    '/api/gather/script': { isr: 86400 },
     '/api/cms/allPosts': { isr: 3600 },
     '/__og-image__/**': { isr: 3600 },
     "/posts": {
@@ -118,11 +119,6 @@ export default defineNuxtConfig({
     }
   },
   ogImage: {
-    fonts: ogImageFonts,
-    compatibility: {
-      prerender: {
-        satori: 'node'
-      },
-    }
+    fonts: ogImageFonts
   }
 })
