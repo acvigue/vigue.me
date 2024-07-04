@@ -23,5 +23,6 @@ useHead({
 <template>
   <NuxtLayout>
     <NuxtPage />
+    <MouseFollower />
   </NuxtLayout>
 </template>

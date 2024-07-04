@@ -38,7 +38,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div ref="panel" class="bg-licorice breakout rounded-2xl">
+  <div ref="panel" class="bg-licorice rounded-2xl">
     <WidthContainer>
       <IndexAbout />
       <IndexSkills />

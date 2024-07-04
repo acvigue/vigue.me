@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { SplitText } from 'gsap/SplitText'
+import SplitType from 'split-type'
 import { ArrowDownTrayIcon, ArrowUpRightIcon } from '@heroicons/vue/24/solid'
 
 let ctx: gsap.Context
@@ -14,7 +14,6 @@ const cta = shallowRef<HTMLDivElement>()
 
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
-  gsap.registerPlugin(SplitText)
 
   ctx = gsap.context(() => {
     const tl = gsap.timeline({
@@ -26,27 +25,23 @@ onMounted(() => {
       },
     })
 
-    const lines = new SplitText(bodyText.value!, { type: 'lines' }).lines
+    const lines = new SplitType(bodyText.value!, {
+      types: 'lines',
+    }).lines
 
     tl.addLabel('start')
 
-    tl.fromTo(
+    tl.from(
       panelHeader.value!,
       {
         opacity: 0,
         x: -100,
         ease: 'power1.inOut',
         duration: 0.05,
-      },
-      {
-        opacity: 1,
-        x: 0,
-        ease: 'power1.inOut',
-        duration: 0.05,
-      },
+      }
     )
 
-    tl.fromTo(
+    tl.from(
       headshotImage.value!,
       {
         opacity: 0,
@@ -54,16 +49,10 @@ onMounted(() => {
         ease: 'power1.inOut',
         duration: 0.05,
       },
-      {
-        opacity: 1,
-        x: 0,
-        ease: 'power1.inOut',
-        duration: 0.05,
-      },
       "<+0.02"
     )
 
-    tl.fromTo(
+    tl.from(
       lines,
       {
         opacity: 0,
@@ -71,27 +60,14 @@ onMounted(() => {
         ease: 'power1.inOut',
         duration: 0.05,
         stagger: 0.01,
-      },
-      {
-        opacity: 1,
-        x: 0,
-        ease: 'power1.inOut',
-        duration: 0.05,
-        stagger: 0.01,
-      },
+      }
     )
 
-    tl.fromTo(
+    tl.from(
       cta.value!,
       {
         opacity: 0,
         y: 100,
-        ease: 'power1.inOut',
-        duration: 0.05,
-      },
-      {
-        opacity: 1,
-        y: 0,
         ease: 'power1.inOut',
         duration: 0.05,
       },

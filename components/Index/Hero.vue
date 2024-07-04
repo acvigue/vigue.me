@@ -18,73 +18,33 @@ onMounted(() => {
   ctx = gsap.context(() => {
     const tl = gsap.timeline()
 
-    tl.fromTo(
-      item1.value!,
-      {
-        opacity: 0,
-        y: 10,
-        ease: 'power1.inOut',
-        duration: 0.5,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        ease: 'power1.inOut',
-        duration: 0.5,
-      },
-      1.5,
-    )
+    tl.from(item1.value!, {
+      opacity: 0,
+      y: 10,
+      ease: 'power1.inOut',
+      duration: 0.5,
+    }, 1.5)
 
-    tl.fromTo(
-      item2.value!,
-      {
-        opacity: 0,
-        y: 10,
-        ease: 'power1.inOut',
-        duration: 0.5,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        ease: 'power1.inOut',
-        duration: 0.5,
-      },
-      '<+0.2',
-    )
+    tl.from(item2.value!, {
+      opacity: 0,
+      y: 10,
+      ease: 'power1.inOut',
+      duration: 0.5,
+    }, '<+0.2')
 
-    tl.fromTo(
-      item3.value!,
-      {
-        opacity: 0,
-        y: 10,
-        ease: 'power1.inOut',
-        duration: 0.5,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        ease: 'power1.inOut',
-        duration: 0.5,
-      },
-      '<+0.2',
-    )
+    tl.from(item3.value!, {
+      opacity: 0,
+      y: 10,
+      ease: 'power1.inOut',
+      duration: 0.5,
+    }, '<+0.2')
 
-    tl.fromTo(
-      scrollIndicator.value!,
-      {
-        opacity: 0,
-        y: -20,
-        ease: 'power1.inOut',
-        duration: 0.5,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        ease: 'power1.inOut',
-        duration: 0.5,
-      },
-      '<+0.5',
-    )
+    tl.from(scrollIndicator.value!, {
+      opacity: 0,
+      y: -20,
+      ease: 'power1.inOut',
+      duration: 0.5,
+    }, '<+0.5')
 
     gsap.to('#scroll-indicator', {
       scrollTrigger: {
@@ -132,16 +92,16 @@ onBeforeUnmount(() => {
 
         <div
           class="flex max-w-[60vw] lg:max-w-2xl justify-between items-center w-full mt-8 font-serif md:text-4xl sm:text-3xl text-2xl text-persian lowercase">
-          <span ref="item1" class="opacity-0">Student</span>
-          <span ref="item2" class="opacity-0">Developer</span>
-          <span ref="item3" class="opacity-0">Maker</span>
+          <span ref="item1">Student</span>
+          <span ref="item2">Developer</span>
+          <span ref="item3">Maker</span>
         </div>
       </div>
 
       <div class="flex-1" />
 
       <div class="flex justify-center items-center w-full">
-        <div ref="scrollIndicator" class="opacity-0">
+        <div ref="scrollIndicator">
           <ScrollIndicator />
         </div>
       </div>

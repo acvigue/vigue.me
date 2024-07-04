@@ -2,7 +2,6 @@
 import { ComputerDesktopIcon, CpuChipIcon, Square3Stack3DIcon } from '@heroicons/vue/24/outline';
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { SplitText } from 'gsap/SplitText'
 
 let ctx: gsap.Context
 
@@ -14,8 +13,6 @@ const skillBlock3 = shallowRef<HTMLDivElement>()
 
 onMounted(() => {
   gsap.registerPlugin(ScrollTrigger)
-  gsap.registerPlugin(SplitText)
-
   ctx = gsap.context(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -28,21 +25,12 @@ onMounted(() => {
 
     tl.addLabel('start')
 
-    tl.fromTo(
-      panelHeader.value!,
-      {
-        opacity: 0,
-        x: 100,
-        ease: 'power1.inOut',
-        duration: 0.05,
-      },
-      {
-        opacity: 1,
-        x: 0,
-        ease: 'power1.inOut',
-        duration: 0.05,
-      },
-    )
+    tl.from(panelHeader.value!, {
+      opacity: 0,
+      x: 100,
+      ease: 'power1.inOut',
+      duration: 0.05,
+    })
 
     new ScrollTrigger({
       trigger: skillBlock1.value!,

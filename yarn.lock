@@ -536,6 +536,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@darkroom.engineering/tempus@npm:^0.0.46":
+  version: 0.0.46
+  resolution: "@darkroom.engineering/tempus@npm:0.0.46"
+  checksum: 42a5045ac99fcb1538bd6554443580b2ed6dbe0179a2dc93eec9424b2923817537fe056bc62b7b0a21f60b3652f8a5b5bbf989412ed19b40e0a0f30070ae82f0
+  languageName: node
+  linkType: hard
+
 "@es-joy/jsdoccomment@npm:~0.43.1":
   version: 0.43.1
   resolution: "@es-joy/jsdoccomment@npm:0.43.1"
@@ -8544,6 +8551,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lenis@npm:^1.1.5":
+  version: 1.1.5
+  resolution: "lenis@npm:1.1.5"
+  dependencies:
+    "@darkroom.engineering/tempus": ^0.0.46
+  peerDependencies:
+    react: ">=17.0.0"
+    react-dom: ">=17.0.0"
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 903fdf6829d1db7aa6728206fdbe8d5cfc09088a077424eae44188d1b12eee699ecb90c1ca903711de5cc003992532e5ab953f54f12480468a196a2cfeda01e6
+  languageName: node
+  linkType: hard
+
 "levn@npm:^0.4.1":
   version: 0.4.1
   resolution: "levn@npm:0.4.1"
@@ -11891,6 +11915,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"split-type@npm:^0.3.4":
+  version: 0.3.4
+  resolution: "split-type@npm:0.3.4"
+  checksum: 5d73541e44a8d3c3ae2f15fe804c583d1c612cda3a53f7f4dbe45f9a7b9cb8300459a6bfa248934b0dd2690382c23e6b859a0c0977c4a0c159d1a8d00931d2b6
+  languageName: node
+  linkType: hard
+
 "split@npm:0.3":
   version: 0.3.3
   resolution: "split@npm:0.3.3"
@@ -13087,12 +13118,14 @@ __metadata:
     eslint: ^8.57.0
     gsap: "npm:@gsap/shockingly@^3.12.5"
     highlight.js: ^11.9.0
+    lenis: ^1.1.5
     mouse-follower: ^1.1.2
     ms: ^2.1.3
     nuxt: ^3.12.3
     nuxt-og-image: v3.0.0-beta.59
     nuxt-svgo: ^4.0.1
     sass: ^1.77.6
+    split-type: ^0.3.4
     typescript: ^5.5.3
     video.js: ^8.16.1
     vue: ^3.4.31
