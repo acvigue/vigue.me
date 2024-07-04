@@ -49,7 +49,4 @@
     "typescript": "^5.5.3"
   },
   "packageManager": "yarn@3.2.4",
-  "resolutions": {
-    "@ts-ghost/admin-api@^4.2.0": "patch:@ts-ghost/admin-api@patch%3A@ts-ghost/admin-api@npm%253A4.2.0%23./.yarn/patches/@ts-ghost-admin-api-npm-4.2.0-97cb8d795e.patch%3A%3Aversion=4.2.0&hash=c56e0e&locator=vigue.me%2540workspace%253A.#./.yarn/patches/@ts-ghost-admin-api-patch-7fb3ddca19.patch"
-  }
 }
