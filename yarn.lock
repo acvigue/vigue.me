@@ -7531,10 +7531,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gsap@npm:@gsap/shockingly@^3.12.5":
+"gsap@npm:@acvigue/gsap-shockingly-green@^3.12.5":
   version: 3.12.5
-  resolution: "@gsap/shockingly@npm:3.12.5"
-  checksum: 84591dcbfd1ca2e0cd28c9b786aa895684c9a3a53ce03d7051b6466ff2cdb110b19c19ea8a97e1e4ffd295cf76788e1dc69d94a5bde3a17664fa73b8aeace190
+  resolution: "@acvigue/gsap-shockingly-green@npm:3.12.5::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40acvigue%2Fgsap-shockingly-green%2F3.12.5%2F5bd53edc525619b1ec286bc30d213f7e965b4cc5"
+  checksum: b17534bdd43a70611b9df1fb0a43bba0f34270963626d2649b9f658b4dab711178c78945a78253d65aa8d4d557192b68269e5c071a0d0c820d8d6bda0a0e8866
   languageName: node
   linkType: hard
 
@@ -13116,7 +13116,7 @@ __metadata:
     "@yeger/vue-masonry-wall": ^5.0.12
     date-fns: ^3.6.0
     eslint: ^8.57.0
-    gsap: "npm:@gsap/shockingly@^3.12.5"
+    gsap: "npm:@acvigue/gsap-shockingly-green@^3.12.5"
     highlight.js: ^11.9.0
     lenis: ^1.1.5
     mouse-follower: ^1.1.2

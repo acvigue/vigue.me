@@ -60,12 +60,12 @@ export default defineNuxtConfig({
     autoImport: true,
   },
   routeRules: {
-    '/**': { isr: 3600 },
-    '/tag/**': { isr: 3600 },
+    '/**': { isr: 86400 },
+    '/tag/**': { isr: 86400 },
     '/api/**': { isr: false },
-    '/api/cms/**': { isr: 3600 },
+    '/api/cms/**': { isr: 86400 },
     '/api/gather/script': { isr: 86400 },
-    '/__og-image__/**': { isr: 3600 },
+    '/__og-image__/**': { isr: 86400 },
     "/posts": {
       redirect: {
         to: "/posts/page/1",
