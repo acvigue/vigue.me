@@ -1,4 +1,5 @@
 import { TSGhostAdminAPI } from '@ts-ghost/admin-api'
+import { limitTagsResponse } from '~/utilities/GhostAPI'
 
 export default defineEventHandler(async (event) => {
     const config = useRuntimeConfig()
@@ -48,10 +49,16 @@ export default defineEventHandler(async (event) => {
             twitter_image: _twitter_image,
             twitter_title: _twitter_title,
             canonical_url: _canonical_url,
+            primary_tag: _primary_tag,
             ...sanitized
         } = post
 
-        return sanitized
+        const p = {
+            ...sanitized,
+            tags: limitTagsResponse(sanitized.tags),
+        }
+
+        return p
     })
 
     return {

@@ -102,7 +102,7 @@ export default defineNuxtConfig({
   },
   sitemap: {
     sources: ['/api/__sitemap__/pages', '/api/__sitemap__/posts'],
-    cacheMaxAgeSeconds: 1800,
+    cacheMaxAgeSeconds: 3600,
     exclude: ['/api/**'],
   },
   eslint: {
