@@ -20,7 +20,7 @@
     "@nuxtjs/sitemap": "^5.3.2",
     "@ts-ghost/admin-api": "^4.2.1",
     "date-fns": "^3.6.0",
-    "gsap": "npm:@acvigue/gsap-shockingly-green@^3.12.5",
+    "gsap": "npm:@acvigue/gsap@^3.12.5",
     "highlight.js": "^11.9.0",
     "lenis": "^1.1.5",
     "mouse-follower": "^1.1.2",

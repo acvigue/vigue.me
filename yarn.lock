@@ -7329,10 +7329,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gsap@npm:@acvigue/gsap-shockingly-green@^3.12.5":
+"gsap@npm:@acvigue/gsap@^3.12.5":
   version: 3.12.5
-  resolution: "@acvigue/gsap-shockingly-green@npm:3.12.5::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40acvigue%2Fgsap-shockingly-green%2F3.12.5%2F5bd53edc525619b1ec286bc30d213f7e965b4cc5"
-  checksum: b17534bdd43a70611b9df1fb0a43bba0f34270963626d2649b9f658b4dab711178c78945a78253d65aa8d4d557192b68269e5c071a0d0c820d8d6bda0a0e8866
+  resolution: "@acvigue/gsap@npm:3.12.5::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40acvigue%2Fgsap%2F3.12.5%2F3e38ea8475b899816ee666aa973eec4b66549b88"
+  checksum: fe9f035c3c01f02e3eeba756c0206d5d0917950e4c96a7165a6b88e5d10a7e388e744b91d5bae249d992e94596e24f8f7c39d19a798a8e0158a958e1c639f729
   languageName: node
   linkType: hard
 
@@ -12831,7 +12831,7 @@ __metadata:
     "@types/eslint": ^8.56.10
     date-fns: ^3.6.0
     eslint: ^8.57.0
-    gsap: "npm:@acvigue/gsap-shockingly-green@^3.12.5"
+    gsap: "npm:@acvigue/gsap@^3.12.5"
     highlight.js: ^11.9.0
     lenis: ^1.1.5
     mouse-follower: ^1.1.2
