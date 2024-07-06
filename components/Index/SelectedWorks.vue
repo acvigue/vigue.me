@@ -88,6 +88,7 @@ onBeforeUnmount(() => {
       </div>
       <div class="md:col-span-7 col-span-1">
         <div class=" flex flex-col gap-12 w-full justify-end">
+          <!-- @vue-expect-error -->
           <SelectedWork v-for="post, index of data" :key="post.uuid" :post="post" @focused="setDigit(index)" />
         </div>
       </div>
