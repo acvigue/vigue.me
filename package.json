@@ -16,7 +16,7 @@
     "@formkit/nuxt": "^1.6.5",
     "@heroicons/vue": "^2.1.4",
     "@nuxt/fonts": "^0.7.1",
-    "@nuxt/image": "^1.7.0",
+    "@nuxt/image": "npm:@acvigue/nuxt-image@^1.7.0",
     "@nuxtjs/sitemap": "^5.3.2",
     "@ts-ghost/admin-api": "^4.2.1",
     "date-fns": "^3.6.0",

@@ -1920,11 +1920,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/image@npm:^1.7.0":
+"@nuxt/image@npm:@acvigue/nuxt-image@^1.7.0":
   version: 1.7.0
-  resolution: "@nuxt/image@npm:1.7.0"
+  resolution: "@acvigue/nuxt-image@npm:1.7.0::__archiveUrl=https%3A%2F%2Fnpm.pkg.github.com%2Fdownload%2F%40acvigue%2Fnuxt-image%2F1.7.0%2Fbd383e44be3470aea90c3d4f23fd6401769ffd32"
   dependencies:
-    "@nuxt/kit": ^3.11.2
+    "@nuxt/kit": ^3.12.3
     consola: ^3.2.3
     defu: ^6.1.4
     h3: ^1.11.1
@@ -1938,7 +1938,7 @@ __metadata:
   dependenciesMeta:
     ipx:
       optional: true
-  checksum: 33d0000b6b2064a764896e06f3fb86b521c6ec0c055ec07e82e83129cb25b5f76a2e86318d1f63e56aa3b85018e21106242fd376fc40e48c6b14b562d7d125e2
+  checksum: a0c7bbeecc4113aca8395fa480f1d61a1097505e11097d7c9d5e3f92d8c18f70aff00849d66ef354abce76be1a7d44e33a57b277a9ca35c6c867fa2ead8e9e02
   languageName: node
   linkType: hard
 
@@ -12823,7 +12823,7 @@ __metadata:
     "@heroicons/vue": ^2.1.4
     "@nuxt/eslint": ^0.3.13
     "@nuxt/fonts": ^0.7.1
-    "@nuxt/image": ^1.7.0
+    "@nuxt/image": "npm:@acvigue/nuxt-image@^1.7.0"
     "@nuxtjs/sitemap": ^5.3.2
     "@nuxtjs/tailwindcss": ^6.12.0
     "@ts-ghost/admin-api": ^4.2.1

@@ -45,7 +45,7 @@ const filteredTags = computed(() => {
           <div class="relative w-full rounded-lg">
             <NuxtPicture v-if="post.feature_image" format="webp,jpg" :src="post.feature_image"
               sizes="lg:33vw sm:50vw 200px" :width="2000" :height="1500" loading="lazy" class="blogpost-image"
-              alt="Post Feature Image" />
+              alt="Post Feature Image" :placeholder="true" />
           </div>
           <div
             class="absolute left-0 top-0 h-full w-full transform-gpu rounded-lg bg-gradient-to-t from-black to-transparent opacity-0 transition duration-300 group-hover:opacity-100" />
@@ -81,6 +81,7 @@ const filteredTags = computed(() => {
 <style lang="scss">
 .blogpost-image>img {
   @apply rounded-lg z-30;
+  aspect-ratio: 1.333 / 1;
   object-fit: cover;
 }
 </style>
