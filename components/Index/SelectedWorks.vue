@@ -3,6 +3,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import SelectedWork from './SelectedWork.vue';
 import SplitType from 'split-type';
+import { ArrowUpRightIcon } from '@heroicons/vue/24/solid';
 
 let ctx: gsap.Context
 
@@ -90,6 +91,12 @@ onBeforeUnmount(() => {
         <div class=" flex flex-col gap-12 w-full justify-end">
           <!-- @vue-expect-error -->
           <SelectedWork v-for="post, index of data" :key="post.uuid" :post="post" @focused="setDigit(index)" />
+          <NuxtLink to="/posts"
+            class="flex text-champagne justify-between items-center gap-2 border-champagne border-2 rounded-full px-8 py-3 hover:bg-champagne hover:text-licorice duration-500 mx-auto"
+            data-cursor-stick>
+            <span class="font-serif2 text-2xl">See More</span>
+            <ArrowUpRightIcon class="h-5" />
+          </NuxtLink>
         </div>
       </div>
     </div>
