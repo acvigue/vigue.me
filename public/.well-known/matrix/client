@@ -3,7 +3,7 @@
         "base_url": "https://synapse.vigue.me"
     },
     "org.matrix.msc2965.authentication": {
-        "issuer": "https://isengard.koiosdigital.net",
+        "issuer": "https://isengard.koiosdigital.net/application/o/matrix/",
         "account": "https://isengard.koiosdigital.net/if/user"
     }
 }
