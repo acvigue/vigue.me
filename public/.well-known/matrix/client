@@ -1,0 +1,9 @@
+{
+    "m.homeserver": {
+        "base_url": "https://synapse.vigue.me"
+    },
+    "org.matrix.msc2965.authentication": {
+        "issuer": "https://isengard.koiosdigital.net",
+        "account": "https://isengard.koiosdigital.net/if/user"
+    }
+}
