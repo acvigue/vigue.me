@@ -21,7 +21,7 @@ const lightboxOpen = ref(false)
 <template>
   <div class="relative" @click="lightboxOpen = true">
     <div class="absolute h-full w-full -rotate-1 transform rounded-md bg-licorice bg-opacity-50 -z-10" />
-    <NuxtPicture format="avif,webp,jpg" :src="node.src" sizes="lg:85vw 500px" class="post-image z-10"
+    <NuxtPicture format="avif,webp,jpg" :src="node.src" sizes="lg:500px 300px" class="post-image z-10"
       :width="node.width" :height="node.height" data-cursor="-pointer" loading="lazy" />
   </div>
 

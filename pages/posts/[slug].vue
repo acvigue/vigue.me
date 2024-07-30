@@ -96,9 +96,8 @@ defineOgImageComponent('Page', {
         </div>
         <div class="relative">
           <div class="absolute h-full w-full -rotate-1 transform rounded-md bg-licorice bg-opacity-40 -z-10" />
-          <NuxtPicture format="avif,webp,jpg" :src="data?.feature_image!" sizes="lg:90vw md:750px sm:300px 100px"
-            class="feature-image z-10" :alt="featureImageAlt" :width="2000" :height="1500" placeholder
-            placeholder-class="custom" />
+          <NuxtPicture format="avif,webp,jpg" :src="data?.feature_image!" sizes="lg:1000px md:750px sm:300px 100px"
+            class="feature-image z-10" :alt="featureImageAlt" :width="2000" :height="1500" placeholder />
         </div>
         <i v-if="data?.feature_image_caption" class="text-sm" v-html="data?.feature_image_caption" />
       </WidthContainer>

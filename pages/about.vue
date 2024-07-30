@@ -7,8 +7,8 @@
           <div class="relative max-w-md">
             <div
               class="absolute aspect-square max-w-md w-full -rotate-1 transform rounded-md bg-licorice bg-opacity-50 -z-10" />
-            <NuxtPicture format="avif,webp,jpg" :src="appConfig.headshotImage" placeholder placeholder-class="custom"
-              data-cursor="-pointer" class="about-headshot" />
+            <NuxtPicture format="avif,webp,jpg" :src="appConfig.headshotImage" placeholder data-cursor="-pointer"
+              class="about-headshot" />
           </div>
         </div>
         <div class="col-span-1 flex flex-col gap-4 about-prose">
