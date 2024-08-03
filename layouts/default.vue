@@ -1,7 +1,9 @@
 <template>
   <div class="bg-champagne">
-    <NavHeader />
-    <slot />
+    <div class="min-h-screen">
+      <NavHeader />
+      <slot />
+    </div>
     <NavFooter />
   </div>
 </template>
