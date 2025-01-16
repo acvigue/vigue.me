@@ -3,11 +3,19 @@ export default defineEventHandler(async (event) => {
 
     const body = await readRawBody(event);
 
+    //get original user IP
+    const userIpCF = await getRequestHeader(event, 'CF-Connecting-IP');
+    const userIpXFF = await getRequestHeader(event, 'X-Forwarded-For');
+
+    const userIp = userIpCF || userIpXFF;
+
+
     //forward request to matomo
     const response = await fetch(`${runtimeConfig.matomoUrl}/matomo.php`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
+            'X-Matomo-Original-IP': userIp ?? '',
         },
         body,
     });
