@@ -93,9 +93,10 @@ onBeforeUnmount(() => {
         <div
           class="flex max-w-[60vw] lg:max-w-2xl justify-between items-center w-full mt-8 font-serif md:text-4xl sm:text-3xl text-2xl text-persian lowercase">
           <span ref="item1">Student</span>
-          <span ref="item2">Developer</span>
-          <span ref="item3">Maker</span>
+          <span ref="item2">Maker</span>
+          <span ref="item3">Photographer</span>
         </div>
+
       </div>
 
       <div class="flex-1" />

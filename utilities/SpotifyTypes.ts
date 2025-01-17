@@ -2,7 +2,6 @@ export interface SPDealer {
   timestamp: string
   context_uri: string
   context_url: string
-  context_restrictions: ContextRestrictions
   play_origin: PlayOrigin
   index: Index
   track: Track
@@ -15,16 +14,11 @@ export interface SPDealer {
   is_system_initiated: boolean
   options: Options
   restrictions: Restrictions
-  suppressions: Suppressions
-  context_metadata: ContextMetadata
-  page_metadata: PageMetadata
   session_id: string
   queue_revision: string
   playback_quality: PlaybackQuality
   signals: string[]
 }
-
-export interface ContextRestrictions {}
 
 export interface PlayOrigin {
   feature_identifier: string
@@ -43,6 +37,14 @@ export interface Track {
   uid: string
   metadata: Metadata
   provider: string
+  artists: Artist[]
+  name: string
+}
+
+export interface Artist {
+  href: string
+  uri: string
+  name: string
 }
 
 export interface Metadata {
@@ -78,13 +80,6 @@ export interface Restrictions {
   disallow_resuming_reasons: string[]
   disallow_setting_playback_speed_reasons: string[]
 }
-
-export interface Suppressions {}
-
-export interface ContextMetadata {}
-
-export interface PageMetadata {}
-
 export interface PlaybackQuality {
   bitrate_level: string
   strategy: string

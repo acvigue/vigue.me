@@ -12,9 +12,18 @@ const headshotImage = shallowRef<HTMLDivElement>()
 const bodyText = shallowRef<HTMLSpanElement>()
 const cta = shallowRef<HTMLDivElement>()
 
-onMounted(() => {
-  gsap.registerPlugin(ScrollTrigger)
+let splittype: SplitType
 
+/* window resize */
+
+const resizeEvent = (x: SplitType) => {
+  x.revert();
+  x.split({ types: 'lines' });
+  ctx.revert();
+  setupAnimations();
+}
+
+const setupAnimations = () => {
   ctx = gsap.context(() => {
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -24,10 +33,6 @@ onMounted(() => {
         scrub: 1,
       },
     })
-
-    const lines = new SplitType(bodyText.value!, {
-      types: 'lines',
-    }).lines
 
     tl.addLabel('start')
 
@@ -53,7 +58,7 @@ onMounted(() => {
     )
 
     tl.from(
-      lines,
+      splittype.lines,
       {
         opacity: 0,
         x: 100,
@@ -74,6 +79,26 @@ onMounted(() => {
       '>+=0.03',
     )
   })
+}
+
+onMounted(() => {
+  gsap.registerPlugin(ScrollTrigger)
+
+  splittype = new SplitType(bodyText.value!, {
+    types: 'lines',
+  })
+
+  const eventHandler = () => {
+    resizeEvent(splittype);
+  }
+
+  window.addEventListener('resize', eventHandler)
+
+  onBeforeUnmount(() => {
+    window.removeEventListener('resize', eventHandler);
+  })
+
+  setupAnimations()
 })
 
 onBeforeUnmount(() => {

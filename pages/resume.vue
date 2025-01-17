@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center items-center w-full py-10">
-    <div class="flex flex-col h-full lg:max-w-7xl w-[95vw] gap-4">
+    <div class="flex flex-col h-full w-[95vw] gap-4">
       <div class="flex flex-col items-center text-licorice mb-4 gap-4">
         <div class="flex w-full items-start">
           <DuotoneHeading title="My" subtitle="Résumé" />

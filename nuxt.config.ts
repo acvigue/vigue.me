@@ -61,12 +61,13 @@ export default defineNuxtConfig({
     autoImport: true,
   },
   routeRules: {
-    '/**': { isr: 86400 },
+    '/posts/**': { swr: (process.env.NODE_ENV === 'production') },
     '/tag/**': { isr: 86400 },
     '/api/**': { isr: false },
     '/api/cms/**': { isr: 86400 },
     '/api/gather/script': { isr: 86400 },
     '/__og-image__/**': { isr: 86400 },
+    '/**': { isr: 86400 },
     "/posts": {
       redirect: {
         to: "/posts/page/1",
