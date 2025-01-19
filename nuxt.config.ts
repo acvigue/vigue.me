@@ -74,6 +74,9 @@ export default defineNuxtConfig({
         statusCode: 302,
       },
     },
+    '/p/**': {
+      isr: false,
+    }
   },
   vite: {
     build: {
