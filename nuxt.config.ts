@@ -61,7 +61,7 @@ export default defineNuxtConfig({
     autoImport: true,
   },
   routeRules: {
-    '/posts/preview_**': {
+    '/posts/preview/**': {
       isr: false,
       swr: false
     },
@@ -69,7 +69,7 @@ export default defineNuxtConfig({
     '/tag/**': { isr: 86400 },
     '/api/**': { isr: false },
     '/api/cms/**': { isr: 86400 },
-    '/api/cms/post/preview_**': { isr: false },
+    '/api/cms/preview/**': { isr: false },
     '/api/gather/script': { isr: 86400 },
     '/__og-image__/**': { isr: 86400 },
     '/**': { isr: 86400 },
