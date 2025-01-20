@@ -26,5 +26,5 @@ export default defineEventHandler(async (event) => {
       statusMessage: 'Invalid UUID provided!',
     })
 
-  return sendRedirect(event, `/posts/${uuid}`)
+  return sendRedirect(event, `/posts/preview_${uuid}`)
 })

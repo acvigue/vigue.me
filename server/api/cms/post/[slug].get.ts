@@ -27,11 +27,22 @@ export default defineEventHandler(async (event) => {
         'v5.47.0',
     )
 
-    //if we have a UUID, look up the post ID
+    //if we have a UUID, look up the post ID, uuids formatted "preview_<id>"
     let id;
 
-    if (isValidV4UUID(rawSlug)) {
-        const resp = await api.posts.browse({ filter: `uuid:${rawSlug}` }).fetch()
+    const isPreview = rawSlug.startsWith('preview_');
+
+    if (isPreview) {
+        const uuid = rawSlug.replace('preview_', '');
+
+        if (!isValidV4UUID(uuid)) {
+            throw createError({
+                statusCode: 400,
+                statusMessage: 'Invalid UUID provided!',
+            })
+        }
+
+        const resp = await api.posts.browse({ filter: `uuid:${uuid}` }).fetch()
 
         if (!resp.success) {
             throw createError({

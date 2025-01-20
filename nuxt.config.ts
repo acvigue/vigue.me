@@ -61,10 +61,15 @@ export default defineNuxtConfig({
     autoImport: true,
   },
   routeRules: {
+    '/posts/preview_**': {
+      isr: false,
+      swr: false
+    },
     '/posts/**': { swr: (process.env.NODE_ENV === 'production') },
     '/tag/**': { isr: 86400 },
     '/api/**': { isr: false },
     '/api/cms/**': { isr: 86400 },
+    '/api/cms/post/preview_**': { isr: false },
     '/api/gather/script': { isr: 86400 },
     '/__og-image__/**': { isr: 86400 },
     '/**': { isr: 86400 },
@@ -73,9 +78,6 @@ export default defineNuxtConfig({
         to: "/posts/page/1",
         statusCode: 302,
       },
-    },
-    '/p/**': {
-      isr: false,
     }
   },
   vite: {
