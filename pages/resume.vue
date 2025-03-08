@@ -28,12 +28,9 @@
 import VuePdfEmbed from 'vue-pdf-embed'
 import { ArrowDownTrayIcon } from '@heroicons/vue/24/solid'
 
-// essential styles
-import 'vue-pdf-embed/dist/style/index.css'
-
 // optional styles
-import 'vue-pdf-embed/dist/style/annotationLayer.css'
-import 'vue-pdf-embed/dist/style/textLayer.css'
+import 'vue-pdf-embed/dist/styles/annotationLayer.css'
+import 'vue-pdf-embed/dist/styles/textLayer.css'
 
 const url = "https://cdn.vigue.me/Resume.pdf";
 const saveAsName = "Aiden-Vigue_Resume.pdf";
