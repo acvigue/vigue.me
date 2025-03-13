@@ -102,7 +102,7 @@ defineOgImageComponent('Page', {
         <i v-if="data?.feature_image_caption" class="text-sm" v-html="data?.feature_image_caption" />
       </WidthContainer>
 
-      <div class="flex flex-col gap-10 pt-8 max-w-6xl w-[80vw]">
+      <div class="flex flex-col gap-10 pt-8 max-w-[72rem] w-[80vw]">
         <LexicalRenderer :state="data?.lexical ?? '{}'" />
       </div>
     </div>

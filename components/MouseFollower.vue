@@ -20,6 +20,8 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
+@use "sass:color";
+
 $mf-color-base: #000 !default;
 $mf-color-text: #fff !default;
 
@@ -62,7 +64,7 @@ $mf-color-text: #fff !default;
   }
 
   &.-inverse {
-    color: invert($mf-color-base);
+    color: color.invert($mf-color-base);
   }
 
   &.-exclusion {
