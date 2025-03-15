@@ -79,9 +79,9 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-  <div ref="panel" class="pt-20 w-full flex flex-col">
+  <div ref="panel" class="pt-10 w-full flex flex-col">
     <h2 ref="panelHeader"
-      class="lg:text-8xl sm:text-7xl text-5xl font-serif2 text-champagne font-bold mb-12 w-full text-right pb-8">
+      class="lg:text-8xl sm:text-7xl text-5xl font-serif2 text-champagne font-bold mb-2 w-full text-right pb-8">
       MY EXPERTISE
     </h2>
 

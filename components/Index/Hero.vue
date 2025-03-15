@@ -86,12 +86,12 @@ onBeforeUnmount(() => {
       <div class="flex-1" />
 
       <div class="flex flex-col items-center w-full text-licorice">
-        <div class="font-serif2 font-bold lg:text-8xl sm:text-7xl text-5xl uppercase" data-cursor="-pointer">
+        <div class="font-serif2 font-bold lg:text-8xl sm:text-7xl text-4xl uppercase" data-cursor="-pointer">
           <span>Aiden Vigue</span>
         </div>
 
         <div
-          class="flex max-w-[60vw] lg:max-w-2xl justify-between items-center w-full mt-8 font-serif md:text-4xl sm:text-3xl text-2xl text-persian lowercase">
+          class="flex max-w-[60vw] lg:max-w-2xl justify-between items-center w-full md:mt-8 mt-2 font-serif md:text-4xl sm:text-3xl text-xl text-persian lowercase">
           <span ref="item1">Student</span>
           <span ref="item2">Maker</span>
           <span ref="item3">Photographer</span>
