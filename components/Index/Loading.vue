@@ -8,7 +8,7 @@
                 <span ref="lastName">Vigue</span>
             </div>
             <div class="font-serif2 font-bold text-2xl uppercase text-khaki">
-                <span ref="year">2024</span>
+                <span ref="year">{{ year_text }}</span>
             </div>
         </div>
     </Teleport>
@@ -21,6 +21,8 @@ const loader = ref<HTMLDivElement>();
 const firstName = ref<HTMLSpanElement>();
 const lastName = ref<HTMLSpanElement>();
 const year = ref<HTMLSpanElement>();
+
+const year_text = new Date().getFullYear();
 
 let ctx: gsap.Context;
 
