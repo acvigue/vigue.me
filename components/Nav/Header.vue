@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { Bars3BottomLeftIcon, XMarkIcon } from '@heroicons/vue/24/outline'
+import linkedin from '@/assets/icons/linkedin.svg'
+import github from '@/assets/icons/github.svg'
 
 const isOpen = ref(false)
 const route = useRoute()
@@ -53,6 +55,7 @@ const nameOpacity = computed(() => {
           <div class="flex-1" />
         </div>
         <div class="flex flex-col items-center justify-center flex-1 gap-6">
+          <div class="flex-1" />
           <NavItem to="/" @click="closeNavbar">
             home
           </NavItem>
@@ -65,6 +68,19 @@ const nameOpacity = computed(() => {
           <NavItem to="/contact" @click="closeNavbar">
             contact
           </NavItem>
+          <NavItem to="/resume" @click="closeNavbar">
+            résumé
+          </NavItem>
+          <div class="flex-1" />
+
+          <div class="w-full flex items-center justify-center mb-4 gap-4">
+            <NuxtLink to="https://www.linkedin.com/in/aidenvigue" data-cursor-stick>
+              <linkedin class=" stroke-champagne text-transparent fill-transparent icon !h-7 !w-7 hover:text-persian" />
+            </NuxtLink>
+            <NuxtLink to="https://github.com/acvigue" data-cursor-stick>
+              <github class="stroke-champagne text-transparent fill-transparent icon !h-7 !w-7 hover:text-persian" />
+            </NuxtLink>
+          </div>
         </div>
       </div>
     </Transition>

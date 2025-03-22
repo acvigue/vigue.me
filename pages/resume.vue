@@ -1,23 +1,23 @@
 <template>
-  <div class="flex justify-center items-center w-full py-10">
-    <div class="flex flex-col h-full w-[95vw] gap-4">
-      <div class="flex flex-col items-center text-licorice mb-4 gap-4">
-        <div class="flex w-full items-start">
-          <DuotoneHeading title="My" subtitle="Résumé" />
-        </div>
-
-        <button
-          class="flex text-licorice items-center gap-2 border-licorice border-2 rounded-full px-4 hover:bg-licorice hover:text-champagne duration-500"
-          data-cursor-stick @click="download">
-          <span class="font-serif2 text-lg">Download</span>
-          <ArrowDownTrayIcon class="h-5" />
-        </button>
+  <div class="w-[85vw] max-w-[90rem] m-auto">
+    <div class="flex justify-center items-center w-full py-[4rem] flex-col gap-4">
+      <div class="flex flex-col h-full justify-center gap-12 w-full">
+        <DuotoneHeading title="My" subtitle="Résumé" />
       </div>
 
-      <div class="flex w-full flex-col gap-5 px-4 antialiased md:px-0">
+      <div class="mx-auto max-w-6xl w-full px-4 antialiased md:px-0">
         <ClientOnly>
           <VuePdfEmbed annotation-layer text-layer :source="url" />
         </ClientOnly>
+      </div>
+
+      <div class="flex w-full max-w-6xl items-start">
+        <button
+          class="flex text-licorice items-center gap-2 border-licorice border-2 rounded-full px-4 hover:bg-licorice hover:text-champagne duration-500"
+          data-cursor-stick @click="download">
+          <span class="font-serif2 text-lg">Download as PDF</span>
+          <ArrowDownTrayIcon class="h-5" />
+        </button>
       </div>
     </div>
   </div>
