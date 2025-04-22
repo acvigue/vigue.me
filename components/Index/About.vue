@@ -64,7 +64,7 @@ const setupAnimations = () => {
         x: 100,
         ease: 'power1.inOut',
         duration: 0.05,
-        stagger: 0.01,
+        stagger: 0.03,
       }
     )
 
@@ -76,7 +76,7 @@ const setupAnimations = () => {
         ease: 'power1.inOut',
         duration: 0.05,
       },
-      '>+=0.03',
+      '>+=0.01',
     )
   })
 }

@@ -16,6 +16,9 @@ export default defineEventHandler(async (event) => {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
             'X-Matomo-Original-IP': userIp ?? '',
+            'User-Agent': getRequestHeader(event, 'User-Agent') ?? '',
+            'Cookie': getRequestHeader(event, 'Cookie') ?? '',
+            'Referer': getRequestHeader(event, 'Referer') ?? '',
         },
         body,
     });

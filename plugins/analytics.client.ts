@@ -6,7 +6,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   //ignore if not prod
   if (process.env.NODE_ENV !== 'production') {
-    return
+    //return
   }
 
   nuxtApp.vueApp.use(VueMatomo, {
