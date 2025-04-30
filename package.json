@@ -24,7 +24,7 @@
     "highlight.js": "^11.11.1",
     "lenis": "^1.2.3",
     "mouse-follower": "^1.1.2",
-    "nuxt": "^3.16.0",
+    "nuxt": "^3.17.1",
     "nuxt-og-image": "^5.0.1",
     "split-type": "^0.3.4",
     "video.js": "^8.21.0",
@@ -38,12 +38,11 @@
   "devDependencies": {
     "@nuxt/eslint": "^1.2.0",
     "@nuxtjs/tailwindcss": "^6.13.1",
-    "@types/date-fns": "^2.6.3",
     "@types/eslint": "^9.6.1",
     "eslint": "^9.22.0",
     "nuxt-svgo": "^4.0.15",
     "sass": "^1.85.1",
     "typescript": "^5.8.2"
   },
-  "packageManager": "yarn@3.2.4"
+  "packageManager": "pnpm@10.10.0+sha512.d615db246fe70f25dcfea6d8d73dee782ce23e2245e3c4f6f888249fb568149318637dca73c2c5c8ef2a4ca0d5657fb9567188bfab47f566d1ee6ce987815c39"
 }
