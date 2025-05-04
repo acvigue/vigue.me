@@ -11,7 +11,8 @@ import { ArrowUpRightIcon } from '@heroicons/vue/24/solid'
         <span>Got an Idea?</span>
       </div>
 
-      <NuxtLink to="/contact"
+      <NuxtLink
+to="/contact"
         class="flex text-licorice items-center gap-2 border-licorice border-2 rounded-full px-8 py-3 hover:bg-licorice hover:text-champagne duration-500"
         data-cursor-stick>
         <span class="font-serif2 text-2xl">Contact</span>

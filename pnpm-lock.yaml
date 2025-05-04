@@ -44,6 +44,9 @@ importers:
       mouse-follower:
         specifier: ^1.1.2
         version: 1.1.2
+      nodemailer:
+        specifier: ^7.0.2
+        version: 7.0.2
       nuxt:
         specifier: ^3.17.1
         version: 3.17.1(@netlify/blobs@8.2.0)(@parcel/watcher@2.5.1)(@types/node@22.14.1)(db0@0.3.2)(eslint@9.25.1(jiti@2.4.2))(ioredis@5.6.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.40.0)(sass@1.87.0)(terser@5.39.0)(typescript@5.8.3)(vite@6.3.3(@types/node@22.14.1)(jiti@2.4.2)(sass@1.87.0)(terser@5.39.0)(yaml@2.7.1))(yaml@2.7.1)
@@ -84,6 +87,9 @@ importers:
       '@types/eslint':
         specifier: ^9.6.1
         version: 9.6.1
+      '@types/nodemailer':
+        specifier: ^6.4.17
+        version: 6.4.17
       eslint:
         specifier: ^9.22.0
         version: 9.25.1(jiti@2.4.2)
@@ -1772,6 +1778,9 @@ packages:
 
   '@types/node@22.14.1':
     resolution: {integrity: sha512-u0HuPQwe/dHrItgHHpmw3N2fYCR6x4ivMNbPHRkBVP4CvN+kiRrKHWk3i8tXiO/joPwXLMYvF9TTF0eqgHIuOw==}
+
+  '@types/nodemailer@6.4.17':
+    resolution: {integrity: sha512-I9CCaIp6DTldEg7vyUTZi8+9Vo0hi1/T8gv3C89yk1rSAAzoKQ8H8ki/jBYJSFoH/BisgLP8tkZMlQ91CIquww==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -4198,6 +4207,10 @@ packages:
   node-source-walk@6.0.2:
     resolution: {integrity: sha512-jn9vOIK/nfqoFCcpK89/VCVaLg1IHE6UVfDOzvqmANaJ/rWCTEdH8RZ1V278nv2jr36BJdyQXIAavBLXpzdlag==}
     engines: {node: '>=14'}
+
+  nodemailer@7.0.2:
+    resolution: {integrity: sha512-SYsisPeLFYli5Q+BCGSyHT5CVvezPmQjHgINV9KVvVLV1aktuoD4E0Np9Q3ND9I481qIHzUQzVT+Tl/Tw7Ivdg==}
+    engines: {node: '>=6.0.0'}
 
   nopt@5.0.0:
     resolution: {integrity: sha512-Tbj67rffqceeLpcRXrT7vKAN8CwfPeIBgM7E6iBkmKLV7bEMwpGgYLGv0jACUsECaa/vuxP0IjEont6umdMgtQ==}
@@ -7744,6 +7757,10 @@ snapshots:
     dependencies:
       undici-types: 6.21.0
 
+  '@types/nodemailer@6.4.17':
+    dependencies:
+      '@types/node': 22.14.1
+
   '@types/normalize-package-data@2.4.4': {}
 
   '@types/parse-path@7.0.3': {}
@@ -10519,6 +10536,8 @@ snapshots:
   node-source-walk@6.0.2:
     dependencies:
       '@babel/parser': 7.27.0
+
+  nodemailer@7.0.2: {}
 
   nopt@5.0.0:
     dependencies:

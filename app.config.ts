@@ -9,5 +9,5 @@ export default defineAppConfig({
   resumeMetaDescription: "Examine the comprehensive resume of a Computer Science student. All detailed from mastered programming languages to remarkable undertakings in embedded systems and software development. Do you have a novel idea for a collaboration? Don't hesitate to stir up a discussion.",
   aboutMetaDescription: "Get to know a university student actively traversing the terrains of Computer Science, Embedded Engineering, and both Software & Hardware Development. An innovative leader with hands-on experiences in AWS, Oracle Cloud, SwiftFin for Jellyfin, and Autodesk's ambassador program. Browse his portfolio, and subscribe for continual updates on his technological voyage.",
   keywords: "Aiden Vigue, Purdue, Computer Science, Embedded Engineering, Blog",
-  headshotImage: "/images/IMG_2880.jpeg",
+  headshotImage: "/images/IMG_2881.jpeg",
 })

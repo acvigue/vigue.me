@@ -52,7 +52,18 @@ export default defineNuxtConfig({
     muxTokenId: '',
     muxTokenSecret: '',
     muxSigningKeyId: '',
-    muxSigningKey: ''
+    muxSigningKey: '',
+    smtp: {
+      host: '',
+      port: 0,
+      secure: false,
+      auth: {
+        user: '',
+        pass: ''
+      },
+      from: '',
+      to: '',
+    }
   },
   image: {
     domains: ['cdn.vigue.me'],
